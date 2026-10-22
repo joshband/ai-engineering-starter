@@ -1,6 +1,6 @@
 # AI-Native Software Engineering Starter Kit
 
-M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: verified implementation candidate, Pending review. No release tag published.
+M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: Accepted and squash-merged in PR #5 (2026-10-22). No release tag published.
 
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 
@@ -49,7 +49,7 @@ Project profiles own technical details. Both adapters expose the same standard w
 
 Run `python3 validation/validate.py` from this directory for M1 and M2 checks, or `python3 validation/validate_controls.py` for M2 alone (Python standard library only). Adoption itself does not require Python or structured task files. See the [acceptance matrix](validation/acceptance-matrix.md) and [control traceability](validation/control-traceability.md) for exact check scope and editorial review still needed.
 
-Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. Structured validation remains limited to the documented checks.
+Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 pilot adoption is planned, not yet implemented. Structured validation remains limited to the documented checks.
 
 ## Security limitations
 
