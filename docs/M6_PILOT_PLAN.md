@@ -1,12 +1,20 @@
 # M6 — Pilot adoption plan (planning candidate)
 
-**Status:** Planning started; target repository and pilot task not yet selected. No target-repository changes authorized by this plan.
+**Status:** Pilot CT-M6-01 evaluated with partial verification; adoption recommendation **Revise**, human acceptance **Deferred**. Follow-up is tracked below. M6 is not fully accepted or released.
 
 **Baseline:** Accepted M1–M3 and M5; provisionally accepted M4. [M4 runtime follow-up](../validation/m4-codex-runtime-followup.md) remains open. No release tag is implied.
 
 ## Purpose
 
 Evaluate whether the portable standard and five optional procedures help with **one real, bounded engineering task** in an existing repository without adding disproportionate ceremony, duplicating existing policy, or confusing instructions with permissions. This is an adoption experiment, not an automation rollout.
+
+## Selected pilot — CT-M6-01
+
+- **Target:** [joshband/copy-that](https://github.com/joshband/copy-that), baseline `main` at `bdd428281eef6d3fc0dc22874b9283b3ab163d77`.
+- **Approved task:** Documentation-only example of task intake, verification, review, and safe handoff. Approval did **not** authorize commit, push, PR, or merge.
+- **Local-only work:** `m6/ct-m6-01-docs-pilot`; clean before edits. Reported two-file diff: new `docs/guides/ENGINEERING_TASK_PILOT.md` and one index link in `DOCUMENTATION_INDEX.md` (48 insertions, one deletion). No target publication.
+- **Existing controls:** Copy That already maintains root `AGENTS.md`, `CLAUDE.md`, Cursor rules, hooks, CI, and protected `main`. These were not changed.
+- **Evidence provenance:** The implementation and command outcomes below were reported by the pilot executor; this starter-kit repository has not independently inspected the uncommitted local diff or rerun target checks.
 
 ## Target selection (requires maintainer decision)
 
@@ -37,6 +45,24 @@ No auto-installation, agent skill discovery, production deployment, release auto
 ## Required human gate
 
 **Before touching any pilot target:** maintainer confirms the repository, exact task, allowed files/operations, and whether a PR is desired. Until then, M6 remains planning-only.
+
+## CT-M6-01 evaluation and deferred verification
+
+| Check | Reported outcome | Interpretation |
+| --- | --- | --- |
+| `git diff --check` | Passed, exit 0 | Whitespace only |
+| Pilot relative links | Passed, five links resolve | Link integrity in local pilot |
+| `make verify` | Failed, exit 2 before tests | Existing Make recipe uses Bash-specific `source` under `/bin/sh` |
+| `make SHELL=/bin/bash verify` | Failed, exit 2 before tests | `.venv/bin/activate` absent in the environment |
+| Application tests | Not run | No application regression evidence |
+
+**Finding:** The example reportedly improves the visibility of task boundaries, check results, approval points, and next safe actions, but the target already has a mature agent workflow. Selective, optional adoption may be useful; a wholesale copy would duplicate existing guidance. This is qualitative evidence from one docs-only task, not proof of agent runtime compliance or cross-repository effectiveness.
+
+**Disposition:** **Revise / partial outcome**. Execution Completed for the bounded local documentation edit; Verification Partial (two documentation checks passed; full target gate blocked); Acceptance Deferred; publication Not authorized. The target's definition of done remains unmet. Do not represent this as accepted target adoption or a passing application test suite.
+
+**Deferred follow-up (CT-M6-01-V1):** In a configured Copy That environment, confirm the actual Make shell and dependency setup, run `make verify` with an appropriate shell (for example `make SHELL=/bin/bash verify` only if compatible with local tooling), record full output and exit code, inspect the final uncommitted diff, then request human acceptance and separate publication approval. Do not change the target Makefile or bypass checks under this follow-up without a new scope approval. Retain the local branch and do not commit/push/PR/merge.
+
+**M6 milestone boundary:** This partial pilot can inform later planning. It does not close full M6 acceptance. Further independent pilots and design work may proceed, but any feature or release claim requiring validated target behavior must wait for relevant evidence. Separate target-repository required gates from milestone evaluation evidence without waiving either.
 
 ## Deliverables
 
