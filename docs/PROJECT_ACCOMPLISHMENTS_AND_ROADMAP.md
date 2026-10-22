@@ -235,6 +235,8 @@ The next best investment is **practical adoption and observed validation**, not 
 
 ---
 
+**Supporting history:** [Research index](research/README.md) · [Decisions](decisions/README.md) · [Evaluations](evaluations/README.md) · [Roadmap index](roadmap/README.md) · [Documentation retention](DOCUMENTATION_RETENTION.md)
+
 **Reference documents:** [Start Here](START_HERE.md) · [Capability Status](CAPABILITY_STATUS.md) · [Adoption](ADOPTION.md) · [Security Boundaries](SECURITY_BOUNDARIES.md) · [M6 Pilot](M6_PILOT_PLAN.md) · [Canonical Standard](../core/standards/ENGINEERING_STANDARD.md)
 
 **Status note:** This report reflects accepted PRs and reported verification as of 2026-10-22. Historical files may still contain candidate-era wording; the release-readiness task should reconcile those labels. Future versions and effort estimates in this report are proposals, not approvals.
