@@ -1,8 +1,6 @@
 # AI-Native Software Engineering Starter Kit
 
-M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted and squash-merged in PR #3 (2026-10-22). No release tag published.
-
-M4 — OpenAI Codex Adapter: provisionally accepted and squash-merged in PR #4 (2026-10-22); live Codex instruction discovery deferred and tracked. No release tag published.
+M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: verified implementation candidate, Pending review. No release tag published.
 
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 
@@ -32,6 +30,7 @@ MUST is mandatory when its conditions apply; SHOULD is the default recommendatio
 | [core/controls](core/controls/README.md) | M2 structured representations and schema conventions; M1 policy remains authoritative |
 | [adapters/claude-code](adapters/claude-code/README.md) | M3 instruction discovery and adoption; no permission settings or hooks |
 | [adapters/codex](adapters/codex/README.md) | M4 instruction routing, adoption, and cross-adapter comparison; no runtime settings |
+| [skills](skills/README.md) | M5 optional task, verification, review, handoff, and exception procedures; no automatic invocation |
 
 Project profiles own technical details. Both adapters expose the same standard without redefining it. Applicable organizational governance remains externally authoritative. Repository records are authoritative engineering context; agent memory is not a substitute.
 

@@ -59,6 +59,6 @@ if errors:
     for error in errors: print('- '+error)
     sys.exit(1)
 print(f'Passed: {len(REQUIRED)} required files; {len(docs)} Markdown files; {links} relative links; 16 canonical definitions; expected fields, classification sections, status vocabulary, narrow hygiene scan.')
-print('Unverified by M1 checks: semantic policy correctness, enforcement, agent compatibility, comprehensive confidentiality. M1–M3 accepted; M4 acceptance: Pending review.')
+print('Unverified by M1 checks: semantic policy correctness, enforcement, agent compatibility, comprehensive confidentiality. M1–M3 accepted; M4 provisionally accepted with live discovery deferred; M5 acceptance: Pending review.')
 from validate_controls import main as validate_m2
 sys.exit(validate_m2([]))

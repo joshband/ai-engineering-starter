@@ -1,4 +1,4 @@
-# M1–M4 Acceptance Matrix
+# M1–M5 Acceptance Matrix
 
 M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 was accepted following bounded instruction-discovery smoke testing and squash-merged in PR #3 on 2026-10-22 (commit 291e2d0bff2fb99cee784a599630a9721701d762). Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
@@ -41,7 +41,7 @@ Read standard, taxonomy, contracts, workflows, templates, adoption, and security
 
 ## Execution evidence
 
-The M1 review recorded commands and results; this file documents M2–M4 checks. Re-run after edits. M3/M4 add instructions only; no enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
+The M1 review recorded commands and results; this file documents M2–M5 checks. Re-run after edits. M3/M4 add instructions and M5 adds optional reference procedures; no enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
 
 ## M2 structural checks
 
@@ -103,6 +103,26 @@ Run `python3 validation/validate.py`, `python3 -m unittest discover -s validatio
 | Permissions and security | Confirm no runtime config, rule, hook, or bypass shipped; review [security boundaries](../docs/SECURITY_BOUNDARIES.md) | Instructions and validators do not enforce authority |
 | No later milestone | Final diff inventory | No skills, routing, orchestration, service, or CI added |
 | Runtime smoke | `codex` availability and bounded read-only discovery run if available | Report observed output or Unverified explicitly |
-| M4 human acceptance | Responsible architecture and security review of draft PR | Pending review; merge and release reserved |
+| M4 human acceptance | Responsible architecture and security review of draft PR | Provisionally accepted and merged; live discovery remains [deferred](m4-codex-runtime-followup.md), release reserved |
 
 Reviewers should confirm that the two native entry points route to one shared standard, that SHOULD remains conditional, that a risk label or `adapter_candidate` never grants permission, and that no static result is called runtime enforcement. A real Codex discovery check, if later available, should record version, active instruction files, prompt, settings context, and observed output.
+
+## M5 reusable skills candidate checks
+
+M5 adds five opt-in skill procedures under [skills](../skills/README.md). They are reference workflows, not auto-discovered native agent skills, runtime permissions, or new normative requirements. M1 remains the sole STD policy owner.
+
+| Requirement | Verification method | Current evidence / limit |
+| --- | --- | --- |
+| Skill inventory | Inspect five SKILL.md files and index; assert exact directory set | Passed on PR tree (2026-10-22) |
+| Canonical links | Resolve Markdown links within skill library and complete repository | Passed: 178 relative links across 32 Markdown files; focused M5 test resolves skill links (2026-10-22) |
+| No duplicated STD headings | Canonical heading count and editorial review of skill text | Passed structurally: 16 definitions only in standard; semantic consistency still needs human judgment |
+| Quick remains lightweight | Inspect task intake and verification procedures | Passed editorial review; no required Quick form |
+| Exception authority and Profile H | Inspect exception procedure against STD-16 | Passed editorial review; conditional trigger preserved; no self-authorization |
+| Acceptance vs execution/merge/release | Inspect review and verification procedures | Passed editorial review; states remain distinct |
+| M5 regression tests | `python3 -m unittest discover -s validation/tests -v` | Passed: 19 tests total, including six M5 tests; exit 0 on the validated PR tree |
+| M1–M4 regression validator | `python3 validation/validate.py` | Passed: 19 required files, 16 policy definitions, 16 controls, 5 schemas, 9 valid/13 intended invalid fixtures; exit 0 |
+| Whitespace | `git diff main...HEAD --check` | Passed: exit 0, no output |
+| Native Claude/Codex skill discovery | Live integration test | **Unverified**; no automatic installation or discovery implemented by M5 |
+| Human acceptance | Maintainer review of verified candidate | Pending review until required checks are run and evidence reviewed |
+
+**Current state:** Execution Completed; Verification Passed for the required structural and regression checks; Acceptance Pending human review. Native agent skill invocation and semantic policy compliance remain Unverified. No M5 merge, release, or M6 work.
