@@ -6,7 +6,7 @@
 - Skills reference M1 policy and M2 schemas; neither adapter auto-discovers or auto-invokes these procedures. No new authority, runtime permissions, enforcement, or M6 pilot.
 - Added six deterministic skill-library regression cases (inventory, relative links, opt-in boundaries, Quick, Profile H exceptions, and acceptance separation).
 - Verified from the exact PR tree: `python3 validation/validate.py` passed (16 policies, 16 controls, 9 valid/13 intentionally invalid fixtures); `python3 -m unittest discover -s validation/tests -v` passed (19 tests: 13 M1–M4, 6 M5); `git diff main...HEAD --check` passed. Strengthened the six M5 tests for exact inventory, canonical links, conditional exception schema behavior, and separate completion states.
-- Clarified manual access to portable skill procedures and reconciled M4/M5 status reporting. Live native skill discovery and invocation remain Unverified; M4 Codex runtime follow-up remains open. M5 execution Completed; human acceptance Pending review. No tag or release.
+- Clarified manual access to portable skill procedures and reconciled M4/M5 status reporting. Live native skill discovery and invocation remain Unverified; M4 Codex runtime follow-up remains open. M5 execution Completed; human acceptance Accepted and squash-merged in PR #5 (commit bd3a91be3974bca758ac9b2943b002c1dc24ce7e) on 2026-10-22. No tag or release.
 
 
 ## 0.4.0 candidate — 2026-10-22
