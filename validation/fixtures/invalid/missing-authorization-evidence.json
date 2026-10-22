@@ -1,0 +1,21 @@
+{
+  "fixture_version": "1.0",
+  "target": "exception",
+  "record": {
+    "schema_version": "1.0",
+    "requirement": "STD-06",
+    "reason": "Isolated legacy fixture unavailable",
+    "scope": "One non-production parser patch",
+    "risk_profile": "S",
+    "risk_introduced": "Missed legacy behavior",
+    "compensating_safeguard": "Inspect fixture and run available regression checks",
+    "responsible_authorizer": "Project maintainer",
+    "authorizer_role": "human",
+    "approval_status": "granted",
+    "material": true
+  },
+  "expected_error": {
+    "code": "schema.required",
+    "path": "$.authorization_evidence"
+  }
+}

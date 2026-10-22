@@ -1,0 +1,29 @@
+{
+  "fixture_version": "1.0",
+  "target": "handoff",
+  "record": {
+    "schema_version": "1.0",
+    "current_objective": "Correct empty input parsing",
+    "authorized_scope": "Local parser and tests only",
+    "work_completed": "Guard added; pending review",
+    "repository_revision": {
+      "repository": "example/parser",
+      "branch": "fix-empty",
+      "revision": "abc123",
+      "dirty_state": "clean"
+    },
+    "checks_run": [
+      {
+        "method": "python3 -m unittest tests.test_parser",
+        "status": "Passed",
+        "context": "local revision abc123",
+        "result": "2 tests passed"
+      }
+    ],
+    "decisions": [
+      "Retain documented API"
+    ],
+    "unresolved_issues": [],
+    "next_safe_action": "Maintainer reviews the diff"
+  }
+}

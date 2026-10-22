@@ -31,3 +31,5 @@ Include relevant approval boundaries, evidence locations, recovery/backup locati
 Objective: Fix empty input parsing. Scope: local parser/tests, no release. Repository: example/parser, branch fix-empty, base revision recorded in task; one uncommitted parser edit. Completed: guard added. Checks: focused test Failed (expected result differs). Decision: retain API, per task. Issue: expected empty result needs confirmation. Next safe action: inspect documented behavior and resolve expectation with maintainer before further edits. No external actions performed.
 
 [Continuation template](../templates/HANDOFF.md) · [Result semantics](COMPLETION_CONTRACT.md)
+
+The [optional structured Handoff schema](../controls/schema/handoff.schema.json) checks record shape, not whether a handoff restores runtime state.

@@ -32,3 +32,5 @@ Use risk and autonomy when permissions or consequences need clarification; proje
 Objective: Correct parser handling of empty input. Scope: parser and focused tests only; no API redesign. Constraints: retain existing dependency set. Acceptance criteria: empty input produces the documented result and focused regression checks pass. Authority boundaries: local edits and tests only; no merge or release. Context: S/A1/T1, Standard; record the actual starting revision before editing. Escalate incompatible API behavior to the maintainer.
 
 Use the [task template](../templates/TASK.md) and [completion contract](COMPLETION_CONTRACT.md) for results.
+
+The [optional structured Task schema](../controls/schema/task.schema.json) represents these semantics when a JSON record is used; it does not make the template mandatory.

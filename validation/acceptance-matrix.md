@@ -1,12 +1,12 @@
-# M1 Acceptance Matrix
+# M1 and M2 Acceptance Matrix
 
-Candidate implementation; responsible human architecture/policy acceptance: Pending review. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 implementation is a v0.2.0 candidate; responsible human acceptance: Pending review. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
-## Structural validation
+## M1 structural validation
 
-Run `python3 validation/validate.py` from the distribution root. Python standard library only; no packages or services. Adoption does not require Python. Exit 0 means the structural checks Passed; exit 1 means Failed.
+Run `python3 validation/validate.py` from the distribution root. The original M1 structural checks run before M2 checks. Python standard library only; no packages or services. Adoption does not require Python. Exit 0 means all implemented structural checks Passed; nonzero means Failed.
 
-The script checks required paths, canonical STD headings and location, recognized policy IDs, inline relative file links and basic ATX heading fragments, task/handoff/exception fields, exact completion status tables, separate classification headings, and narrow project/credential markers. It does not parse arbitrary Markdown, reference-style links or HTML, validate external URLs, detect all secrets, prove policy consistency, or test agent/security behavior. No structural control fixtures or enforcement are implemented.
+The M1 portion checks required paths, canonical STD headings and location, recognized policy IDs, inline relative file links and basic ATX heading fragments, task/handoff/exception fields, exact completion status tables, separate classification headings, and narrow project/credential markers. It does not parse arbitrary Markdown, reference-style links or HTML, validate external URLs, detect all secrets, prove policy consistency, or test agent/security behavior. M1 itself had no structural control fixtures or enforcement.
 
 ## Requirements
 
@@ -31,7 +31,7 @@ The script checks required paths, canonical STD headings and location, recognize
 | No scope expansion | File inventory and final diff review | Passed in implementation review; no later milestones |
 | Whitespace | `git diff --cached --check` in local review repository | See execution evidence in accompanying report |
 | Runtime controls and specific agent compatibility | Outside M1 | Not applicable to M1 implementation; guarantees Unverified |
-| Human acceptance | Responsible reviewer assessment | Not run; Pending review |
+| Human acceptance | Maintainer acceptance and merged PR #1 | Passed for M1; M2 remains Pending review |
 
 ## Editorial review procedure
 
@@ -39,4 +39,26 @@ Read standard, taxonomy, contracts, workflows, templates, adoption, and security
 
 ## Execution evidence
 
-The accompanying implementation report records commands and actual results. Re-run checks after edits. No adapters, enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
+The M1 review recorded commands and results; this file now documents M2 checks. Re-run after edits. No adapters, enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
+
+## M2 candidate checks
+
+Run `python3 validation/validate_controls.py` to validate the catalog, schema subset, drift assertions, and all fixtures; run `python3 -m unittest discover -s validation/tests -v` for targeted regression tests. `python3 validation/validate_controls.py --contract task path/to/record.json` validates an individual raw record (or omit `--contract` to supply fixture envelopes). Nonzero errors include the failing JSON path.
+
+| Requirement | Method | Implementation assessment and limit |
+| --- | --- | --- |
+| M1 remains valid | Original checks at the start of `validation/validate.py` | Passed locally; repository artifact unchanged except entry point and acceptance metadata |
+| Sixteen controls and source strength labels | Catalog shape, coverage and heading/label comparison | Passed structurally; clause topics and scope require editorial review |
+| No conflicting normative definition | Review catalog descriptions against accepted standard | Implementation review found no intended changes; human M2 review pending |
+| Four contract schemas | Schema declaration/keyword audit and instance validation | Passed for documented subset; not a full JSON Schema meta-schema validator |
+| Required and conditional semantics | Valid/invalid fixture pairs for material task, approval, exception, and completion | Passed for encoded conditions; applicability and authority are human-assessed |
+| Exact status vocabulary | Compare M1 completion tables to completion/handoff schema enums | Passed; cannot establish whether a reported check ran |
+| Positive fixtures | Expected manifest and exact zero-error check | Passed; 9 valid fixtures |
+| Negative fixtures | Exact expected code and JSON path, with no unrelated errors | Passed; 13 negative fixtures |
+| Material Profile H exception trigger only | Positive H/nonmaterial and S/material; negative H/material; unit regression | Passed for structured records; cannot evaluate materiality or authorizer authority |
+| Structural drift | Canonical policy IDs/titles/labels, catalog coverage, status enum checks, fixture manifest | Passed; prose-equivalence remains Unverified automatically |
+| Minimal Quick/no service | No-record fixture and review of dependencies | Passed; no installation or structured task file required |
+| Vendor neutrality and no enforcement claims | Review files and security boundaries | Passed in implementation review; compatibility and controls Unverified |
+| Human M2 acceptance | Responsible architecture/policy review of PR | Not run; Pending review |
+
+The [traceability matrix](control-traceability.md) lists every control and what must still be judged by a person. The structural validator does not establish schema correctness under the complete Draft 2020-12 specification, policy semantic equivalence, authorization, data permissions, security isolation, or operational evidence validity.

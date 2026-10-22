@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-engineering-starter:m2:task:1.0",
+  "title": "Task record 1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "material": {
+      "type": "boolean"
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "authority_boundaries": {
+      "type": "object",
+      "properties": {
+        "permitted_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "reserved_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "permitted_actions",
+        "reserved_actions"
+      ],
+      "additionalProperties": false
+    },
+    "risk_profile": {
+      "type": "string",
+      "enum": [
+        "L",
+        "S",
+        "H"
+      ]
+    },
+    "autonomy_level": {
+      "type": "string",
+      "enum": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ]
+    },
+    "complexity": {
+      "type": "string",
+      "enum": [
+        "T0",
+        "T1",
+        "T2",
+        "T3"
+      ]
+    },
+    "workflow": {
+      "type": "string",
+      "enum": [
+        "Quick",
+        "Standard",
+        "Structured",
+        "Controlled"
+      ]
+    },
+    "project_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "budget": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "approval_boundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "authorizer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "granted",
+              "denied",
+              "expired"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "action",
+          "authorizer",
+          "status"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "granted"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "required": [
+                "evidence"
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "escalation": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "material"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "material": {
+            "const": true
+          }
+        },
+        "required": [
+          "material"
+        ]
+      },
+      "then": {
+        "required": [
+          "objective",
+          "scope",
+          "constraints",
+          "acceptance_criteria",
+          "authority_boundaries"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "approval_required": {
+            "const": true
+          }
+        },
+        "required": [
+          "approval_required"
+        ]
+      },
+      "then": {
+        "required": [
+          "approval_boundaries"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "fixture_version": "1.0",
+  "target": "task",
+  "record": {
+    "schema_version": "2.0",
+    "material": true,
+    "objective": "Correct empty input parsing",
+    "scope": "Parser and focused tests; no API redesign",
+    "constraints": "No new dependencies",
+    "acceptance_criteria": [
+      "Documented empty result returned",
+      "Focused regression passes"
+    ],
+    "authority_boundaries": {
+      "permitted_actions": [
+        "Local edits and tests"
+      ],
+      "reserved_actions": [
+        "Merge",
+        "Release"
+      ]
+    },
+    "risk_profile": "S",
+    "autonomy_level": "A1",
+    "complexity": "T1",
+    "workflow": "Standard"
+  },
+  "expected_error": {
+    "code": "schema.const",
+    "path": "$.schema_version"
+  }
+}

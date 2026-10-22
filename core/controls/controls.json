@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.0",
+  "controls": [
+    {
+      "id": "STD-01",
+      "title": "Defined task authority",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-01--defined-task-authority",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "all agent work",
+          "topic": "delegated scope; no self-expansion of authority"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "nontrivial tasks",
+          "topic": "outcome and completion conditions"
+        }
+      ],
+      "applicability": "All agent work",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Task scope and authority source when material",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-02",
+      "title": "Consequential action approval",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-02--consequential-action-approval",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "consequential actions",
+          "topic": "appropriate authorization"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "approval boundaries",
+          "topic": "action and authorizer"
+        },
+        {
+          "source_label": "MAY",
+          "strength": "MAY",
+          "category": "option",
+          "condition": "defined recurring low-risk actions",
+          "topic": "standing authorization"
+        }
+      ],
+      "applicability": "Consequential actions in any risk profile",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Authorizer/action evidence for consequential operation",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-03",
+      "title": "Task boundaries and acceptance",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-03--task-boundaries-and-acceptance",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "material engineering changes",
+          "topic": "outcomes and acceptance criteria"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "task contracts",
+          "topic": "proportionate detail"
+        }
+      ],
+      "applicability": "Material changes",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Intended outcome and acceptance criteria",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-04",
+      "title": "Recoverability",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-04--recoverability",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "substantial or potentially destructive changes to important work",
+          "topic": "recovery mechanism"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "maintained software",
+          "topic": "recoverable history"
+        }
+      ],
+      "applicability": "Substantial changes or potential destruction of important work",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Recovery path when applicable",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-05",
+      "title": "Change scope and dependencies",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-05--change-scope-and-dependencies",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "changes and new dependencies",
+          "topic": "scope and applicable dependency requirements"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "all changes",
+          "topic": "avoid unrelated modifications"
+        }
+      ],
+      "applicability": "All changes; dependency clause if introduced",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Diff and dependency review",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-06",
+      "title": "Verification evidence",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-06--verification-evidence",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "material changes and verification reports",
+          "topic": "proportionate verification and truthful reporting"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "verification",
+          "topic": "observable behaviors and failure modes"
+        }
+      ],
+      "applicability": "Material changes and all verification reporting",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Actual checks and results",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-07",
+      "title": "Review and acceptance",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-07--review-and-acceptance",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "meaningful agent-generated changes before acceptance",
+          "topic": "responsible assessment or approved bounded automation"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "review",
+          "topic": "correctness, scope, evidence, risk"
+        },
+        {
+          "source_label": "MAY",
+          "strength": "MAY",
+          "category": "option",
+          "condition": "solo development",
+          "topic": "self-review"
+        }
+      ],
+      "applicability": "Meaningful changes, subject to approved bounded automation",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Review decision or bounded automation policy",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-08",
+      "title": "Data and provider authorization",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-08--data-and-provider-authorization",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "restricted data supplied to systems or services",
+          "topic": "permitted destinations and applicable restrictions"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "data use",
+          "topic": "minimize exposure"
+        }
+      ],
+      "applicability": "Restricted data in prompts, logs, tools, or outputs",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Provider/data authorization",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-09",
+      "title": "Secrets and credentials",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-09--secrets-and-credentials",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "secrets, credential use, or exposure",
+          "topic": "no intentional commit or unnecessary model context; scoped access and containment"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "credential handling",
+          "topic": "approved storage and short-lived access"
+        }
+      ],
+      "applicability": "Credential use or suspected exposure",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Credential handling and containment when applicable",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-10",
+      "title": "Tool, MCP, and skill trust",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-10--tool-mcp-and-skill-trust",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "tools, skills, and untrusted content",
+          "topic": "evaluate permissions; no authority from untrusted instructions; technical enforcement where needed"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "tool selection",
+          "topic": "provenance and permission review"
+        }
+      ],
+      "applicability": "Tools, skills, and untrusted content",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Capability and permission assessment",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-11",
+      "title": "Execution isolation",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-11--execution-isolation",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "high-risk execution or sandbox claims",
+          "topic": "appropriate restrictions and evaluated guarantees"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "isolation choices",
+          "topic": "match specific consequences"
+        }
+      ],
+      "applicability": "High-risk execution and any sandbox claim",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Tested restrictions and coverage",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-12",
+      "title": "Cost and resource controls",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-12--cost-and-resource-controls",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "material unattended or externally billed workflows",
+          "topic": "bounded cost/resources or stopping controls"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "resource planning",
+          "topic": "set appropriate limits in advance"
+        }
+      ],
+      "applicability": "Material unattended or externally billed workflows",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Resource or stopping bounds when applicable",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-13",
+      "title": "Durable operations and side effects",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-13--durable-operations-and-side-effects",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "externally consequential retries or high-consequence recurrence",
+          "topic": "reconcile uncertain effects; cancellation, escalation, recovery"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "retry design",
+          "topic": "system-specific reconciliation and idempotency"
+        }
+      ],
+      "applicability": "Consequential retries or high-consequence recurring workflows",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Prior outcome reconciliation and recurrence controls",
+      "interpretation_kind": "adapter_candidate",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-14",
+      "title": "Authoritative engineering knowledge",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-14--authoritative-engineering-knowledge",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "important decisions and accepted changes",
+          "topic": "maintained artifacts and source-of-truth priority"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "material behavior or decision change",
+          "topic": "update documentation"
+        }
+      ],
+      "applicability": "Important decisions and accepted changes",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Maintained project artifacts",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-15",
+      "title": "Execution evidence",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-15--execution-evidence",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "high-risk workflows",
+          "topic": "sufficient operational evidence"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "operational evidence",
+          "topic": "relevant actions, revisions, outcomes, authorizations"
+        }
+      ],
+      "applicability": "High-risk workflows",
+      "risk_profiles": [
+        "H"
+      ],
+      "evidence_expectation": "Operational record appropriate to data handling",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    },
+    {
+      "id": "STD-16",
+      "title": "Exceptions",
+      "policy_reference": "core/standards/ENGINEERING_STANDARD.md#std-16--exceptions",
+      "clauses": [
+        {
+          "source_label": "MUST",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "exceptions to applicable MUST requirements",
+          "topic": "responsible authorization, scope, justification, and stronger obligation limits"
+        },
+        {
+          "source_label": "MUST (Profile H)",
+          "strength": "MUST",
+          "category": "requirement",
+          "condition": "material Profile H exceptions",
+          "topic": "explicit expiration or review trigger"
+        },
+        {
+          "source_label": "SHOULD",
+          "strength": "SHOULD",
+          "category": "recommendation",
+          "condition": "other exceptions and safeguards",
+          "topic": "review trigger and appropriate compensation"
+        }
+      ],
+      "applicability": "Proposed exceptions to an applicable MUST; extra condition for material H",
+      "risk_profiles": [
+        "L",
+        "S",
+        "H"
+      ],
+      "evidence_expectation": "Authorizer, scope, justification, and conditional trigger",
+      "interpretation_kind": "human_assessed",
+      "automation_limits": "Only structural presence/shape can be checked; applicability, authority, and actual behavior require independent review."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "fixture_version": "1.0",
+  "target": "catalog",
+  "record": null,
+  "mutation": {
+    "op": "set_reference",
+    "id": "STD-01",
+    "value": "core/standards/ENGINEERING_STANDARD.md#std-99"
+  },
+  "expected_error": {
+    "code": "catalog.unknown_policy_reference",
+    "path": "$.controls[0].policy_reference"
+  }
+}

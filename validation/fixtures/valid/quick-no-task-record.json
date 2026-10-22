@@ -1,0 +1,10 @@
+{
+  "fixture_version": "1.0",
+  "target": "none",
+  "record": null,
+  "context": {
+    "risk_profile": "L",
+    "complexity": "T0",
+    "workflow": "Quick"
+  }
+}
