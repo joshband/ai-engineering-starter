@@ -123,6 +123,6 @@ M5 adds five opt-in skill procedures under [skills](../skills/README.md). They a
 | M1–M4 regression validator | `python3 validation/validate.py` | Passed: 19 required files, 16 policy definitions, 16 controls, 5 schemas, 9 valid/13 intended invalid fixtures; exit 0 |
 | Whitespace | `git diff main...HEAD --check` | Passed: exit 0, no output |
 | Native Claude/Codex skill discovery | Live integration test | **Unverified**; no automatic installation or discovery implemented by M5 |
-| Human acceptance | Maintainer review of verified candidate | Pending review until required checks are run and evidence reviewed |
+| Human acceptance | Maintainer review of verified candidate | Accepted by maintainer on 2026-10-22 following reported passing checks and review |
 
-**Current state:** Execution Completed; Verification Passed for the required structural and regression checks; Acceptance Pending human review. Native agent skill invocation and semantic policy compliance remain Unverified. No M5 merge, release, or M6 work.
+**Current state:** Execution Completed; Verification Passed for the required structural and regression checks; Acceptance Accepted by maintainer on 2026-10-22; PR #5 squash-merged (commit bd3a91be3974bca758ac9b2943b002c1dc24ce7e). Native agent skill invocation and semantic policy compliance remain Unverified. No tag, release, or M6 implementation.
