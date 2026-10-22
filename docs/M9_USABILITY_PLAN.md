@@ -30,3 +30,16 @@ No edits to STD-01–STD-16, taxonomy, contracts, agent instruction entry points
 ## Review gate
 
 Review this documentation candidate and actual verification evidence; decide Accept, Revise, or Reject. Do not infer runtime behavior from documentation checks.
+
+## Candidate verification — 2026-10-22
+
+Executed from the repository root on the M9 candidate tree:
+
+| Check | Result |
+| --- | --- |
+| `python3 validation/validate.py` | Passed, exit 0: 19 required files, 42 Markdown files, 256 relative links, 16 canonical STD definitions, 16 controls, five schemas, nine valid fixtures, and 13 intentionally invalid fixtures. |
+| `python3 -m unittest discover -s validation/tests -v` | Passed, exit 0: 24 tests. |
+| `git diff main...HEAD --check` | Passed, exit 0; no whitespace errors. |
+| Focused M9 link/anchor review | Passed: 79 relative links and fragments across five changed Markdown files; zero unresolved. |
+
+The capability map now describes M9 as an implemented, verified candidate awaiting human acceptance. Editorial review found no new STD definitions, mandatory Quick form, or runtime enforcement claim. These structural checks do not establish semantic policy equivalence or live agent behavior. The existing validator still prints a stale M5 acceptance note; M5 was accepted and merged, as recorded in the README and capability map. Updating that older validator message is outside this documentation-only candidate.
