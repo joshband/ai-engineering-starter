@@ -1,4 +1,4 @@
-# Claude Code adapter (M3 candidate)
+# Claude Code adapter (M3 accepted)
 
 This adapter is the repository-root [CLAUDE.md](../../CLAUDE.md) plus adoption and validation guidance. It reads the accepted [M1 standard](../../core/standards/ENGINEERING_STANDARD.md) and [taxonomy](../../core/standards/AUTONOMY_AND_RISK.md), then points to the [M2 catalog](../../core/controls/controls.json) and optional record schemas. The standard remains normative. There is no separate Claude policy, executable agent framework, permission configuration, or hook.
 
