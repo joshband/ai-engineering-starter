@@ -53,7 +53,7 @@ Propose focused changes with rationale, affected policy IDs, verification eviden
 
 ## M6 pilot adoption
 
-M6 planning has started on a separate branch. See the [gated pilot plan](docs/M6_PILOT_PLAN.md) for target selection, baseline inventory, one-task evaluation, and required human approval before changes to another repository. No pilot target or task has been authorized yet.
+M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. [M7 candidate planning](docs/M7_CANDIDATE_PLAN.md) proposes a minimal, manual adoption decision kit; its implementation is not authorized.
 
 ## Security limitations
 
