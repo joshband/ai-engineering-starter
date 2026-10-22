@@ -6,6 +6,8 @@ M2 adds structured descriptions and record-shape validation, not a permission bo
 
 M3 adds Claude Code instructions only. It ships no shared settings, hooks, allow rules, or isolated runtime. Check the actual permission sources and platform constraints before consequential use; the root instruction entry point cannot grant or restrict tool capabilities.
 
+M4 adds Codex repository instructions only. It does not supply `.codex/config.toml`, permission profiles, command rules, hooks, or runtime isolation. Codex may use global/project configuration, CLI flags, managed constraints, and surface-specific defaults. Instruction discovery and active permissions require separate observation; natural-language instructions and passing M1/M2 checks are not an enforcement boundary. See the [Codex guide](../adapters/codex/README.md#security-and-evidence-limits).
+
 | Mechanism | Role | Boundary and evidence needed |
 | --- | --- | --- |
 | Natural-language instructions | Explain scope and expected behavior | Can be ignored or misinterpreted; not a permission barrier |
