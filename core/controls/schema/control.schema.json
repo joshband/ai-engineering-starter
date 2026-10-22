@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-engineering-starter:m2:control-catalog:1.0",
+  "title": "Control-Catalog record 1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "policy_reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clauses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_label": {
+                  "type": "string",
+                  "enum": [
+                    "MUST",
+                    "MUST (Profile H)",
+                    "SHOULD",
+                    "MAY"
+                  ]
+                },
+                "strength": {
+                  "type": "string",
+                  "enum": [
+                    "MUST",
+                    "SHOULD",
+                    "MAY"
+                  ]
+                },
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "requirement",
+                    "recommendation",
+                    "option"
+                  ]
+                },
+                "condition": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "topic": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_label",
+                "strength",
+                "category",
+                "condition",
+                "topic"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "applicability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "risk_profiles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "L",
+                "S",
+                "H"
+              ]
+            },
+            "minItems": 1
+          },
+          "evidence_expectation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "interpretation_kind": {
+            "type": "string",
+            "enum": [
+              "declarative",
+              "human_assessed",
+              "adapter_candidate"
+            ]
+          },
+          "automation_limits": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "policy_reference",
+          "clauses",
+          "applicability",
+          "risk_profiles",
+          "evidence_expectation",
+          "interpretation_kind",
+          "automation_limits"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 16
+    }
+  },
+  "required": [
+    "schema_version",
+    "controls"
+  ],
+  "additionalProperties": false
+}

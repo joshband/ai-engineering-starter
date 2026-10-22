@@ -22,8 +22,12 @@ Portable policy belongs in the canonical standard; technical commands, domain in
 
 Different agents may discover instructions differently. Point each agent to the same maintained entry point using its supported mechanism and confirm it can locate relevant context. This is conceptual guidance, not a tested adapter or universal compatibility promise. Permission configuration remains separate from reading instructions.
 
+## Optional M2 records
+
+For projects that exchange structured records, use the [M2 control interface](../core/controls/README.md) and preserve its version. The catalog indexes the same policy IDs and the four schemas validate optional record shapes; neither changes when a task needs a formal record. An agent or developer may use M1's brief Quick workflow with no structured task file. Validate a record locally with the documented standard-library command, and still review its meaning, permissions, and evidence with the responsible owner.
+
 ## Deferred work
 
-M2 is expected to introduce shared control definitions and structural validation fixtures; it is not implemented here. Tool adapters and other later capabilities require separate milestones and authorization. M1 includes only documents, templates, and a small structural checker. It provides no hooks, skills package, routing, durable operations, orchestration, CI/CD, generator, or deployment.
+M2 introduces shared control definitions and structural validation fixtures. Tool adapters and other later capabilities require separate milestones and authorization. This repository still provides no hooks, skills package, routing, durable operations, orchestration, CI/CD, generator, or deployment.
 
 [Security interpretation](SECURITY_BOUNDARIES.md) · [Acceptance matrix](../validation/acceptance-matrix.md)

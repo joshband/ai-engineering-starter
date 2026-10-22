@@ -59,3 +59,5 @@ Include deferred work, recovery/continuation information when unfinished, and me
 ## Example
 
 Execution: Completed (parser fix and regression test implemented). Acceptance: Pending review. Verification: `python3 -m unittest tests.test_parser` — Passed on the recorded working revision; broader suite Not run due to unavailable service. Limitation: service integration behavior Unverified, outside the agreed local task criteria. Merge: not performed. Release: not performed. Next: maintainer reviews the diff and decides whether broader checks are needed before integration.
+
+The [optional structured Completion schema](../controls/schema/completion.schema.json) uses these exact status values and keeps merge and release independent of acceptance.

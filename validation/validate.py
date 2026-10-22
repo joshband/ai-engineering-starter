@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small M1 structural checker; not semantic validation or enforcement."""
+"""M1 structural checker and M2 control validation entry point."""
 from pathlib import Path
 import re
 import sys
@@ -59,4 +59,6 @@ if errors:
     for error in errors: print('- '+error)
     sys.exit(1)
 print(f'Passed: {len(REQUIRED)} required files; {len(docs)} Markdown files; {links} relative links; 16 canonical definitions; expected fields, classification sections, status vocabulary, narrow hygiene scan.')
-print('Unverified by script: semantic policy correctness, enforcement, agent compatibility, comprehensive confidentiality. Human acceptance: Pending review.')
+print('Unverified by M1 checks: semantic policy correctness, enforcement, agent compatibility, comprehensive confidentiality. M1 accepted; M2 acceptance: Pending review.')
+from validate_controls import main as validate_m2
+sys.exit(validate_m2([]))

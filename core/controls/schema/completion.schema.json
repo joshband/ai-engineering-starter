@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-engineering-starter:m2:completion:1.0",
+  "title": "Completion record 1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "objective_and_scope_delivered": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_state": {
+      "type": "string",
+      "enum": [
+        "Completed",
+        "Partial",
+        "Blocked",
+        "Rejected",
+        "Canceled"
+      ]
+    },
+    "acceptance_state": {
+      "type": "string",
+      "enum": [
+        "Pending review",
+        "Accepted",
+        "Changes requested",
+        "Rejected",
+        "Not applicable"
+      ]
+    },
+    "acceptance_evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "essential_criteria_met": {
+      "type": "boolean"
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Passed",
+              "Failed",
+              "Not run",
+              "Not applicable",
+              "Unverified"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "method",
+          "status",
+          "context",
+          "result"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "limitations": {
+      "type": "string",
+      "minLength": 1
+    },
+    "next_safe_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "merge": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "not performed",
+            "unknown",
+            "performed"
+          ]
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "performed"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "required": [
+              "evidence"
+            ]
+          }
+        }
+      ]
+    },
+    "release": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "not performed",
+            "unknown",
+            "performed"
+          ]
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "performed"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "required": [
+              "evidence"
+            ]
+          }
+        }
+      ]
+    },
+    "deferred_work": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "recovery_context": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "objective_and_scope_delivered",
+    "execution_state",
+    "acceptance_state",
+    "essential_criteria_met",
+    "verification",
+    "limitations",
+    "next_safe_action"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution_state": {
+            "const": "Completed"
+          }
+        },
+        "required": [
+          "execution_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "essential_criteria_met": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "acceptance_state": {
+            "const": "Accepted"
+          }
+        },
+        "required": [
+          "acceptance_state"
+        ]
+      },
+      "then": {
+        "required": [
+          "acceptance_evidence"
+        ]
+      }
+    }
+  ]
+}

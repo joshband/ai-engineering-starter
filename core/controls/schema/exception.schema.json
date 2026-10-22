@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-engineering-starter:m2:exception:1.0",
+  "title": "Exception record 1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "requirement": {
+      "type": "string",
+      "enum": [
+        "STD-01",
+        "STD-02",
+        "STD-03",
+        "STD-04",
+        "STD-05",
+        "STD-06",
+        "STD-07",
+        "STD-08",
+        "STD-09",
+        "STD-10",
+        "STD-11",
+        "STD-12",
+        "STD-13",
+        "STD-14",
+        "STD-15",
+        "STD-16"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk_profile": {
+      "type": "string",
+      "enum": [
+        "L",
+        "S",
+        "H"
+      ]
+    },
+    "risk_introduced": {
+      "type": "string",
+      "minLength": 1
+    },
+    "compensating_safeguard": {
+      "type": "string",
+      "minLength": 1
+    },
+    "responsible_authorizer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorizer_role": {
+      "type": "string",
+      "enum": [
+        "human",
+        "external_governance"
+      ]
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "granted",
+        "denied",
+        "expired"
+      ]
+    },
+    "authorization_evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "material": {
+      "type": "boolean"
+    },
+    "expiration_or_review_trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository_revision": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "requirement",
+    "reason",
+    "scope",
+    "risk_profile",
+    "risk_introduced",
+    "compensating_safeguard",
+    "responsible_authorizer",
+    "authorizer_role",
+    "approval_status",
+    "material"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "approval_status": {
+            "const": "granted"
+          }
+        },
+        "required": [
+          "approval_status"
+        ]
+      },
+      "then": {
+        "required": [
+          "authorization_evidence"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "risk_profile": {
+            "const": "H"
+          },
+          "material": {
+            "const": true
+          }
+        },
+        "required": [
+          "risk_profile",
+          "material"
+        ]
+      },
+      "then": {
+        "required": [
+          "expiration_or_review_trigger"
+        ]
+      }
+    }
+  ]
+}

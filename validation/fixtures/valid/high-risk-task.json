@@ -1,0 +1,35 @@
+{
+  "fixture_version": "1.0",
+  "target": "task",
+  "record": {
+    "schema_version": "1.0",
+    "material": true,
+    "objective": "Correct empty input parsing",
+    "scope": "Parser and focused tests; no API redesign",
+    "constraints": "No new dependencies",
+    "acceptance_criteria": [
+      "Documented empty result returned",
+      "Focused regression passes"
+    ],
+    "authority_boundaries": {
+      "permitted_actions": [
+        "Local design and tests"
+      ],
+      "reserved_actions": [
+        "Production configuration change"
+      ]
+    },
+    "risk_profile": "H",
+    "autonomy_level": "A1",
+    "complexity": "T1",
+    "workflow": "Controlled",
+    "approval_required": true,
+    "approval_boundaries": [
+      {
+        "action": "Production configuration change",
+        "authorizer": "Operations owner",
+        "status": "pending"
+      }
+    ]
+  }
+}

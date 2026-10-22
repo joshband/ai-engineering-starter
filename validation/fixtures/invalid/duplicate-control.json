@@ -1,0 +1,13 @@
+{
+  "fixture_version": "1.0",
+  "target": "catalog",
+  "record": null,
+  "mutation": {
+    "op": "append_duplicate",
+    "id": "STD-01"
+  },
+  "expected_error": {
+    "code": "catalog.duplicate_id",
+    "path": "$.controls[16].id"
+  }
+}

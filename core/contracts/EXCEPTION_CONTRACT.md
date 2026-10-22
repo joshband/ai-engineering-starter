@@ -27,3 +27,5 @@ A concise record may be sufficient for low-risk exceptions. This contract does n
 ## Example
 
 Requirement: STD-06. Reason: isolated legacy fixture cannot run in the available environment. Scope: proposed deferral of that check for one bounded non-production patch. Risk: missed legacy behavior. Compensating safeguard: inspect fixture and run available regression checks. Responsible authorizer: project maintainer, approval pending. Expiration/review trigger (recommended for this non-production example): before integration, or when the fixture becomes available, whichever occurs first. Stronger governance: confirm no mandatory release check is being waived. Until approved, the exception is not effective and the affected criterion remains unmet.
+
+The [optional structured Exception schema](../controls/schema/exception.schema.json) requires a trigger for material Profile H records and authorization evidence when a record claims granted status; validation cannot grant an exception.

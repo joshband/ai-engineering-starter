@@ -2,6 +2,8 @@
 
 M1 documents expected behavior; it does not enforce security. STD-02 and STD-08–STD-15 in the [standard](../core/standards/ENGINEERING_STANDARD.md) own policy. Select controls for actual consequences rather than assuming an agent or sandbox name proves safety.
 
+M2 adds structured descriptions and record-shape validation, not a permission boundary. A passing schema result cannot validate the identity or authority of an approver, the truth of evidence, or the tested behavior of an enforcement mechanism.
+
 | Mechanism | Role | Boundary and evidence needed |
 | --- | --- | --- |
 | Natural-language instructions | Explain scope and expected behavior | Can be ignored or misinterpreted; not a permission barrier |

@@ -1,0 +1,31 @@
+{
+  "fixture_version": "1.0",
+  "target": "completion",
+  "record": {
+    "schema_version": "1.0",
+    "objective_and_scope_delivered": "Parser and focused tests",
+    "execution_state": "Completed",
+    "acceptance_state": "Done",
+    "essential_criteria_met": true,
+    "verification": [
+      {
+        "method": "python3 -m unittest tests.test_parser",
+        "status": "Passed",
+        "context": "local revision abc123",
+        "result": "2 tests passed"
+      }
+    ],
+    "limitations": "Integration behavior outside agreed scope is unverified",
+    "next_safe_action": "Maintainer reviews the diff",
+    "merge": {
+      "state": "not performed"
+    },
+    "release": {
+      "state": "not performed"
+    }
+  },
+  "expected_error": {
+    "code": "schema.enum",
+    "path": "$.acceptance_state"
+  }
+}
