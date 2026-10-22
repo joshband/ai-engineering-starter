@@ -54,7 +54,7 @@ Propose focused changes with rationale, affected policy IDs, verification eviden
 
 ## M6 pilot adoption
 
-M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. [M7 candidate planning](docs/M7_CANDIDATE_PLAN.md) proposes a minimal, manual adoption decision kit; its implementation is not authorized.
+M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. [M7 candidate planning](docs/M7_CANDIDATE_PLAN.md) and the [manual decision kit](docs/adoption-decision/README.md) are implemented for draft PR review; human acceptance and merge remain pending.
 
 ## Security limitations
 

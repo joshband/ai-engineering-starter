@@ -2,6 +2,7 @@
 from pathlib import Path
 import re
 import unittest
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[2]
 KIT = ROOT / "docs" / "adoption-decision"
@@ -23,10 +24,16 @@ class M7AdoptionDecisionTests(unittest.TestCase):
             for dest in re.findall(r"\[[^\]\n]+\]\(([^)\s]+)\)", body):
                 if "://" in dest:
                     continue
-                target = (path.parent / dest.split("#", 1)[0]).resolve()
+                file, _, fragment = unquote(dest).partition("#")
+                target = (path.parent / file).resolve() if file else path
                 with self.subTest(path=path.name, destination=dest):
                     self.assertTrue(target.is_relative_to(ROOT))
                     self.assertTrue(target.is_file())
+                    if fragment and target.is_file():
+                        headings = re.findall(r"^#{1,6} (.+)$", target.read_text(encoding="utf-8"), re.M)
+                        anchors = {re.sub(r"[^\w\- ]", "", h.lower()).replace(" ", "-")
+                                   for h in headings}
+                        self.assertIn(fragment, anchors)
 
     def test_three_legitimate_decisions_and_conflict_owner(self):
         body = (KIT / "DECISION_MATRIX.md").read_text(encoding="utf-8")
@@ -39,6 +46,8 @@ class M7AdoptionDecisionTests(unittest.TestCase):
         self.assertIn("no mandatory task form", body)
         self.assertIn("not a grant to write or publish", body)
         self.assertIn("not executed", body)
+        self.assertIn("autonomy **A1**", body)
+        self.assertIn("publication may carry greater risk", body)
         index = (KIT / "README.md").read_text(encoding="utf-8")
         self.assertIn("not automatically invoked", index)
 

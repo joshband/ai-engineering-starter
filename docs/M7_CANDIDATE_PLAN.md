@@ -50,3 +50,18 @@ No modifications to Copy That; no mandatory templates, runtime configuration, ho
 ## Implementation review gate
 
 Candidate A scope was approved for implementation and a draft PR. Review the [manual adoption decision kit](adoption-decision/README.md), deterministic tests, and validation evidence before deciding Accept, Revise, or Reject. A draft PR is not human acceptance or merge authorization.
+
+## Candidate verification and remediation — 2026-10-22
+
+The initial branch check found a prohibited private-project marker in the M6 context document added by this PR. `python3 validation/validate.py` exited 1; the full unit suite ran 24 tests with one failure because an existing test invokes that validator. `git diff main...HEAD --check` exited 0. The marker was replaced with a generic scope exclusion without changing the M6 decision. The M7 README also incorrectly said implementation was unauthorized, and the small local-edit example labeled autonomy A2; those statements were corrected to the actual draft status and bounded A1 editing authority. The M7 link test now checks heading fragments as well as target files.
+
+After these corrections, from the repository root:
+
+| Command or review | Observed result |
+| --- | --- |
+| `python3 validation/validate.py` | Passed, exit 0: 19 required files, 39 Markdown files, 218 relative links, 16 canonical definitions, 16 controls, five schemas, nine valid and 13 intentionally failing fixtures. |
+| `python3 -m unittest discover -s validation/tests -v` | Passed, exit 0: 24 tests, including five M7 tests and 19 earlier regression tests. |
+| `git diff main...HEAD --check` | Passed, exit 0, no output after the bounded fix commit. |
+| M7 link and ownership review | Five kit documents and 32 Markdown links; focused test resolves relative files and fragments. No new STD definition headings, permission settings, native discovery, or mandatory Quick record. |
+
+These checks establish documented structure and selected invariants, not semantic policy equivalence, agent behavior, or enforcement. The M6 Copy That verification blocker and M4 Codex runtime follow-up remain separate and open. **Implementation recommendation:** Accept the optional kit for human architecture review: `docs/ADOPTION.md` explains how to adopt, while this kit supplies explicit skip/reference/selective decisions, conflict ownership, a short example, and removal steps. A mature repository can choose No adoption; no kit form or file is mandatory. Human acceptance, merge, tag, and release remain pending.

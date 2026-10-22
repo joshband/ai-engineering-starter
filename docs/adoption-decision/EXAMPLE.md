@@ -6,7 +6,7 @@
 
 **Task boundary:** Change the identified paragraph and, if the existing documentation index requires it, its link. Acceptance: accurate wording, no broken relative links, no unrelated diff. For a routine, bounded docs edit, a brief request can be sufficient; no mandatory task form.
 
-**Classification:** Proposed risk **L**, autonomy **A2** (only within explicitly delegated local editing authority), complexity **T1**, workflow **Standard** for the illustrated reviewable edit. These are proposed labels, not a grant to write or publish. Reclassify if the actual task or authority differs; use [taxonomy](../../core/standards/AUTONOMY_AND_RISK.md) and [profiles](../../core/workflows/PROFILES.md).
+**Classification:** Proposed risk **L** for the local edit, autonomy **A1** within explicitly delegated local editing authority, complexity **T1**, workflow **Standard** for the illustrated reviewable edit. A consequential publication may carry greater risk and needs its own authorization. These are proposed labels, not a grant to write or publish. Reclassify if the actual task or authority differs; use [taxonomy](../../core/standards/AUTONOMY_AND_RISK.md) and [profiles](../../core/workflows/PROFILES.md).
 
 **Plan:** Read the existing guide and linked source of truth; edit only the authorized text; inspect diff; run the repository's required checks. If there is already an effective process, use it rather than introducing a new one.
 

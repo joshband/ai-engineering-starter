@@ -40,7 +40,7 @@ Choose one existing repository with a small, reversible, non-production task, av
 
 ## Out of scope
 
-No auto-installation, agent skill discovery, production deployment, release automation, model routing, orchestration, SSMX integration, or changes to M1–M5 normative interfaces. No assumption that a pilot validates runtime permission enforcement.
+No auto-installation, agent skill discovery, production deployment, release automation, model routing, orchestration, unrelated private-project integration, or changes to M1–M5 normative interfaces. No assumption that a pilot validates runtime permission enforcement.
 
 ## Required human gate
 
