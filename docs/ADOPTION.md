@@ -36,8 +36,12 @@ Follow the [Claude Code adoption guide](../adapters/claude-code/README.md) after
 
 Follow the [Codex adoption guide](../adapters/codex/README.md) to merge a small native `AGENTS.md` entry point into a new or existing project. Inventory root and nested instructions and Codex configuration before editing, fill a project profile, repair paths if vendored, and validate static references. The guide covers installation, customization, upgrade, removal, and a [Claude/Codex comparison](../adapters/codex/README.md#claude-code-and-codex-parity). This adapter adds no `.codex/config.toml` or permission controls; confirm instruction discovery and actual permissions in the target runtime.
 
+## Optional M7 existing-repository decision kit
+
+Use the [manual adoption decision kit](adoption-decision/README.md) to inventory existing instructions, select No adoption / Reference only / Selective adoption, work through one optional example, and reverse only pilot-introduced material. It does not change this guide's authority boundaries or install runtime behavior.
+
 ## Deferred work
 
-M2 introduces shared control definitions and structural validation fixtures. M3 and M4 add Claude Code and Codex instruction adapters. Later capabilities require separate milestones and authorization. This repository still provides no hooks, skills package, routing, durable operations, orchestration, CI/CD, generator, or deployment.
+M2 introduces shared control definitions and structural validation fixtures. M3 and M4 add Claude Code and Codex instruction adapters. Later capabilities require separate milestones and authorization. This repository provides optional M5 skill procedures and an M7 manual decision kit; it still provides no installed hooks, automatic skill discovery, routing, durable operations, orchestration, CI/CD, generator, or deployment.
 
 [Security interpretation](SECURITY_BOUNDARIES.md) · [Acceptance matrix](../validation/acceptance-matrix.md)

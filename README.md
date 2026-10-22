@@ -31,6 +31,7 @@ MUST is mandatory when its conditions apply; SHOULD is the default recommendatio
 | [adapters/claude-code](adapters/claude-code/README.md) | M3 instruction discovery and adoption; no permission settings or hooks |
 | [adapters/codex](adapters/codex/README.md) | M4 instruction routing, adoption, and cross-adapter comparison; no runtime settings |
 | [skills](skills/README.md) | M5 optional task, verification, review, handoff, and exception procedures; no automatic invocation |
+| [docs/adoption-decision](docs/adoption-decision/README.md) | M7 manual existing-repository inventory, adoption/skip decisions, example, and reversal |
 
 Project profiles own technical details. Both adapters expose the same standard without redefining it. Applicable organizational governance remains externally authoritative. Repository records are authoritative engineering context; agent memory is not a substitute.
 
@@ -49,7 +50,11 @@ Project profiles own technical details. Both adapters expose the same standard w
 
 Run `python3 validation/validate.py` from this directory for M1 and M2 checks, or `python3 validation/validate_controls.py` for M2 alone (Python standard library only). Adoption itself does not require Python or structured task files. See the [acceptance matrix](validation/acceptance-matrix.md) and [control traceability](validation/control-traceability.md) for exact check scope and editorial review still needed.
 
-Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 pilot adoption is planned, not yet implemented. Structured validation remains limited to the documented checks.
+Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 CT-M6-01 has a documented partial pilot outcome with target verification deferred. M7's optional adoption decision kit is a candidate under review; no acceptance, merge, or release is implied. Structured validation remains limited to the documented checks.
+
+## M6 pilot adoption
+
+M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. [M7 candidate planning](docs/M7_CANDIDATE_PLAN.md) and the [manual decision kit](docs/adoption-decision/README.md) are implemented for draft PR review; human acceptance and merge remain pending.
 
 ## Security limitations
 
