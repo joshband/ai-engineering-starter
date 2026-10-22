@@ -1,6 +1,6 @@
 # M1 and M2 Acceptance Matrix
 
-M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 implementation is a v0.2.0 candidate; responsible human acceptance: Pending review. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
 ## M1 structural validation
 
@@ -14,7 +14,7 @@ The M1 portion checks required paths, canonical STD headings and location, recog
 | --- | --- | --- |
 | File completeness | Automated path list | Passed; 19 required documents plus optional checker |
 | One canonical definition per STD | Automated heading count/location; editorial ownership review | Passed; semantic duplication needs editorial judgment |
-| No contradictory normative definitions | Editorial comparison of all documents to supplied M1 policies | Passed in implementation review; human acceptance pending |
+| No contradictory normative definitions | Editorial comparison of all documents to supplied M1 policies | Passed in implementation review; human acceptance completed |
 | Documentation links | Automated inline links and supported fragments | Passed in source layout; relocate template links during adoption |
 | Task contract completeness | Automated fields; editorial meaning | Passed; required and conditional semantics distinguished |
 | Workflow and classification consistency | Automated taxonomy headings; editorial scenario/profile/lifecycle review | Passed; four dimensions and eight checkpoints remain distinct |
@@ -31,7 +31,7 @@ The M1 portion checks required paths, canonical STD headings and location, recog
 | No scope expansion | File inventory and final diff review | Passed in implementation review; no later milestones |
 | Whitespace | `git diff --cached --check` in local review repository | See execution evidence in accompanying report |
 | Runtime controls and specific agent compatibility | Outside M1 | Not applicable to M1 implementation; guarantees Unverified |
-| Human acceptance | Maintainer acceptance and merged PR #1 | Passed for M1; M2 remains Pending review |
+| Human acceptance | Maintainer acceptance and merged PR #1 | Passed for M1 and M2; M2 acceptance followed architecture/policy review |
 
 ## Editorial review procedure
 
@@ -49,7 +49,7 @@ Run `python3 validation/validate_controls.py` to validate the catalog, schema su
 | --- | --- | --- |
 | M1 remains valid | Original checks at the start of `validation/validate.py` | Passed locally; repository artifact unchanged except entry point and acceptance metadata |
 | Sixteen controls and source strength labels | Catalog shape, coverage and heading/label comparison | Passed structurally; clause topics and scope require editorial review |
-| No conflicting normative definition | Review catalog descriptions against accepted standard | Implementation review found no intended changes; human M2 review pending |
+| No conflicting normative definition | Review catalog descriptions against accepted standard | Implementation review found no intended changes; human M2 review completed |
 | Four contract schemas | Schema declaration/keyword audit and instance validation | Passed for documented subset; not a full JSON Schema meta-schema validator |
 | Required and conditional semantics | Valid/invalid fixture pairs for material task, approval, exception, and completion | Passed for encoded conditions; applicability and authority are human-assessed |
 | Exact status vocabulary | Compare M1 completion tables to completion/handoff schema enums | Passed; cannot establish whether a reported check ran |
@@ -59,6 +59,6 @@ Run `python3 validation/validate_controls.py` to validate the catalog, schema su
 | Structural drift | Canonical policy IDs/titles/labels, catalog coverage, status enum checks, fixture manifest | Passed; prose-equivalence remains Unverified automatically |
 | Minimal Quick/no service | No-record fixture and review of dependencies | Passed; no installation or structured task file required |
 | Vendor neutrality and no enforcement claims | Review files and security boundaries | Passed in implementation review; compatibility and controls Unverified |
-| Human M2 acceptance | Responsible architecture/policy review of PR | Not run; Pending review |
+| Human M2 acceptance | Responsible architecture/policy review of PR | Passed; accepted following architecture/policy review, PR #2 squash-merged |
 
 The [traceability matrix](control-traceability.md) lists every control and what must still be judged by a person. The structural validator does not establish schema correctness under the complete Draft 2020-12 specification, policy semantic equivalence, authorization, data permissions, security isolation, or operational evidence validity.
