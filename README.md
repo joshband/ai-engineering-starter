@@ -51,6 +51,10 @@ Run `python3 validation/validate.py` from this directory for M1 and M2 checks, o
 
 Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 pilot adoption is planned, not yet implemented. Structured validation remains limited to the documented checks.
 
+## M6 pilot adoption
+
+M6 planning has started on a separate branch. See the [gated pilot plan](docs/M6_PILOT_PLAN.md) for target selection, baseline inventory, one-task evaluation, and required human approval before changes to another repository. No pilot target or task has been authorized yet.
+
 ## Security limitations
 
 Instructions, schemas, and passing validators do not enforce permissions or isolate execution. Review [security boundaries](docs/SECURITY_BOUNDARIES.md) before granting tools, credentials, network access, or consequential authority. Neither local inference nor a sandbox label proves isolation. Neither adapter installs permission configuration; observe each runtime before relying on its behavior.
