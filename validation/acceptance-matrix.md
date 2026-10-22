@@ -1,6 +1,6 @@
-# M1 and M2 Acceptance Matrix
+# M1–M3 Acceptance Matrix
 
-M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 is an implementation candidate with a successful bounded instruction-discovery smoke test; final merge closeout pending. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
 ## M1 structural validation
 
@@ -39,9 +39,9 @@ Read standard, taxonomy, contracts, workflows, templates, adoption, and security
 
 ## Execution evidence
 
-The M1 review recorded commands and results; this file now documents M2 checks. Re-run after edits. No adapters, enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
+The M1 review recorded commands and results; this file documents M2 and M3 checks. Re-run after edits. M3 adds instructions only; no enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
 
-## M2 candidate checks
+## M2 structural checks
 
 Run `python3 validation/validate_controls.py` to validate the catalog, schema subset, drift assertions, and all fixtures; run `python3 -m unittest discover -s validation/tests -v` for targeted regression tests. `python3 validation/validate_controls.py --contract task path/to/record.json` validates an individual raw record (or omit `--contract` to supply fixture envelopes). Nonzero errors include the failing JSON path.
 
@@ -62,3 +62,23 @@ Run `python3 validation/validate_controls.py` to validate the catalog, schema su
 | Human M2 acceptance | Responsible architecture/policy review of PR | Passed; accepted following architecture/policy review, PR #2 squash-merged |
 
 The [traceability matrix](control-traceability.md) lists every control and what must still be judged by a person. The structural validator does not establish schema correctness under the complete Draft 2020-12 specification, policy semantic equivalence, authorization, data permissions, security isolation, or operational evidence validity.
+
+## M3 candidate checks
+
+Run `python3 validation/validate.py` and `python3 -m unittest discover -s validation/tests -v`. The M3 unit tests check the root CLAUDE imports, M2 task/completion/approval cases, missing/malformed record handling, and the validator's operation without an optional Claude Code executable on PATH. These are deterministic structural tests, not a Claude Code integration test.
+
+| Requirement | Method | Implementation assessment and limit |
+| --- | --- | --- |
+| M1/M2 regression | Existing combined validator and unit suite | Passed locally before and after M3 changes |
+| Instruction discovery paths | Parse root CLAUDE imports and resolve target files | Passed structurally; root and both imports observed in `/context` during bounded cloud-session smoke test |
+| Single policy authority | Confirm canonical imports and no STD headings in adapter | Passed structurally; editorial review of wording pending |
+| Quick without ceremony | M2 no-record fixture and adapter instruction review | Passed in implementation review; actual agent response Unverified |
+| Material task reporting | M2 task and completion schemas/fixtures plus guidance review | Passed structurally; quality of reported evidence requires review |
+| High-risk escalation | Pending-approval fixture and missing-boundary failure plus instruction review | Passed structurally; actual escalation behavior Unverified |
+| Missing/invalid structured records | M2 negative fixture checks; missing/malformed JSON read tests | Passed; optional records are not a universal requirement |
+| Optional feature unavailable | Validator subprocess with empty PATH; no settings/hooks shipped | Passed locally; actual Claude Code session Unverified |
+| Incremental adoption and removal | Editorial review of [adapter guide](../adapters/claude-code/README.md) | Passed in implementation review; target repositories vary |
+| Runtime integration | `claude` executable discovery; bounded smoke if available | Instruction discovery Passed in cloud session; `/status`, live permissions, prompt adherence, and broader compatibility Unverified |
+| M3 human acceptance | Responsible architecture/security review of draft PR | Bounded smoke test Passed for instruction discovery; human acceptance recommended, merge closeout pending |
+
+The adapter's imports are instructions in model context. The static suite does not verify Claude Code permission modes, prompt adherence, actual instruction loading, hooks, sandboxing, or action authorization. No hook or project permission file is installed.

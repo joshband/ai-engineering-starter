@@ -4,6 +4,8 @@ M1 documents expected behavior; it does not enforce security. STD-02 and STD-08â
 
 M2 adds structured descriptions and record-shape validation, not a permission boundary. A passing schema result cannot validate the identity or authority of an approver, the truth of evidence, or the tested behavior of an enforcement mechanism.
 
+M3 adds Claude Code instructions only. It ships no shared settings, hooks, allow rules, or isolated runtime. Check the actual permission sources and platform constraints before consequential use; the root instruction entry point cannot grant or restrict tool capabilities.
+
 | Mechanism | Role | Boundary and evidence needed |
 | --- | --- | --- |
 | Natural-language instructions | Explain scope and expected behavior | Can be ignored or misinterpreted; not a permission barrier |

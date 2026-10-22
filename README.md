@@ -2,11 +2,13 @@
 
 M1 — Portable Engineering Core: Accepted and merged in PR #1 (2026-10-22). M2 — Shared Controls and Fixtures: Accepted and squash-merged in PR #2 (2026-10-22); no release tag published.
 
+M3 — Claude Code Adapter: v0.3.0 implementation candidate, Pending review.
+
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 
 Standardize engineering behavior, authority, verification, and knowledge rather than AI products. Models generate outputs; agents combine models with tools; tools perform operations; workflows organize work; runtimes determine execution guarantees. These are separate concerns.
 
-This starter kit is not a functioning agent security platform. M2 supplies a structured catalog, optional contract schemas, and deterministic validation fixtures. It supplies no automated enforcement, adapters, routing, hooks, orchestration, CI/CD, or deployment. No external service or model provider is required. Compatibility with particular agents has not been tested.
+This starter kit is not a functioning agent security platform. M2 supplies a structured catalog, optional contract schemas, and deterministic validation fixtures. M3 adds a minimal [Claude Code instruction entry point](CLAUDE.md) and [adoption guide](adapters/claude-code/README.md). It supplies no automated enforcement, routing, hooks, orchestration, CI/CD, or deployment. No external service or model provider is required. Claude Code runtime behavior has not been tested here.
 
 ## Individual quick start
 
@@ -28,8 +30,9 @@ MUST is mandatory when its conditions apply; SHOULD is the default recommendatio
 | [docs](docs/ADOPTION.md) | Adoption and security interpretation |
 | [validation](validation/acceptance-matrix.md) | Checks, limits, and review evidence |
 | [core/controls](core/controls/README.md) | M2 structured representations and schema conventions; M1 policy remains authoritative |
+| [adapters/claude-code](adapters/claude-code/README.md) | M3 instruction discovery and adoption; no permission settings or hooks |
 
-Project profiles own technical details. Tool adapters, when introduced later, expose the standard without redefining it. Applicable organizational governance remains externally authoritative. Repository records are authoritative engineering context; agent memory is not a substitute.
+Project profiles own technical details. The Claude Code adapter exposes the standard without redefining it; later adapters should do the same. Applicable organizational governance remains externally authoritative. Repository records are authoritative engineering context; agent memory is not a substitute.
 
 ## Architecture decisions
 
@@ -46,8 +49,8 @@ Project profiles own technical details. Tool adapters, when introduced later, ex
 
 Run `python3 validation/validate.py` from this directory for M1 and M2 checks, or `python3 validation/validate_controls.py` for M2 alone (Python standard library only). Adoption itself does not require Python or structured task files. See the [acceptance matrix](validation/acceptance-matrix.md) and [control traceability](validation/control-traceability.md) for exact check scope and editorial review still needed.
 
-Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M2 was accepted after architecture/policy review; PR #2 was squash-merged. Structured validation remains limited to the documented checks.
+Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M2 was accepted after architecture/policy review; PR #2 was squash-merged. M3 awaits review; structured validation remains limited to the documented checks.
 
 ## Security limitations
 
-Instructions, schemas, and passing validators do not enforce permissions or isolate execution. Review [security boundaries](docs/SECURITY_BOUNDARIES.md) before granting tools, credentials, network access, or consequential authority. Neither local inference nor a sandbox label proves isolation. No control guarantees or agent compatibility claims are established by M1 or M2.
+Instructions, schemas, and passing validators do not enforce permissions or isolate execution. Review [security boundaries](docs/SECURITY_BOUNDARIES.md) before granting tools, credentials, network access, or consequential authority. Neither local inference nor a sandbox label proves isolation. M3 installs no permission configuration, and actual Claude Code compatibility remains Unverified.
