@@ -1,8 +1,6 @@
 # AI-Native Software Engineering Starter Kit
 
-M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted and squash-merged in PR #3 (2026-10-22). No release tag published. M5 reusable engineering skills: implementation candidate, Pending review.
-
-M4 — OpenAI Codex Adapter: provisionally accepted and squash-merged in PR #4 (2026-10-22); live Codex instruction discovery deferred and tracked. No release tag published.
+M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: verified implementation candidate, Pending review. No release tag published.
 
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 

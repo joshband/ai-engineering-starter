@@ -5,7 +5,8 @@
 - Added five optional portable engineering procedures for task intake, change verification, review and acceptance, safe handoff, and exception review.
 - Skills reference M1 policy and M2 schemas; neither adapter auto-discovers or auto-invokes these procedures. No new authority, runtime permissions, enforcement, or M6 pilot.
 - Added six deterministic skill-library regression cases (inventory, relative links, opt-in boundaries, Quick, Profile H exceptions, and acceptance separation).
-- GitHub branch inspection confirmed 32 skill-library links resolve and no duplicate canonical STD headings; full Python regression suite and git whitespace check Not run in this connector-only environment. M5 execution Partial; human acceptance Pending review. No tag or release.
+- Verified from the exact PR tree: `python3 validation/validate.py` passed (16 policies, 16 controls, 9 valid/13 intentionally invalid fixtures); `python3 -m unittest discover -s validation/tests -v` passed (19 tests: 13 M1–M4, 6 M5); `git diff main...HEAD --check` passed. Strengthened the six M5 tests for exact inventory, canonical links, conditional exception schema behavior, and separate completion states.
+- Clarified manual access to portable skill procedures and reconciled M4/M5 status reporting. Live native skill discovery and invocation remain Unverified; M4 Codex runtime follow-up remains open. M5 execution Completed; human acceptance Pending review. No tag or release.
 
 
 ## 0.4.0 candidate — 2026-10-22

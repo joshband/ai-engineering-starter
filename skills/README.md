@@ -1,6 +1,6 @@
 # Reusable engineering skills (M5 candidate)
 
-These are portable, **opt-in procedures**, not new policy or an agent runtime. The [M1 engineering standard](../core/standards/ENGINEERING_STANDARD.md) owns STD-01–STD-16; the [M2 catalog](../core/controls/controls.json) provides optional structural indexing and [record schemas](../core/controls/README.md). Use these skills through the native repository guidance in [Codex](../AGENTS.md) or [Claude Code](../CLAUDE.md), or manually. Neither adapter auto-installs or auto-invokes a skill.
+These are portable, **opt-in procedures**, not new policy or an agent runtime. The [M1 engineering standard](../core/standards/ENGINEERING_STANDARD.md) owns STD-01–STD-16; the [M2 catalog](../core/controls/controls.json) provides optional structural indexing and [record schemas](../core/controls/README.md). Open a procedure by its path when useful, or add an explicit link to an adopting project's [Codex](../AGENTS.md) or [Claude Code](../CLAUDE.md) guidance. The adapters in this distribution do not link, install, discover, or invoke these procedures automatically.
 
 | Skill | Use when | Output |
 | --- | --- | --- |
