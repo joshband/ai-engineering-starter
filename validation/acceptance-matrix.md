@@ -1,6 +1,8 @@
-# M1–M3 Acceptance Matrix
+# M1–M4 Acceptance Matrix
 
 M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 was accepted following bounded instruction-discovery smoke testing and squash-merged in PR #3 on 2026-10-22 (commit 291e2d0bff2fb99cee784a599630a9721701d762). Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+
+M4 implementation is Completed per the submitted PR #4 report. Architecture and structural validation are provisionally accepted; live Codex discovery remains Unverified and is explicitly deferred to [the M4 runtime follow-up](m4-codex-runtime-followup.md). No tag or release is implied.
 
 ## M1 structural validation
 
@@ -39,7 +41,7 @@ Read standard, taxonomy, contracts, workflows, templates, adoption, and security
 
 ## Execution evidence
 
-The M1 review recorded commands and results; this file documents M2 and M3 checks. Re-run after edits. M3 adds instructions only; no enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
+The M1 review recorded commands and results; this file documents M2–M4 checks. Re-run after edits. M3/M4 add instructions only; no enforcement mechanisms, CI/CD, runtime isolation controls, or later-milestone features are supplied or tested.
 
 ## M2 structural checks
 
@@ -71,14 +73,36 @@ Run `python3 validation/validate.py` and `python3 -m unittest discover -s valida
 | --- | --- | --- |
 | M1/M2 regression | Existing combined validator and unit suite | Passed locally before and after M3 changes |
 | Instruction discovery paths | Parse root CLAUDE imports and resolve target files | Passed structurally; root and both imports observed in `/context` during bounded cloud-session smoke test |
-| Single policy authority | Confirm canonical imports and no STD headings in adapter | Passed structurally; editorial review of wording pending |
+| Single policy authority | Confirm canonical imports and no STD headings in adapter | Passed structurally; M3 editorial review completed at acceptance |
 | Quick without ceremony | M2 no-record fixture and adapter instruction review | Passed in implementation review; actual agent response Unverified |
 | Material task reporting | M2 task and completion schemas/fixtures plus guidance review | Passed structurally; quality of reported evidence requires review |
 | High-risk escalation | Pending-approval fixture and missing-boundary failure plus instruction review | Passed structurally; actual escalation behavior Unverified |
 | Missing/invalid structured records | M2 negative fixture checks; missing/malformed JSON read tests | Passed; optional records are not a universal requirement |
-| Optional feature unavailable | Validator subprocess with empty PATH; no settings/hooks shipped | Passed locally; actual Claude Code session Unverified |
+| Optional feature unavailable | Validator subprocess with empty PATH; no settings/hooks shipped | Passed locally; bounded Claude instruction discovery separately observed |
 | Incremental adoption and removal | Editorial review of [adapter guide](../adapters/claude-code/README.md) | Passed in implementation review; target repositories vary |
 | Runtime integration | `claude` executable discovery; bounded smoke if available | Instruction discovery Passed in cloud session; `/status`, live permissions, prompt adherence, and broader compatibility Unverified |
 | M3 human acceptance | Responsible architecture/security review of draft PR | Passed for bounded instruction discovery; M3 accepted and squash-merged in PR #3 |
 
 The adapter's imports are instructions in model context. The static suite does not verify Claude Code permission modes, prompt adherence, actual instruction loading, hooks, sandboxing, or action authorization. No hook or project permission file is installed.
+
+## M4 candidate checks
+
+Run `python3 validation/validate.py`, `python3 -m unittest discover -s validation/tests -v`, and `git diff --check` from the repository root. The M4 tests inspect static paths and semantics, invoke the M2 validator for optional record cases, and confirm the Claude entry point remains intact. They do not run Codex or enforce agent permissions.
+
+| Requirement | Method | Candidate assessment and limit |
+| --- | --- | --- |
+| M1–M3 regression | Existing combined validator and unit suite | Run and report actual results in PR; accepted source definitions unchanged |
+| Codex discovery path | Root `AGENTS.md` presence and no root override; path resolution test | Static path Passed when tests pass; live Codex discovery Unverified until smoke tested |
+| Canonical M1/M2 references | Parse links and catalog path, check no STD definition headings | Structural checks only; editorial policy consistency still required |
+| Quick no record | Adapter wording and M2 no-record fixture | No universal form; live prompt behavior Unverified |
+| Material task and completion | M2 task/completion cases and entry-point references | Shape/status checks; materiality and evidence remain human assessed |
+| High-risk escalation | Pending-approval and missing-boundary cases, entry-point guidance | Structural condition only; actual approval boundary Unverified |
+| Optional missing/invalid records | Absent/malformed JSON and M2 record errors | Report failures; no record required merely for Quick |
+| Claude coexistence | Both native root files and import targets remain present | Static integrity only; cross-runtime loading must be observed |
+| Incremental adoption/removal | Editorial review of [Codex guide](../adapters/codex/README.md) | Existing files preserved; target-specific conflicts still require review |
+| Permissions and security | Confirm no runtime config, rule, hook, or bypass shipped; review [security boundaries](../docs/SECURITY_BOUNDARIES.md) | Instructions and validators do not enforce authority |
+| No later milestone | Final diff inventory | No skills, routing, orchestration, service, or CI added |
+| Runtime smoke | `codex` availability and bounded read-only discovery run if available | Report observed output or Unverified explicitly |
+| M4 human acceptance | Responsible architecture and security review of draft PR | Pending review; merge and release reserved |
+
+Reviewers should confirm that the two native entry points route to one shared standard, that SHOULD remains conditional, that a risk label or `adapter_candidate` never grants permission, and that no static result is called runtime enforcement. A real Codex discovery check, if later available, should record version, active instruction files, prompt, settings context, and observed output.

@@ -22,6 +22,8 @@ Portable policy belongs in the canonical standard; technical commands, domain in
 
 Different agents may discover instructions differently. Point each agent to the same maintained entry point using its supported mechanism and confirm it can locate relevant context. The M3 Claude Code entry point provides one concrete example; actual runtime loading still needs confirmation in each target environment. Permission configuration remains separate from reading instructions.
 
+Codex uses repository `AGENTS.md` discovery, with global and closer directory guidance affecting the active instruction chain. The M4 root [entry point](../AGENTS.md) uses ordinary links for navigation; those links do not import full files automatically. When both Claude Code and Codex are used, maintain separate small native entry points and keep shared policy in the core. Check the actual active instructions in each environment.
+
 ## Optional M2 records
 
 For projects that exchange structured records, use the [M2 control interface](../core/controls/README.md) and preserve its version. The catalog indexes the same policy IDs and the four schemas validate optional record shapes; neither changes when a task needs a formal record. An agent or developer may use M1's brief Quick workflow with no structured task file. Validate a record locally with the documented standard-library command, and still review its meaning, permissions, and evidence with the responsible owner.
@@ -30,8 +32,12 @@ For projects that exchange structured records, use the [M2 control interface](..
 
 Follow the [Claude Code adoption guide](../adapters/claude-code/README.md) after inventorying existing instructions and settings. The root [CLAUDE.md](../CLAUDE.md) demonstrates native instruction discovery and canonical imports in this source distribution. For an existing project, merge links and imports into its maintained instructions, repair moved relative paths, and preserve any existing AGENTS guidance explicitly when a CLAUDE file takes precedence. The adapter installs no permissions or hooks; validate actual runtime behavior in the target environment.
 
+## Optional M4 Codex adapter
+
+Follow the [Codex adoption guide](../adapters/codex/README.md) to merge a small native `AGENTS.md` entry point into a new or existing project. Inventory root and nested instructions and Codex configuration before editing, fill a project profile, repair paths if vendored, and validate static references. The guide covers installation, customization, upgrade, removal, and a [Claude/Codex comparison](../adapters/codex/README.md#claude-code-and-codex-parity). This adapter adds no `.codex/config.toml` or permission controls; confirm instruction discovery and actual permissions in the target runtime.
+
 ## Deferred work
 
-M2 introduces shared control definitions and structural validation fixtures. M3 adds only the Claude Code instruction adapter. Other tool adapters and later capabilities require separate milestones and authorization. This repository still provides no hooks, skills package, routing, durable operations, orchestration, CI/CD, generator, or deployment.
+M2 introduces shared control definitions and structural validation fixtures. M3 and M4 add Claude Code and Codex instruction adapters. Later capabilities require separate milestones and authorization. This repository still provides no hooks, skills package, routing, durable operations, orchestration, CI/CD, generator, or deployment.
 
 [Security interpretation](SECURITY_BOUNDARIES.md) · [Acceptance matrix](../validation/acceptance-matrix.md)

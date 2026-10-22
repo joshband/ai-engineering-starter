@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 candidate — 2026-10-22
+
+- Added a root Codex `AGENTS.md` that navigates to the accepted M1 standard, M2 controls, contracts, and workflows without copying policy or configuring permissions.
+- Added Codex adoption, configuration-boundary, control mapping, and Claude/Codex parity guidance.
+- Added deterministic adapter tests and M4 acceptance checks; actual Codex CLI discovery remains Unverified in this environment.
+- M4 provisionally accepted for architecture and structural checks; live Codex instruction discovery deferred because the CLI was unavailable and the user's Codex cloud UI reported that environments could not be loaded (2026-10-22). This is not evidence of an adapter defect. No tag or release.
+
 ## 0.3.0 candidate — 2026-10-22
 
 - Added a root Claude Code instruction entry point importing the accepted M1 standard and taxonomy, with direct navigation to M2 controls and the contracts.

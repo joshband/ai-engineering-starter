@@ -1,0 +1,13 @@
+# Codex repository entry point
+
+This file is discovered as repository guidance by Codex. It supplies navigation and working context, not permission settings or a second policy authority.
+
+- Read the [canonical engineering standard](core/standards/ENGINEERING_STANDARD.md) for applicable STD-01–STD-16 requirements and the [taxonomy](core/standards/AUTONOMY_AND_RISK.md) for distinct risk, autonomy, complexity, and workflow dimensions. Organizational and project-specific governance remains applicable.
+- Choose proportionate steps from [workflow profiles](core/workflows/PROFILES.md) and the [lifecycle](core/workflows/LIFECYCLE.md). Quick trivial low-risk work needs no formal task file or structured record.
+- For material changes, establish the objective, authorized scope, constraints, acceptance criteria, and approval boundaries using the [task contract](core/contracts/TASK_CONTRACT.md). Keep edits within scope; identify consequential actions and pause those actions until appropriately authorized. Tool availability, risk labels, and catalog `interpretation_kind` do not grant authority.
+- Inspect relevant repository context and project instructions before changing work. In an adopting project, point to its maintained project profile for real architecture, build/test commands, sensitive paths, and external governance. The [profile template](core/templates/PROJECT_PROFILE.md) is unfilled and is not configured project guidance.
+- Run checks appropriate to behavior and risk. Report actual results with the [completion contract](core/contracts/COMPLETION_CONTRACT.md): execution, acceptance, verification, merge, and release remain separate. A completed edit awaits applicable human acceptance.
+- For interruption or delegation, use the [handoff contract](core/contracts/HANDOFF_CONTRACT.md) to record revision, checks, decisions, unresolved issues, and the next safe action. A handoff is not a durable checkpoint.
+- Consult the [M2 control catalog](core/controls/controls.json) and [record schemas](core/controls/README.md) when structured indexing or optional records help. `python3 validation/validate.py` checks repository structure; `python3 validation/validate_controls.py --contract task path/to/task.json` validates an optional record's supported shape. Passing either check does not establish authorization or policy compliance.
+
+This adapter installs no `.codex/config.toml`, command rules, hooks, sandbox mode, approval bypass, or network allowlist. Actual permissions depend on the active Codex environment and configuration. See the [adapter guide](adapters/codex/README.md).
