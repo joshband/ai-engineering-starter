@@ -2,7 +2,7 @@
 
 M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted and squash-merged in PR #3 (2026-10-22). No release tag published.
 
-M4 — OpenAI Codex Adapter: v0.4.0 implementation candidate, Pending review.
+M4 — OpenAI Codex Adapter: v0.4.0 candidate, provisionally accepted for architecture and structural validation; live Codex instruction discovery deferred and tracked.
 
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 
@@ -50,7 +50,7 @@ Project profiles own technical details. Both adapters expose the same standard w
 
 Run `python3 validation/validate.py` from this directory for M1 and M2 checks, or `python3 validation/validate_controls.py` for M2 alone (Python standard library only). Adoption itself does not require Python or structured task files. See the [acceptance matrix](validation/acceptance-matrix.md) and [control traceability](validation/control-traceability.md) for exact check scope and editorial review still needed.
 
-Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 were accepted and merged; M4 awaits review. Structured validation remains limited to the documented checks.
+Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. Structured validation remains limited to the documented checks.
 
 ## Security limitations
 
