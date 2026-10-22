@@ -1,5 +1,7 @@
 # Adoption
 
+For a quick route by situation, see [Start here](START_HERE.md). For accepted capabilities and deferred evidence, see [capability status](CAPABILITY_STATUS.md).
+
 Start with [README](../README.md), [classifications](../core/standards/AUTONOMY_AND_RISK.md), and [workflow selection](../core/workflows/PROFILES.md). No installation service, generator, agent adapter, or mandatory external infrastructure is needed.
 
 ## New repository

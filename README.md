@@ -1,12 +1,14 @@
 # AI-Native Software Engineering Starter Kit
 
-M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: Accepted and squash-merged in PR #5 (2026-10-22). No release tag published.
+M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted (PR #3). M4 — OpenAI Codex Adapter: provisionally accepted and merged (PR #4); live instruction discovery remains [deferred](validation/m4-codex-runtime-followup.md). M5 reusable engineering skills: Accepted and squash-merged in PR #5 (2026-10-22). M6 pilot: partial verification, adoption deferred. M7 adoption decision kit: Accepted and merged in PR #6. M8 runtime validation: planned but deferred. M9 usability documentation: candidate under review. No release tag published.
 
 A documentation and contract baseline for individual developers, technical leads, and small teams using AI coding agents in new or existing repositories. It helps define bounded work, select proportionate workflows, verify changes, review outcomes, and preserve engineering knowledge.
 
 Standardize engineering behavior, authority, verification, and knowledge rather than AI products. Models generate outputs; agents combine models with tools; tools perform operations; workflows organize work; runtimes determine execution guarantees. These are separate concerns.
 
 This starter kit is not a functioning agent security platform. M2 supplies a structured catalog, optional contract schemas, and deterministic validation fixtures. M3 adds a [Claude Code entry point](CLAUDE.md); M4 adds a [Codex entry point](AGENTS.md) and [adapter guide](adapters/codex/README.md). It supplies no automated enforcement, routing, hooks, orchestration, CI/CD, or deployment. No external service or model provider is required. A bounded M3 cloud session confirmed Claude instruction discovery; Codex CLI loading remains Unverified here.
+
+For the shortest route through the kit, use [Start here](docs/START_HERE.md); for milestone status and evidence limitations, see the [capability map](docs/CAPABILITY_STATUS.md).
 
 ## Individual quick start
 
@@ -50,11 +52,11 @@ Project profiles own technical details. Both adapters expose the same standard w
 
 Run `python3 validation/validate.py` from this directory for M1 and M2 checks, or `python3 validation/validate_controls.py` for M2 alone (Python standard library only). Adoption itself does not require Python or structured task files. See the [acceptance matrix](validation/acceptance-matrix.md) and [control traceability](validation/control-traceability.md) for exact check scope and editorial review still needed.
 
-Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 CT-M6-01 has a documented partial pilot outcome with target verification deferred. M7's optional adoption decision kit is a candidate under review; no acceptance, merge, or release is implied. Structured validation remains limited to the documented checks.
+Propose focused changes with rationale, affected policy IDs, verification evidence, and migration implications. Change canonical definitions at their owning file and update references together. No PR or separate reviewer is universally required for adopting projects; follow their governance. M1–M3 and M5 were accepted and merged; M4 is provisionally accepted subject to a tracked live Codex discovery follow-up. M6 CT-M6-01 has a documented partial pilot outcome with target verification deferred. M7's optional adoption decision kit was accepted and merged in PR #6. M8 runtime tests remain deferred; M9 documentation is a candidate under review. No release or tag is implied. Structured validation remains limited to the documented checks.
 
 ## M6 pilot adoption
 
-M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. [M7 candidate planning](docs/M7_CANDIDATE_PLAN.md) and the [manual decision kit](docs/adoption-decision/README.md) are implemented for draft PR review; human acceptance and merge remain pending.
+M6 CT-M6-01 in Copy That produced a [partial pilot outcome](docs/M6_PILOT_PLAN.md): local documentation checks reportedly passed, but the target's full verification was blocked before tests. Adoption acceptance and publication remain deferred. M7's [manual decision kit](docs/adoption-decision/README.md) is accepted and merged. [M8 runtime validation planning](https://github.com/joshband/ai-engineering-starter/blob/m8/runtime-validation-plan/docs/M8_RUNTIME_VALIDATION_PLAN.md) is deferred; [M9 usability consolidation](docs/M9_USABILITY_PLAN.md) is a documentation-only candidate.
 
 ## Security limitations
 
