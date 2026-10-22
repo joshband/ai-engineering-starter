@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 candidate — 2026-10-22
+
+- Added five optional portable engineering procedures for task intake, change verification, review and acceptance, safe handoff, and exception review.
+- Skills reference M1 policy and M2 schemas; neither adapter auto-discovers or auto-invokes these procedures. No new authority, runtime permissions, enforcement, or M6 pilot.
+- M5 implementation and human acceptance Pending review; no tag or release.
+
+
 ## 0.4.0 candidate — 2026-10-22
 
 - Added a root Codex `AGENTS.md` that navigates to the accepted M1 standard, M2 controls, contracts, and workflows without copying policy or configuring permissions.
