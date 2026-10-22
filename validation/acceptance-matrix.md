@@ -2,7 +2,7 @@
 
 M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 was accepted following bounded instruction-discovery smoke testing and squash-merged in PR #3 on 2026-10-22 (commit 291e2d0bff2fb99cee784a599630a9721701d762). Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
-M4 implementation is Completed per the submitted PR #4 report. Architecture and structural validation are provisionally accepted; live Codex discovery remains Unverified and is explicitly deferred to [the M4 runtime follow-up](m4-codex-runtime-followup.md). No tag or release is implied.
+M4 implementation is Completed per the submitted PR #4 report, provisionally accepted for architecture and structural validation, and squash-merged in PR #4 on 2026-10-22 (commit b460c1dddfe48751eced8f50e3a5bcdc6a086321). Live Codex discovery remains Unverified and is explicitly deferred to [the M4 runtime follow-up](m4-codex-runtime-followup.md). No tag or release is implied.
 
 ## M1 structural validation
 
