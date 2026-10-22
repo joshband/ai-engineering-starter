@@ -4,7 +4,7 @@ This index links to evidence in its existing location. It does not move, duplica
 
 | Evaluation | Source | Observed state |
 | --- | --- | --- |
-| Structural acceptance and deterministic fixtures | [Acceptance matrix](../../validation/acceptance-matrix.md), [validation directory](../../validation/README.md) | Checks cover structure, not actual permission enforcement |
+| Structural acceptance and deterministic fixtures | [Acceptance matrix](../../validation/acceptance-matrix.md), [control traceability](../../validation/control-traceability.md) | Checks cover structure, not actual permission enforcement |
 | M3 Claude Code discovery | [Adapter documentation](../../adapters/claude-code/README.md), [changelog](../../CHANGELOG.md) | Bounded cloud discovery observed |
 | M4 Codex native discovery | [Follow-up protocol](../../validation/m4-codex-runtime-followup.md) | Deferred; unverified |
 | M6 Copy That adoption pilot | [Pilot plan and results](../M6_PILOT_PLAN.md) | Partial verification; target tests not run |
