@@ -1,6 +1,6 @@
 # M1–M3 Acceptance Matrix
 
-M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 is an implementation candidate, Pending review. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 is an implementation candidate with a successful bounded instruction-discovery smoke test; final merge closeout pending. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
 ## M1 structural validation
 
@@ -70,7 +70,7 @@ Run `python3 validation/validate.py` and `python3 -m unittest discover -s valida
 | Requirement | Method | Implementation assessment and limit |
 | --- | --- | --- |
 | M1/M2 regression | Existing combined validator and unit suite | Passed locally before and after M3 changes |
-| Instruction discovery paths | Parse root CLAUDE imports and resolve target files | Passed structurally; actual Claude Code loading Unverified |
+| Instruction discovery paths | Parse root CLAUDE imports and resolve target files | Passed structurally; root and both imports observed in `/context` during bounded cloud-session smoke test |
 | Single policy authority | Confirm canonical imports and no STD headings in adapter | Passed structurally; editorial review of wording pending |
 | Quick without ceremony | M2 no-record fixture and adapter instruction review | Passed in implementation review; actual agent response Unverified |
 | Material task reporting | M2 task and completion schemas/fixtures plus guidance review | Passed structurally; quality of reported evidence requires review |
@@ -78,7 +78,7 @@ Run `python3 validation/validate.py` and `python3 -m unittest discover -s valida
 | Missing/invalid structured records | M2 negative fixture checks; missing/malformed JSON read tests | Passed; optional records are not a universal requirement |
 | Optional feature unavailable | Validator subprocess with empty PATH; no settings/hooks shipped | Passed locally; actual Claude Code session Unverified |
 | Incremental adoption and removal | Editorial review of [adapter guide](../adapters/claude-code/README.md) | Passed in implementation review; target repositories vary |
-| Runtime integration | `claude` executable discovery; bounded smoke if available | Not run; executable unavailable in this environment |
-| M3 human acceptance | Responsible architecture/security review of draft PR | Not run; Pending review |
+| Runtime integration | `claude` executable discovery; bounded smoke if available | Instruction discovery Passed in cloud session; `/status`, live permissions, prompt adherence, and broader compatibility Unverified |
+| M3 human acceptance | Responsible architecture/security review of draft PR | Bounded smoke test Passed for instruction discovery; human acceptance recommended, merge closeout pending |
 
 The adapter's imports are instructions in model context. The static suite does not verify Claude Code permission modes, prompt adherence, actual instruction loading, hooks, sandboxing, or action authorization. No hook or project permission file is installed.
