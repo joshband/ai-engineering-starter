@@ -1,6 +1,6 @@
 # AI-Native Software Engineering Starter Kit
 
-M1 — Portable Engineering Core: Accepted and merged in PR #1 (2026-10-22). M2 — Shared Controls and Fixtures: Accepted and squash-merged in PR #2 (2026-10-22); no release tag published.
+M1 — Portable Engineering Core: Accepted (PR #1). M2 — Shared Controls and Fixtures: Accepted (PR #2). M3 — Claude Code Adapter: Accepted and squash-merged in PR #3 (2026-10-22). No release tag published.
 
 M3 — Claude Code Adapter: v0.3.0 implementation candidate, Pending review.
 
