@@ -12,7 +12,7 @@
 | M6 | [Copy That documentation pilot](M6_PILOT_PLAN.md) | Partial verification; full target checks and adoption acceptance deferred |
 | M7 | [Minimal adoption decision kit](adoption-decision/README.md) | Accepted and merged in [PR #6](https://github.com/joshband/ai-engineering-starter/pull/6); manual guidance, not installer |
 | M8 | [Runtime validation proposal](https://github.com/joshband/ai-engineering-starter/blob/m8/runtime-validation-plan/docs/M8_RUNTIME_VALIDATION_PLAN.md) | Planning branch only; runtime tests deferred pending Claude Code / Codex access |
-| M9 | [Usability documentation candidate](M9_USABILITY_PLAN.md) | Implemented in draft PR #7; verification passed, human acceptance pending; documentation-only changes on a separate branch |
+| M9 | [Usability navigation](START_HERE.md) and [candidate plan](M9_USABILITY_PLAN.md) | Accepted and merged in [PR #7](https://github.com/joshband/ai-engineering-starter/pull/7); documentation guidance, not runtime validation |
 
 ## Evidence levels
 

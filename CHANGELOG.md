@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 candidate — 2026-10-22
+
+- Proposed first release of the repository-centered engineering standard, risk/autonomy taxonomy, contracts, workflows, adoption guidance, M2 structured control interface and deterministic fixtures, optional Claude Code and Codex instruction adapters, five optional procedures, and existing-repository decision/navigation guides. M1–M3, M5, M7, and M9 were accepted and merged; M4 was provisionally accepted and merged. PR #8 corrected the M5 validator status message after acceptance.
+- Release scope is the maintained documentation and the documented standard-library structural validator at the eventual tagged revision. It does not promise automatic agent behavior, authorization enforcement, universal adapter compatibility, or a functioning agent security platform. The canonical M1 standard owns policy; M2 catalog/schema checks do not grant execution authority.
+- Deferred evidence: M4 live Codex instruction discovery is [open](validation/m4-codex-runtime-followup.md); the M6 Copy That pilot has [partial verification and deferred adoption acceptance](docs/M6_PILOT_PLAN.md); M8 [runtime validation planning](https://github.com/joshband/ai-engineering-starter/blob/m8/runtime-validation-plan/docs/M8_RUNTIME_VALIDATION_PLAN.md) has not been executed. One bounded Claude Code discovery observation is documented for M3; it is not a general runtime guarantee.
+- Candidate preparation only. Human review of scope, limitations, final validation evidence, and the exact release revision is required before a separate decision to tag or publish. No tag or release has been created.
+
 ## 0.5.0 candidate — 2026-10-22
 
 - Added five optional portable engineering procedures for task intake, change verification, review and acceptance, safe handoff, and exception review.
