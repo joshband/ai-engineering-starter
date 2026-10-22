@@ -5,7 +5,7 @@
 - Added a root Claude Code instruction entry point importing the accepted M1 standard and taxonomy, with direct navigation to M2 controls and the contracts.
 - Added incremental adoption, control mapping, permission-boundary, validation, and removal guidance.
 - Added structural tests for discovery, contract cases, escalation, and operation without optional Claude Code runtime features.
-- Bounded Claude Code cloud-session smoke test confirmed root instruction discovery and both M1 imports in `/context`; permission behavior, prompt adherence, and cross-environment compatibility remain Unverified. M3 human acceptance Pending review until merge closeout. No hooks, project permissions, release, or later milestones.
+- M3 accepted and squash-merged in PR #3 (commit 291e2d0bff2fb99cee784a599630a9721701d762). Bounded Claude Code cloud-session smoke test confirmed root instruction discovery and both M1 imports in `/context`; permission behavior, prompt adherence, and cross-environment compatibility remain Unverified. No hooks, project permissions, release, or later milestones.
 
 ## 0.2.0 candidate — 2026-10-22
 
