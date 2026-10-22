@@ -1,6 +1,6 @@
 # M7 — Candidate capability planning
 
-**Status:** Planning only. No M7 implementation, acceptance, merge, release, or target-repository modifications authorized.
+**Status:** M7 implementation candidate prepared on a separate branch for draft-PR review. Human acceptance, merge, tag, release, and target-repository modifications remain unauthorized.
 
 ## Decision context
 
@@ -47,6 +47,6 @@ No modifications to Copy That; no mandatory templates, runtime configuration, ho
 - **Blocked:** Claims of successful Copy That adoption or compliance with its full definition of done; anything requiring native skill discovery or live permission guarantees.
 - **Follow-up:** CT-M6-01-V1 remains tracked in the M6 plan. It need not block an adoption decision kit that makes no runtime or release claim.
 
-## Human decision requested
+## Implementation review gate
 
-Approve, revise, or reject **Candidate A** as the M7 scope. Until then, this document is a planning proposal only.
+Candidate A scope was approved for implementation and a draft PR. Review the [manual adoption decision kit](adoption-decision/README.md), deterministic tests, and validation evidence before deciding Accept, Revise, or Reject. A draft PR is not human acceptance or merge authorization.
