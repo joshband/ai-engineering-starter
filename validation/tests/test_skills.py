@@ -23,12 +23,12 @@ class M5SkillsTests(unittest.TestCase):
                 self.assertIn(contract, body)
                 if schema:
                     self.assertIn(schema, body)
-                self.assertNotRegex(body, r"(?m)^## STD-\\d{2} — ")
+                self.assertNotRegex(body, r"(?m)^## STD-\d{2} — ")
 
     def test_all_skill_links_resolve_inside_repository(self):
         for path in (ROOT / "skills").rglob("*.md"):
             body = path.read_text(encoding="utf-8")
-            for dest in re.findall(r"\\[[^\\]\\n]+\\]\\(([^)\\s]+)\\)", body):
+            for dest in re.findall(r"\[[^\]\n]+\]\(([^)\s]+)\)", body):
                 if "://" in dest:
                     continue
                 target = (path.parent / dest.split("#", 1)[0]).resolve()
