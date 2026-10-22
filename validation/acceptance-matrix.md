@@ -1,6 +1,6 @@
 # M1–M3 Acceptance Matrix
 
-M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 is an implementation candidate with a successful bounded instruction-discovery smoke test; final merge closeout pending. Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
+M1 was accepted by the maintainer and merged in PR #1 on 2026-10-22. M2 was accepted following architecture/policy review and squash-merged in PR #2 on 2026-10-22 (commit dcf7e41ce1553dd5ea4138c99c0bae46495a7db2); no release tag was created. M3 was accepted following bounded instruction-discovery smoke testing and squash-merged in PR #3 on 2026-10-22 (commit 291e2d0bff2fb99cee784a599630a9721701d762). Implementation-side editorial assessment is not final acceptance. Status vocabulary is owned by the [completion contract](../core/contracts/COMPLETION_CONTRACT.md).
 
 ## M1 structural validation
 
@@ -79,6 +79,6 @@ Run `python3 validation/validate.py` and `python3 -m unittest discover -s valida
 | Optional feature unavailable | Validator subprocess with empty PATH; no settings/hooks shipped | Passed locally; actual Claude Code session Unverified |
 | Incremental adoption and removal | Editorial review of [adapter guide](../adapters/claude-code/README.md) | Passed in implementation review; target repositories vary |
 | Runtime integration | `claude` executable discovery; bounded smoke if available | Instruction discovery Passed in cloud session; `/status`, live permissions, prompt adherence, and broader compatibility Unverified |
-| M3 human acceptance | Responsible architecture/security review of draft PR | Bounded smoke test Passed for instruction discovery; human acceptance recommended, merge closeout pending |
+| M3 human acceptance | Responsible architecture/security review of draft PR | Passed for bounded instruction discovery; M3 accepted and squash-merged in PR #3 |
 
 The adapter's imports are instructions in model context. The static suite does not verify Claude Code permission modes, prompt adherence, actual instruction loading, hooks, sandboxing, or action authorization. No hook or project permission file is installed.
