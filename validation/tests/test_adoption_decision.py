@@ -14,13 +14,13 @@ class M7AdoptionDecisionTests(unittest.TestCase):
         for path in KIT.glob("*.md"):
             body = path.read_text(encoding="utf-8")
             with self.subTest(path=path.name):
-                self.assertNotRegex(body, r"(?m)^## STD-\\d{2} — ")
+                self.assertNotRegex(body, r"(?m)^## STD-\d{2} — ")
                 self.assertNotIn("automatic invocation is guaranteed", body)
 
     def test_relative_links_exist_within_repository(self):
         for path in KIT.glob("*.md"):
             body = path.read_text(encoding="utf-8")
-            for dest in re.findall(r"\\[[^\\]\\n]+\\]\\(([^)\\s]+)\\)", body):
+            for dest in re.findall(r"\[[^\]\n]+\]\(([^)\s]+)\)", body):
                 if "://" in dest:
                     continue
                 target = (path.parent / dest.split("#", 1)[0]).resolve()
