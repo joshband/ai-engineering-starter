@@ -10,6 +10,8 @@ This starter kit is not a functioning agent security platform. M2 supplies a str
 
 For the shortest route through the kit, use [Start here](docs/START_HERE.md); for milestone status and evidence limitations, see the [capability map](docs/CAPABILITY_STATUS.md).
 
+For a human-readable account of what was built, outstanding validation, release readiness, and proposed v1.1–v2.0+ capabilities, see the [project accomplishments and future roadmap](docs/PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md).
+
 ## Individual quick start
 
 1. Read the [standard](core/standards/ENGINEERING_STANDARD.md) and [classifications](core/standards/AUTONOMY_AND_RISK.md).
