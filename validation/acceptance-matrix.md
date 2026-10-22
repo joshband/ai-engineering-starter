@@ -106,3 +106,23 @@ Run `python3 validation/validate.py`, `python3 -m unittest discover -s validatio
 | M4 human acceptance | Responsible architecture and security review of draft PR | Pending review; merge and release reserved |
 
 Reviewers should confirm that the two native entry points route to one shared standard, that SHOULD remains conditional, that a risk label or `adapter_candidate` never grants permission, and that no static result is called runtime enforcement. A real Codex discovery check, if later available, should record version, active instruction files, prompt, settings context, and observed output.
+
+## M5 reusable skills candidate checks
+
+M5 adds five opt-in skill procedures under [skills](../skills/README.md). They are reference workflows, not auto-discovered native agent skills, runtime permissions, or new normative requirements. M1 remains the sole STD policy owner.
+
+| Requirement | Verification method | Current evidence / limit |
+| --- | --- | --- |
+| Skill inventory | Inspect five SKILL.md files and index | Passed by GitHub tree inspection (2026-10-22) |
+| Canonical links | Resolve Markdown links within skill library against branch tree | Passed independently: 32 relative links, 0 broken (2026-10-22) |
+| No duplicated STD headings | Inspect new skill Markdown | Passed by structural scan; semantic consistency still needs reviewer judgment |
+| Quick remains lightweight | Inspect task intake and verification procedures | Passed editorial review; no required Quick form |
+| Exception authority and Profile H | Inspect exception procedure against STD-16 | Passed editorial review; conditional trigger preserved; no self-authorization |
+| Acceptance vs execution/merge/release | Inspect review and verification procedures | Passed editorial review; states remain distinct |
+| M5 regression tests | `python3 -m unittest discover -s validation/tests -v` | **Not run** against complete checkout in this connector-only session; new test_skills.py added |
+| M1–M4 regression validator | `python3 validation/validate.py` | **Not run** against complete checkout in this connector-only session |
+| Whitespace | `git diff main...HEAD --check` | **Not run** locally; GitHub diff review does not substitute for command |
+| Native Claude/Codex skill discovery | Live integration test | **Unverified**; no automatic installation or discovery implemented by M5 |
+| Human acceptance | Maintainer review of verified candidate | Pending review until required checks are run and evidence reviewed |
+
+**Current state:** Execution Partial (required Python/whitespace verification pending); Acceptance Pending review. No merge, release, or M6 work.
