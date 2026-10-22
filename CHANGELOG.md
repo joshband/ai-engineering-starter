@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 candidate — 2026-10-22
+
+- Added a root Claude Code instruction entry point importing the accepted M1 standard and taxonomy, with direct navigation to M2 controls and the contracts.
+- Added incremental adoption, control mapping, permission-boundary, validation, and removal guidance.
+- Added structural tests for discovery, contract cases, escalation, and operation without optional Claude Code runtime features.
+- Claude Code integration behavior Unverified in this environment; M3 human acceptance Pending review. No hooks, project permissions, merge, release, or later milestones.
+
 ## 0.2.0 candidate — 2026-10-22
 
 - Added versioned structured controls for STD-01 through STD-16 and optional Task, Handoff, Completion, and Exception record schemas.
