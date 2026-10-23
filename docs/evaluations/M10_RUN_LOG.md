@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Three read-only pre-run entries (M10.1-INV-01 inventory; M10.1-ARMA-01, -02 and -03 Arm A load checks) and one scope decision (D-01). The F1 documentation fixture has been executed in two Arm A / Arm B pairs on 2026-10-23: the first pair (F1A-02, F1B-01) is not comparable because of a constraint-wording flaw, and F1A-01 was a void attempt; the second pair (F1A-03, F1B-02) completed in both arms. Independent checks ran on local reconstructions. Review verdicts are provisional: the only reviewer so far is the assistant that built the fixture, not independent and not blind, and a human or blind review is pending. One pair on one easy task shows no clear kit benefit and cannot meet the usefulness gate. F2 to F5 have not been run.\
+**Status:** Three read-only pre-run entries (M10.1-INV-01 inventory; M10.1-ARMA-01, -02 and -03 Arm A load checks) and one scope decision (D-01). The F1 documentation fixture has been executed in two Arm A / Arm B pairs on 2026-10-23: the first pair (F1A-02, F1B-01) is not comparable because of a constraint-wording flaw, and F1A-01 was a void attempt; the second pair (F1A-03, F1B-02) completed in both arms. Independent checks ran on local reconstructions. Review verdicts are provisional: the only reviewer so far is the assistant that built the fixture, not independent and not blind, and a blind review by a fresh model agent has since agreed (see the blind-review addendum); a human review is still pending. One pair on one easy task shows no clear kit benefit and cannot meet the usefulness gate. F2 to F5 have not been run.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -308,4 +308,18 @@ Verdict:                       Both accepted as F1 outcomes, provisional (accept
 What the evidence supports:    On this one documentation task, both arms produced a correct, in-scope change. The kit did not change the correctness or scope outcome and added about 27 percent cost and extra steps; it produced visibly different reporting (state labels, a checks table). That is not evidence that the kit helps or hurts. The usefulness gate needs 2 of 3 independently accepted small fixtures and a named improvement, so F1 alone cannot meet it; F2 and F3 (where verification and honest reporting matter more) are untested
 Budget:                        Cumulative cost 0.473 + 0.150 + 0.190 = 0.813 USD of 1 USD. Another pair would not fit; a new ceiling is needed
 Next:                          Maintainer decision: stop at F1, or raise the ceiling for F2 (deterministic parser fix with a hidden test) and F3 (seeded defect), where the kit's verification guidance is more likely to matter. A human or blind reviewer should still score F1
+```
+
+### Addendum — blind model review of F1 run 2 (2026-10-23)
+
+```text
+Reviewer:                      A fresh model agent (general-purpose subagent, same model family as the runs, so not a human and not model-independent), started with only the packet text pasted into its prompt: task, docs/CONFIG.md ground truth, the original section, and the two candidate paragraphs labelled X and Y, with no arm names, ids, costs or turn counts. It was told not to use tools and not to guess provenance. It used one tool call in its run record (not inspected). The maintainer asked for a blind score because they did not know how to score
+Randomization / key:           Assignment of A and B to X and Y was random and stored in a separate key file that the starter-kit session did not read until after the scoring. The session could still infer the mapping from the wording of the diffs it had seen earlier, so the session itself was not blind; the scoring agent was
+Scores (agent):                Correct against CONFIG.md: X Pass, Y Pass. Scope: Pass, Pass. Clarity: Pass, Pass (Y states the default up front; X gives it at the end of the list). Redundancy: X Minor issue (small overlap), Y Minor issue (default and order each stated twice, larger repetition). Unsupported claims: Pass, Pass
+Overall:                       Accept X yes. Accept Y yes, with optional edits to trim repeated statements
+Preference:                    X, narrowly. A reasonable reviewer could prefer Y
+Key opened after scoring:      X = Arm B (kit), run F1B-02. Y = Arm A (no kit), run F1A-03
+Comparison with the earlier provisional review: Consistent. The earlier review also called both correct and in scope and found Arm B's text slightly clearer with no repeated content, and Arm A's repeated its order in prose and list
+What this adds:                A second, blinded opinion that the two outputs are of equal correctness and scope, with a slight, uncertain edge to the kit arm's writing. It does not show the kit helps: one pair, one easy task, and the same preference could come from phrasing variation between two runs. The kit arm still cost about 27 percent more
+Still missing:                 A human review (the maintainer has no scoring experience and asked for a model to score); any F2 to F5 evidence
 ```
