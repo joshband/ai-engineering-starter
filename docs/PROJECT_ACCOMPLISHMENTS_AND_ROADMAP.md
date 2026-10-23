@@ -200,7 +200,7 @@ Consider only after real usage justifies the additional complexity:
 - **Reviewed workflow improvement:** Propose changes to checks or routing based on evidence, without permitting agents to expand their own authority.
 - **Organization-level governance:** Versioned policy distribution, scoped exceptions, and audit evidence where organizational needs warrant it.
 
-**Follow-on research (2026-10-22):** The [Phase D/E options dossier](research/phase-d-e/README.md) evaluates a **Claude-first but provider-neutral** execution coordinator and an evidence-driven self-improvement / reinforcement-learning research track. These are proposals, not approved implementation or v2.0 commitments.
+**Follow-on research (2026-10-22):** The [Phase D/E options dossier](research/phase-d-e/README.md) preserves the original Claude-first, provider-neutral coordinator research and expands it into a **build-versus-adopt assessment**: [Claude Agent SDK vs Pi vs OpenCode](research/phase-d-e/EXPANDED_ECOSYSTEM_REVIEW.md) as coding-harness finalists; **OpenClaw vs a lightweight local coordinator** as separate dispatch alternatives; Codex SDK portability reference; OpenHands/Goose and durability/gateway options. A [Claude native feature map](research/phase-d-e/CLAUDE_NATIVE_CAPABILITIES.md) covers hooks, plugins, skills, subagents and MCP; [learning research](research/phase-d-e/LEARNING_SYSTEMS.md) covers evaluation-driven self-improvement, contextual bandits and future RL. **Selection remains provisional until comparable tasks and negative security tests are run.** These are proposals, not approved implementation or v2.0 commitments.
 
 ## 5. Priorities, dependencies, and decision gates
 
