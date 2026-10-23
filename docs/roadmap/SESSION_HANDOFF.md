@@ -51,8 +51,8 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 **Next actions, in order. Each needs the approval noted:**
 
 1. ~~**Independent Arm A load check.**~~ Done as ARMA-03. Open point: capture `/status` or an init record for counts in the first real fixture session.
-2. **Decide user-level scope.** The inventory shows 77 skills, 10 plugins and up to 30 MCP servers at user level when launched from the starter-kit session, but ARMA-03 saw only 30 skills and no named plugins in a fresh no-repository session, so session setup changes the baseline. Choose one: use a clean profile or account, or declare the set identically for all arms. Record the choice and the available-but-unapproved items in the run log. *Gate:* maintainer decision. *Artifact:* a short decision note in the run log or tooling profile. *Approval:* maintainer.
-3. **Approve and run the first F1 fixture, Arm A then Arm B.** Same base SHA, model, permissions and byte-identical task prompt. Fill the placeholders in Prompt D, including publication level, budget and stop conditions. *Gate:* actions 1 and 2 complete, and explicit approval naming fixture, files, commands and publication level. *Artifact:* run-log entries with exit codes, checks not run, and a reviewer verdict.
+2. ~~**Decide user-level scope.**~~ Decided (run log D-01, maintainer): run every arm in a fresh no-repository cloud session with the smaller user-level set seen in ARMA-03, and record the actual set per run.
+3. **Approve and run the first F1 fixture, Arm A then Arm B.** Same base SHA, model, permissions and byte-identical task prompt. Fill the placeholders in Prompt D, including publication level, budget and stop conditions. *Gate:* actions 1 and 2 complete (done), and explicit approval naming fixture, files, commands and publication level. *Artifact:* run-log entries with exit codes, checks not run, and a reviewer verdict.
 
 **Open items that do not block action 1:** effort setting is unverified in every entry; hook firing and permission denial are untested (enforcement is not shown); the earlier ARMA-01 transcript was not retained; the Codex path stays inactive.
 
