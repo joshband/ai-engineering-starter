@@ -1,28 +1,29 @@
 # Phase D — constrained execution-coordinator proof-of-concept plan
 
 **Status:** Proposed experiment charter; no execution authorized or performed.  
-**Primary harness:** Claude Agent SDK. **Second-harness gate:** Codex SDK.  
+**First model preference:** Claude. **Harness finalists:** Claude Agent SDK, Pi, OpenCode. **Second-provider/native baseline:** Codex SDK. **Coordinator alternatives:** minimal local state machine vs OpenClaw.  
 **Target:** Disposable fixture repository derived from a non-sensitive test project; no live production resources.
 
 ## Research questions
 
-1. Can a coordinator reliably constrain a Claude coding agent to one authorized change?
+1. Can a coordinator reliably constrain a Claude coding agent to one authorized change, **regardless of selected harness**?
 2. Can it preserve authoritative task state across interruption while reconciling uncertain effects?
 3. Can it generate useful verification and cost evidence without exposing source content unnecessarily?
-4. Can the *same* task/evidence contract be exercised through Codex without rewriting the coordinator?
-5. Is the human review experience materially better than a direct Claude Code session?
+4. Can the *same* task/evidence contract be exercised through Codex and Pi/OpenCode without rewriting the coordinator?
+5. Is the human review experience materially better than a direct Claude Code session, and does OpenClaw add enough value to justify its gateway surface?
 
 ## Milestones (bounded, implementation-neutral)
 
 | Step | Deliverable | Required evidence | Gate |
 | --- | --- | --- | --- |
 | P0 — Baseline | Fixture repo and 3–5 tasks with expected results; runnable checks | Fixed revisions, scope and recorded baseline human effort | Maintainer approves fixture |
-| P1 — Claude integration | AgentAdapter implementation, capability manifest and explicit authentication setup | Observed startup, permission/skill/policy load, cancellation, charges if available | No unsupported billing or credentials |
+| P1 — Harness comparison | Claude Agent SDK, Pi and OpenCode spikes using Claude where authorized; Codex SDK native reference | Observed tool, skill, hook, subagent, auth, permissions, cancellation, event and cost differences | Select harness only after comparison |
+| P1b — Coordinator comparison | Minimal SQLite runner vs OpenClaw dispatch to approved external harness | ACP/host isolation, session ACL, startup/ops cost, lifecycle and recovery behavior | Stop on unauthorized session or filesystem access |
 | P2 — Safety kernel | Task authority state, restricted worker, read/write/command/network tests | Denied-action tests and config records | Stop on bypass |
 | P3 — Event/recovery | SQLite journal, effect ledger and restart workflow | Crash injection and no blind external side-effect retry | Resume gate |
 | P4 — Evidence | Actual command/check outcomes, artifact hashes, redaction, test states | Reproducible report distinct from human acceptance | Human review |
 | P5 — Sequential handoff | Separate implementation and verification stages | Verifier detects deliberately seeded error and incomplete check | No automatic acceptance |
-| P6 — Portability | Codex adapter spike, same fixture contract | Identical expected outcome/evidence fields; document differences | Can call multi-harness only if successful |
+| P6 — Portability | Codex SDK and second provider through Pi/OpenCode, same fixture contract | Identical expected outcome/evidence fields; document differences | Can call multi-harness only if successful |
 | P7 — Comparative evaluation | 10–20 small varied tasks (where practical) and structured human review | Cost/time/quality comparison and variance, not just averages | Go/no-go on extension |
 
 Do not promise a 4–8 week schedule as binding. Time depends on runtime access, provider authorization, and correctness of isolation mechanisms.
