@@ -1,6 +1,6 @@
 # Primary source register — Phase D/E options
 
-**Research snapshot:** 2026-10-22. Source links were researched as public documentation; these are not executed integration tests. Follow the publisher's latest version and permission terms before coding. **Every claim in this dossier labeled [Snn] traces to an entry below.**
+**Research snapshot:** 2026-10-22. Expanded to include Pi, OpenCode, OpenClaw, OpenHands and Goose; original research preserved below. Source links were researched as public documentation; these are not executed integration tests. Follow the publisher's latest version and permission terms before coding. **Every claim in this dossier labeled [Snn] traces to an entry below.**
 
 | ID | Source and URL | What it supports | Limit / follow-up |
 | --- | --- | --- | --- |
@@ -18,6 +18,29 @@
 | S12 | [Self-Improvements in Modern Agentic Systems](https://selfimproving-agent.github.io/) (2026 survey) | Distinction between model-weight and scaffolding optimization | Research survey; verify particular papers before implementing |
 | S13 | OpenAI, [Agents SDK documentation](https://openai.github.io/openai-agents-python/) | Alternative SDK for an application-owned tool loop | Not a drop-in Claude Code/Codex coding harness |
 | S14 | Anthropic, [Automated Weak-to-Strong Researcher](https://alignment.anthropic.com/2026/automated-w2s-researcher/) (2026) | Example of AI-driven iterative research in specialized benchmark environments | Does not demonstrate safe recursive autonomous engineering outside its testbeds |
+
+## Expanded ecosystem sources (added 2026-10-22)
+
+| ID | Source and URL | What it supports | Limit / follow-up |
+| --- | --- | --- | --- |
+| S15 | Pi, [coding agent README](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | Minimal harness, model providers, SDK, RPC/JSON, extensions, skills, packages; subagents via extensions | Pin exact upstream version; verify permissions, model access and extension provenance |
+| S16 | Pi, [extensions documentation](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md) | Lifecycle events, tool interception, custom tools, subagent examples; extensions execute with process privileges | Extension gates are not OS isolation; test shell/other tool paths |
+| S17 | OpenCode, [SDK](https://opencode.ai/docs/sdk/) | TypeScript client and server-driven programmatic control | Pin API/server version and events |
+| S18 | OpenCode, [plugins](https://opencode.ai/docs/plugins/) | Event hooks and JS/TS plugin extensibility | Plugins run code; inspect installation and trust model |
+| S19 | OpenCode, [providers](https://opencode.ai/docs/providers/) | Many cloud/local providers and provider configuration | Credential storage, billing, feature parity and local quality need testing |
+| S20 | OpenHands, [Software Agent SDK](https://docs.openhands.dev/sdk) and [project SDK repo](https://github.com/OpenHands/software-agent-sdk) | Agent/workspace/event/server architecture, security policy and remote execution | More operational surface; isolation and persistence require hands-on proof |
+| S21 | Goose, [SDK / GDK](https://goose-docs.ai/docs/gdk/sdk/) | Native Rust SDK, provider bindings and model support | Python/Kotlin shared bindings and SDK are alpha; do not assume full feature parity |
+| S22 | OpenClaw, [ACP agents](https://docs.openclaw.ai/tools/acp-agents) | External coding harness dispatch (Claude, Codex, OpenCode, others), separate native Codex app-server path | Confirm ACP plugin versions, external harness auth and cancellation |
+| S23 | OpenClaw, [ACP sessions](https://docs.openclaw.ai/tools/acp-agents/sessions) | Persistent/bound ACP sessions and spawn lifecycle | Session persistence is not external effect reconciliation |
+| S24 | OpenClaw, [ACP delivery and sandbox boundary](https://docs.openclaw.ai/tools/acp-agents/delivery) | **ACP external harnesses execute on host outside OpenClaw sandbox** | Must independently restrict host, filesystem, network and credentials |
+| S25 | OpenClaw, [session visibility and cross-agent controls](https://docs.openclaw.ai/gateway/config-tools/sessions-and-subagents) | Cross-agent access and session visibility configuration, including broad defaults | Explicitly set narrow visibility; test privacy and ACLs |
+| S26 | OpenClaw, [ACP bridge](https://docs.openclaw.ai/cli/acp) | Gateway-backed ACP server bridge vs external harness ACP agent mode | These are different integration modes; avoid conflation |
+
+### Supplementary reference candidates, not fully evaluated
+
+- [Mastra documentation](https://mastra.ai/docs), [Pydantic AI durable execution](https://ai.pydantic.dev/durable_execution/), [DBOS documentation](https://docs.dbos.dev/): potential workflow/durability alternatives; verify current features and operational burden before shortlisting.
+- [Cline](https://docs.cline.bot/) and [Aider](https://aider.chat/docs/): IDE-centric and lightweight Git editing baselines; not yet SDK/permission audited.
+- [Agent Client Protocol](https://agentclientprotocol.com/): protocol-level integration concept; do not assume common protocol implies identical security or skill semantics.
 
 ## Research methods and caveats
 
