@@ -13,7 +13,11 @@ Each capability receives a 1–5 assessment across risk reduction (30%), cross-p
 | D03 | Verification and audit evidence | 5 | 5 | 4 | 5 | 5 | **4.80** | **P0** |
 | D04 | Time/iteration/cost stops | 5 | 4 | 4 | 5 | 5 | **4.55** | **P0** |
 | D05 | Resume/reconcile effect ledger | 5 | 4 | 3 | 5 | 5 | **4.35** | **P0, narrow** |
-| D06 | **Claude Agent SDK** harness adapter | 4 | 5 | 4 | 4 | 5 | **4.35** | **P0, first** |
+| D06 | **Claude Agent SDK** harness adapter | 4 | 5 | 4 | 4 | 5 | **4.35** | **P0, comparison** |
+| D19 | Pi SDK/RPC harness parity spike | 4 | 5 | 4 | 5 | 5 | **4.50** | **P0, finalist** |
+| D20 | OpenCode SDK/plugin harness parity spike | 4 | 5 | 4 | 5 | 5 | **4.50** | **P0, finalist** |
+| D21 | OpenClaw vs minimal coordinator comparison | 5 | 4 | 3 | 4 | 5 | **4.20** | **P1, separate layer** |
+| D22 | Claude native hooks/plugins/skills/subagents parity | 4 | 5 | 5 | 4 | 5 | **4.55** | **P0, before building substitutes** |
 | D07 | Codex adapter parity smoke test | 4 | 5 | 3 | 5 | 5 | **4.30** | **P1, portability gate** |
 | D08 | Static explainable model routing | 3 | 5 | 5 | 5 | 5 | **4.40** | **P1** |
 | D09 | Sequential implementation→verification | 4 | 4 | 4 | 4 | 5 | **4.10** | **P1** |
@@ -32,9 +36,9 @@ Each capability receives a 1–5 assessment across risk reduction (30%), cross-p
 
 ## Priority bundles
 
-**P0 — Foundation and measurement.** D01/02/03/04/05/06 and outcome instrumentation for D10. One approved, local, reversible fixture; Claude-first; no production secrets or external writes. Fail-closed boundaries.
+**P0 — Foundation and measurement.** D01/02/03/04/05 plus **Claude/Pi/OpenCode comparison** (D06/D19/D20), Claude native feature parity (D22), and outcome instrumentation for D10. One approved, local, reversible fixture; Claude model first where permitted; no production secrets or external writes. Fail-closed boundaries.
 
-**P1 — Portability and usefulness.** D07/08/09; dataset analysis D10; optional draft PR handoff D11 subject to additional authority. Codex parity and transparent model/harness identity.
+**P1 — Portability and usefulness.** D07/08/09 and **OpenClaw vs minimal coordinator** (D21); dataset analysis D10; optional draft PR handoff D11 subject to additional authority. Codex parity and transparent model/harness identity.
 
 **P2 — Selective productivity improvements.** D12/13, optional durable-framework spike D14; begin eval-gated self-improvement proposals and local/cloud tests.
 
@@ -42,7 +46,7 @@ Each capability receives a 1–5 assessment across risk reduction (30%), cross-p
 
 ## Top five decisions recommended now
 
-1. Claude Agent SDK first, but the first coordinator interface is **provider-independent**.
+1. **Claude-first workflow, not predetermined harness**: benchmark Claude SDK, Pi and OpenCode before selection; keep coordinator interface **provider-independent**.
 2. Independent task authority and worker constraints, not prompt-only policies.
 3. A local event/effect journal with **reconciliation before retries**.
 4. Evaluation records from the very first run, with human-calibrated outcomes.
