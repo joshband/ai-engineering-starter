@@ -15,19 +15,19 @@ Each capability receives a 1–5 assessment across risk reduction (30%), cross-p
 | D05 | Resume/reconcile effect ledger | 5 | 4 | 3 | 5 | 5 | **4.35** | **P0, narrow** |
 | D06 | **Claude Agent SDK** harness adapter | 4 | 5 | 4 | 4 | 5 | **4.35** | **P0, first** |
 | D07 | Codex adapter parity smoke test | 4 | 5 | 3 | 5 | 5 | **4.30** | **P1, portability gate** |
-| D08 | Static explainable model routing | 3 | 5 | 5 | 5 | 5 | **4.35** | **P1** |
+| D08 | Static explainable model routing | 3 | 5 | 5 | 5 | 5 | **4.40** | **P1** |
 | D09 | Sequential implementation→verification | 4 | 4 | 4 | 4 | 5 | **4.10** | **P1** |
-| D10 | Learning/evaluation dataset | 4 | 5 | 4 | 5 | 5 | **4.55** | **P0 capture, P1 analysis** |
+| D10 | Learning/evaluation dataset | 4 | 5 | 4 | 5 | 5 | **4.50** | **P0 capture, P1 analysis** |
 | D11 | GitHub draft-PR handoff | 3 | 4 | 4 | 4 | 5 | **3.80** | **P1 only if separately authorized** |
-| D12 | Local-model integration | 3 | 4 | 3 | 4 | 5 | **3.55** | P2 |
+| D12 | Local-model integration | 3 | 4 | 3 | 4 | 5 | **3.60** | P2 |
 | D13 | Reviewed self-improvement suggestions | 4 | 5 | 3 | 4 | 4 | **4.05** | P2 after eval baseline |
 | D14 | LangGraph/Temporal migration | 4 | 3 | 2 | 3 | 4 | **3.20** | P2 demand-triggered |
-| D15 | Learned contextual routing/bandits | 2 | 4 | 2 | 3 | 3 | **2.65** | P3 until adequate data |
+| D15 | Learned contextual routing/bandits | 2 | 4 | 2 | 3 | 3 | **2.75** | P3 until adequate data |
 | D16 | Parallel multi-agent writes | 2 | 3 | 2 | 2 | 3 | **2.35** | P3 |
 | D17 | Policy/model reinforcement learning | 2 | 3 | 1 | 2 | 2 | **2.05** | Research-only, Phase E |
 | D18 | Autonomous merge/deploy | 1 | 2 | 2 | 2 | 3 | **1.80** | **Exclude from POC** |
 | E01 | Cross-repo retrieval with ACL/provenance | 3 | 4 | 2 | 3 | 4 | **3.15** | Phase E |
-| E02 | Hybrid local/cloud policy | 4 | 4 | 3 | 4 | 4 | **3.85** | After P2 local comparisons |
+| E02 | Hybrid local/cloud policy | 4 | 4 | 3 | 4 | 4 | **3.80** | After P2 local comparisons |
 | E03 | Organization-wide policy distribution | 4 | 2 | 2 | 3 | 3 | **2.85** | Demand-triggered |
 
 ## Priority bundles
