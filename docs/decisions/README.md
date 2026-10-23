@@ -2,6 +2,10 @@
 
 This is a navigation index, not a second policy authority.
 
+## Proposed current decision
+
+- [ADR-007 — Claude + GitHub first; preserve portable architecture](ADR-007-CLAUDE-GITHUB-FIRST.md). **Proposed**, not an accepted revision to STD-01–16: native-first reference implementation, dormant alternative adapters, optional coordinator only if measured need.
+
 ## Existing decisions
 
 The [root README's architecture decisions section](../../README.md#architecture-decisions) records ADR-001 through ADR-006 at summary level:
