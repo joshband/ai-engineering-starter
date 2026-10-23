@@ -1,26 +1,28 @@
 # Phase D/E — Execution Coordinator and Learning Systems Research
 
 **As of:** 2026-10-22 · **State:** Research proposal, not implementation or approved milestones  
-**Initial preference:** Claude-first, **provider-independent by architecture**.  
+**Initial workflow preference:** Claude-first, **provider-independent by architecture**. **Harness selection remains open** among Claude Agent SDK, Pi and OpenCode; coordinator selection remains open between a lightweight state machine and OpenClaw.  
 **Scope:** Options, decisions, risks, source register, and bounded proof-of-concept specification for the [project roadmap](../../PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md).
 
 ## Decision summary
 
 Build an **optional coordinator above the portable M1–M9 foundation**, not a replacement engineering standard or a parallel agent platform.
 
-**Recommended first prototype:** a locally controlled, single-repository coordinator using **Claude Agent SDK** as first harness integration; common typed `AgentAdapter` interface with a Codex adapter acceptance test before treating the platform as portable. Use scoped task authority, independent worker restrictions, explicit spending/iteration limits, SQLite journal + effect ledger, deterministic checks, and human review. Keep raw external publications disabled until separately authorized.
+**Recommended first experiment:** a locally controlled, single-repository **head-to-head harness spike** with Claude Agent SDK, Pi and OpenCode using Claude where permitted, plus a Codex SDK portability baseline. After measuring capabilities and safety, choose a harness for the bounded coordinator POC. Compare **OpenClaw vs lightweight coordinator** separately. Preserve a common typed `AgentAdapter` contract. Use scoped task authority, independent worker restrictions, explicit spending/iteration limits, SQLite journal + effect ledger, deterministic checks, and human review. Keep raw external publications disabled until separately authorized.
 
 **Learning strategy:** begin on day one with evaluation and outcome data. Allow a future *reviewed* improvement cycle for prompts, skills, task decomposition, tool profiles, and model routing. Explore online learning (e.g., contextual bandits) only after a sufficiently diverse task dataset and defensible rewards. Defer actual RL policy/model training and unrestricted self-modification.
 
 ### Read the dossier in order
 
 1. [Technology and provider assessment](TECHNOLOGY_OPTIONS.md) — Claude-first vs Codex, other runtimes, orchestration, storage, gateways.
-2. [Priority and selection matrix](CAPABILITY_PRIORITIES.md) — recommended P0/P1/P2/P3 features and dependencies.
-3. [Reference architecture](REFERENCE_ARCHITECTURE.md) — interfaces, enforcement boundaries, recovery, lifecycle, evidence.
-4. [Proof-of-concept plan](POC_EXECUTION_PLAN.md) — acceptance tests, experiments, sequencing, failure injection.
-5. [Self-improvement and reinforcement-learning track](LEARNING_SYSTEMS.md) — reward design, bandits, offline RL, evaluation and promotion gates.
-6. [Phase E future options](PHASE_E_OPTIONS.md) — longer-term decision triggers.
-7. [Primary-source register](SOURCE_REGISTER.md) — official documentation, observation boundaries, refresh questions.
+2. [Expanded ecosystem review](EXPANDED_ECOSYSTEM_REVIEW.md) — Pi, OpenCode, OpenClaw, OpenHands, Goose, and layered selection.
+3. [Claude native feature parity](CLAUDE_NATIVE_CAPABILITIES.md) — hooks, skills, plugins, subagents, MCP, SDK differences.
+4. [Priority and selection matrix](CAPABILITY_PRIORITIES.md) — recommended P0/P1/P2/P3 features and dependencies.
+5. [Reference architecture](REFERENCE_ARCHITECTURE.md) — interfaces, enforcement boundaries, recovery, lifecycle, evidence.
+6. [Proof-of-concept plan](POC_EXECUTION_PLAN.md) — acceptance tests, experiments, sequencing, failure injection.
+7. [Self-improvement and reinforcement-learning track](LEARNING_SYSTEMS.md) — reward design, bandits, offline RL, evaluation and promotion gates.
+8. [Phase E future options](PHASE_E_OPTIONS.md) — longer-term decision triggers.
+9. [Primary-source register](SOURCE_REGISTER.md) — official documentation, observation boundaries, refresh questions.
 
 ## Selection rationale
 
@@ -36,4 +38,4 @@ No model, framework, or provider is selected as the sole architecture. Model por
 - Start with a reversible fixture repository, no production secrets, one executor, no merges or deployments.
 - Preserve source provenance and experiment outcomes per [documentation retention](../../DOCUMENTATION_RETENTION.md).
 
-**Decision requested for the next stage:** approve the POC *scope* and the initial Claude adapter spike, not an unrestricted implementation or release.
+**Decision requested for the next stage:** approve the *comparison spike scope*, including Claude-native feature parity and Pi/OpenCode harness comparisons, plus a separate OpenClaw gateway evaluation. Do not approve a production coordinator, unrestricted implementation, or release from this research alone.
