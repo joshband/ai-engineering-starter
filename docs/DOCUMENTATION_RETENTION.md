@@ -1,6 +1,6 @@
 # Research, decision, and evidence retention
 
-**Status:** Proposed documentation practice in draft PR #10; descriptive, not a new STD requirement.  
+**Status:** Proposed documentation practice in draft PR #10; descriptive, not a new STD requirement.\
 **Scope:** Materials supporting the AI-Native Software Engineering Starter Kit.
 
 ## Principles
