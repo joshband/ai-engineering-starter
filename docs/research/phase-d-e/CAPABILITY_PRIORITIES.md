@@ -25,7 +25,7 @@ Each capability receives a 1–5 assessment across risk reduction (30%), cross-p
 | D15 | Learned contextual routing/bandits | 2 | 4 | 2 | 3 | 3 | **2.65** | P3 until adequate data |
 | D16 | Parallel multi-agent writes | 2 | 3 | 2 | 2 | 3 | **2.35** | P3 |
 | D17 | Policy/model reinforcement learning | 2 | 3 | 1 | 2 | 2 | **2.05** | Research-only, Phase E |
-| D18 | Autonomous merge/deploy | 1 | 2 | 2 | 2 | 3 | **1.75** | **Exclude from POC** |
+| D18 | Autonomous merge/deploy | 1 | 2 | 2 | 2 | 3 | **1.80** | **Exclude from POC** |
 | E01 | Cross-repo retrieval with ACL/provenance | 3 | 4 | 2 | 3 | 4 | **3.15** | Phase E |
 | E02 | Hybrid local/cloud policy | 4 | 4 | 3 | 4 | 4 | **3.85** | After P2 local comparisons |
 | E03 | Organization-wide policy distribution | 4 | 2 | 2 | 3 | 3 | **2.85** | Demand-triggered |
