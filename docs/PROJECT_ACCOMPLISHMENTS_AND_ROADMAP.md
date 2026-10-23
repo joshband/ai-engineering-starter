@@ -200,6 +200,8 @@ Consider only after real usage justifies the additional complexity:
 - **Reviewed workflow improvement:** Propose changes to checks or routing based on evidence, without permitting agents to expand their own authority.
 - **Organization-level governance:** Versioned policy distribution, scoped exceptions, and audit evidence where organizational needs warrant it.
 
+**Follow-on research (2026-10-22):** The [Phase D/E options dossier](research/phase-d-e/README.md) evaluates a **Claude-first but provider-neutral** execution coordinator and an evidence-driven self-improvement / reinforcement-learning research track. These are proposals, not approved implementation or v2.0 commitments.
+
 ## 5. Priorities, dependencies, and decision gates
 
 | Order | Recommendation | Dependency | Gate |
