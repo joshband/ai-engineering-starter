@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). **Arm B has not been run**; no comparison exists. **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -61,6 +61,8 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | [M10.1-ARMA-01](#m101-arma-01--arm-a-pre-run-load-check) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed; leaks and limits below** | REVISE fixture path, then REPEAT in an independent session |
 | [M10.1-ARMA-02](#m101-arma-02--arm-a-pre-run-load-check-repeat) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed again; path leak fixed; independence still missing** | REPEAT in an independent session; decide user-level scope |
 | [M10.1-ARMA-03](#m101-arma-03--arm-a-pre-run-load-check-independent-session) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed in an independent session; model-reported, no `/status`** | Decide user-level scope (action 2) |
+| [M10.1-F1A-01](#m101-f1a-01--f1-arm-a-attempt-void) | F1 | A | 2026-10-23 | **Void: no task executed** | Do not reuse; see F1A-02 |
+| [M10.1-F1A-02](#m101-f1a-02--f1-arm-a-run) | F1 | A | 2026-10-23 | **Completed; independent checks passed on a reconstructed commit; reviewer verdict pending** | Run Arm B, then review both |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -173,4 +175,45 @@ Basis:                         ARMA-03 (Observed, model-reported) versus ARMA-01
 Still to do per run:           Record the actual skill, plugin and MCP set from an init record or `/context` in each run entry, and confirm it matches across arms. Available-but-unapproved connectors remain not approved (only Claude Code and GitHub are approved)
 Not decided:                   Whether to remove the unapproved connectors from the account; effort setting; hook behavior
 Revisit when:                  A run shows the capability set differs between arms, or the account's plugins or connectors change
+```
+
+### M10.1-F1A-01 — F1 Arm A attempt (void)
+
+```text
+Run ID / date:                 M10.1-F1A-01, 2026-10-23
+Fixture / Arm:                 F1 (documentation-only clarification), Arm A
+Approved scope / publication:  Maintainer: "run Arm A with LOCAL ONLY, $1 ceiling". No push, PR or connector use
+Session:                       session_01WvgtbPjCkVBhx2oQVtfzVA (fresh cloud session, no repository), model claude-sonnet-5-5, permission mode auto
+Method:                        Load-check prompt as the session's first message; setup script and task were to follow as messages from the starter-kit session
+Outcome:                       Load check completed: no CLAUDE.md or AGENTS.md found in /home/user or /root (Observed by the session via Glob). The follow-up setup message was NOT executed: the session treated a message from another session as data, not as an instruction from the user, and asked for confirmation. No fixture was built and no task was run
+Cost:                          0.129 USD (session result record; list-price basis)
+External effects:              none
+Findings:                      Orchestrating a run through follow-up messages between sessions does not work, because the receiving session does not treat them as user instructions. Later runs must deliver load check, setup and task in the session's first prompt. That puts the load check in the same turn as the task, not before it
+Evidence labels:               Observed: session behavior and cost. Not run: task, hidden checks
+Recommendation:                Void for comparison; keep as a failed attempt. Do not count in any rate
+```
+
+### M10.1-F1A-02 — F1 Arm A run
+
+```text
+Run ID / date:                 M10.1-F1A-02, 2026-10-23 ~21:35Z
+Fixture / M8 mapping:          F1 documentation-only clarification; supports M8 C1 (absence check) only
+Arm / delivery modes:          A. No starter-kit material by any mode. The fixture has no instruction file
+Approved scope / publication:  Maintainer: LOCAL ONLY, 1 USD ceiling. Commit allowed in the disposable repo; no push
+Session:                       session_016T2B86HeorLN3T52vbNJq4 (fresh cloud session, no repository), claude-sonnet-5-5 (configured; serving model reported by the platform as claude-sonnet-5-5), Claude Code 2.1.309, permission mode auto. Effort UNVERIFIED
+Fixture:                       Built in the session by the deterministic setup script. Base 692fee4bd215b28131cb169350c85eba82884a57 (printed by the session, equal to the expected value). Script and checker are in the starter-kit session's scratchpad and are not committed
+Prompt:                        One first message with three ordered steps: load check, setup script, then constraints plus task. Assembled from combined_A.txt (sha256 prefix e918d127d842afe4); the text was pasted by hand, so byte equality with the file is not verified. Task wording (verbatim): "docs/USAGE.md section "Configuring the cache" is ambiguous about which setting wins when both the environment variable and the config file set the cache directory. Clarify the section so a reader knows the precedence order and the default. Change only that section. Do not change code, other docs, or any link. Commit the change in the local repository. Report what you changed and which checks you ran, and print git log --oneline , git diff HEAD~1..HEAD and git status --short."
+Instruction files loaded:      Observed (session report plus one find command over /home/user, depth 2, and ls ~/.claude): none. No starter-kit file or mention
+Changed files:                 docs/USAGE.md only, one commit (59c21d7 in the session's repo). Rewrote the section to give the order env var, then cache_dir, then the default, and noted an empty CACHEKIT_DIR counts as unset
+Independent checks:            Run by the maintainer's assistant on a LOCAL RECONSTRUCTION, because the session's container is not accessible: base rebuilt from the same script, the diff printed by the session applied, and the resulting blob ids compared to the diff's index line (before d178f23, after b9f981f: both equal). On the reconstruction: scope only docs/USAGE.md PASS; committed and clean PASS; outside-section unchanged PASS; section changed PASS; all links resolve PASS; heuristic precedence order mentioned PASS (heuristic, not a hard check). Exit 0
+Hidden assertion (human read):  PENDING. The precedence text matches docs/CONFIG.md by the assistant's reading; that is not the independent reviewer's verdict
+Deviations observed:           (1) The session saved the setup script to its scratchpad and ran it from there instead of pasting it into the shell; contents reported unchanged and the printed base matched. (2) Mid-run the session added a link to CONFIG.md, noticed the "do not change any link" rule, and removed it before committing (visible in the transcript). (3) Its commit message carried a Co-Authored-By and session trailer added by its own configuration. (4) Load check ran in the same turn as the task, not before it
+Verification truthfulness:     The session's claims about scope, links and diff are consistent with the independent checks. It stated it ran no linter or tests. Its claim that it read the text against CONFIG.md is not independently verifiable
+Commands + exit codes:         In-session commands not captured with exit codes; the setup script printed SETUP_OK; independent checker exit 0 on the reconstruction
+Cost / time:                   0.164 USD for the session (result record, list price); about 35 s of session time. Run 01 (void) 0.129 USD; total 0.293 USD against the 1 USD ceiling. Ceiling was observed, not technically enforced
+External effects:              none observed (no push, no PR, no connector use in the transcript excerpts read; the full transcript was not read line by line)
+Evidence labels:               Observed: base SHA, blob ids, checker results on the reconstruction, cost. Model-reported: instruction files loaded, checks it ran. Unverified: effort, hook behavior, the session's actual repository state, enforcement, full transcript review
+Findings:                      Arm A completed F1 without starter-kit guidance. The only blemish is the transient link addition, self-corrected. One arm and one run give no comparison. Arm B is blocked on a decision about how to deliver its CLAUDE.md imports at session start
+Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
+Recommendation:                REPEAT as a pair: run Arm B, then have the independent reviewer score both blind to arm
 ```

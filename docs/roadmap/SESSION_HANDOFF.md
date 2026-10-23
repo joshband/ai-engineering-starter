@@ -52,7 +52,7 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 1. ~~**Independent Arm A load check.**~~ Done as ARMA-03. Open point: capture `/status` or an init record for counts in the first real fixture session.
 2. ~~**Decide user-level scope.**~~ Decided (run log D-01, maintainer): run every arm in a fresh no-repository cloud session with the smaller user-level set seen in ARMA-03, and record the actual set per run.
-3. **Approve and run the first F1 fixture, Arm A then Arm B.** Same base SHA, model, permissions and byte-identical task prompt. Fill the placeholders in Prompt D, including publication level, budget and stop conditions. *Gate:* actions 1 and 2 complete (done), and explicit approval naming fixture, files, commands and publication level. *Artifact:* run-log entries with exit codes, checks not run, and a reviewer verdict.
+3. **First F1 fixture, Arm A then Arm B.** Arm A ran (F1A-02, 2026-10-23, local only, 0.293 USD including a void attempt); independent checks passed on a reconstructed commit, reviewer verdict pending. **Arm B is not run.** Blocker: its `CLAUDE.md` imports must exist at session start, which needs a disposable GitHub repo created from the prepared bundle (maintainer approval). Orchestrating a session by follow-up messages does not work; put everything in the first prompt.
 
 **Open items that do not block action 1:** effort setting is unverified in every entry; hook firing and permission denial are untested (enforcement is not shown); the earlier ARMA-01 transcript was not retained; the Codex path stays inactive.
 
