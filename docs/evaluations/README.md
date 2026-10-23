@@ -5,6 +5,7 @@ This index links to evidence in its existing location. It does not move, duplica
 | Evaluation | Source | Observed state |
 | --- | --- | --- |
 | M10 run log (primary evidence record) | [Run log](M10_RUN_LOG.md) | **Four read-only entries (inventory, three Arm A load checks) and one scope decision; F1 (twice), F3, F2 and F4 pairs run; all arms provisionally accepted; no outcome difference on any fixture; kit arm costs 0 to 27 percent more and writes a more explicit handoff in F4; pilot stopped by maintainer decision D-02, usefulness gate not met, finding recorded**; maps M8 scenarios without editing M8 |
+| M10 pilot fixtures, checkers and prompts | [Fixtures README](m10-fixtures/README.md) | Preserved material from the stopped pilot; hidden tests are visible, so not for use inside an evaluated session's reach |
 | M10 native Claude capability audit | [Unexecuted audit matrix](M10_CLAUDE_NATIVE_AUDIT.md) | **Proposed; no environment observed** |
 | M10 paired reference-workflow pilot | [Unexecuted protocol](M10_PILOT_EVALUATION_PROTOCOL.md), [M10 plan](../roadmap/M10_EXECUTION_PLAN.md) | **Proposed; no outcomes measured** |
 | Structural acceptance and deterministic fixtures | [Acceptance matrix](../../validation/acceptance-matrix.md), [control traceability](../../validation/control-traceability.md) | Checks cover structure, not actual permission enforcement |

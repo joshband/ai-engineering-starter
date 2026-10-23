@@ -1,0 +1,1 @@
+Before starting, read starter-kit/skills/task-intake/SKILL.md and starter-kit/skills/change-verification/SKILL.md and follow them.

@@ -1,0 +1,3 @@
+DO NOT OPEN BEFORE SCORING
+X = Arm B (kit), run F1B-02
+Y = Arm A (no kit), run F1A-03

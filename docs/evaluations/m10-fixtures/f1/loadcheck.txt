@@ -1,0 +1,1 @@
+Before any task: report which instruction files, skills and tools you have loaded (run /status or /context if you can), and list the full paths of any CLAUDE.md or AGENTS.md. Do not edit anything yet.

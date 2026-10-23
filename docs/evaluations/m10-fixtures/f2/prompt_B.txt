@@ -1,0 +1,9 @@
+Do these three steps in order. This is one task from the repository owner; do not wait for further confirmation between steps.
+
+STEP 1 - load check (before editing anything): report which instruction files, skills and tools you have loaded (run /status or /context if you can), and list the full paths of any CLAUDE.md or AGENTS.md. Write this report as a message before you start Step 2. Do not edit anything yet.
+
+STEP 2 - setup: run `git rev-parse HEAD` and `git status --short` in the current working directory and report both outputs. Then run `git switch -c f2-arm-b-01`.
+
+STEP 3 - task. Constraints for this task: work only inside the repository in the current working directory. Allowed: reading any file in that repository; editing only cachekit/duration.py and tests/test_duration.py; running `python3 -m unittest`; and local git status/diff/add/commit/log in that repository. Do not use the network, install anything, push, open a pull request, use any connector or MCP tool, spawn subagents, or touch any other directory. If you need something outside this, stop and say so.
+Task: `parse_duration` in `cachekit/duration.py` returns the wrong value for compound durations such as "1h30m". Make it follow `docs/DURATION.md`. Add tests for the new behaviour in `tests/test_duration.py`. Run the test suite with `python3 -m unittest discover -s tests -t .` and report exactly which tests pass and which fail, and why for any that fail. Do not delete, skip or weaken any existing test. Commit the change in the local repository. Print `git log --oneline` , `git diff HEAD~1..HEAD` and `git status --short`.
+Before starting, read starter-kit/skills/task-intake/SKILL.md and starter-kit/skills/change-verification/SKILL.md and follow them.
