@@ -163,3 +163,14 @@ Findings:                      (1) An independent no-repository session loaded n
 Reviewer / minutes / cost:     Not reviewed. Minutes not tracked. Cost above
 Recommendation:                REVISE then proceed: record the user-level scope decision (action 2) before any task run; capture `/status` or an init record for counts in the first real fixture session
 ```
+
+### Decision D-01 — user-level scope for Arm A (2026-10-23)
+
+```text
+Decision:                      Option 1. Arm A (and, for comparability, Arms B and C) run in a fresh no-repository cloud session with the smaller user-level set observed in ARMA-03 (about 30 skills, no named plugins, 11 MCP servers), not as child processes of a starter-kit session
+Decided by:                    Maintainer (joshband), in session, 2026-10-23. Recorded by the assistant from that instruction
+Basis:                         ARMA-03 (Observed, model-reported) versus ARMA-01/-02 (77 skills, 10 plugins, 25-30 MCP servers under `claude -p` from a starter-kit session)
+Still to do per run:           Record the actual skill, plugin and MCP set from an init record or `/context` in each run entry, and confirm it matches across arms. Available-but-unapproved connectors remain not approved (only Claude Code and GitHub are approved)
+Not decided:                   Whether to remove the unapproved connectors from the account; effort setting; hook behavior
+Revisit when:                  A run shows the capability set differs between arms, or the account's plugins or connectors change
+```
