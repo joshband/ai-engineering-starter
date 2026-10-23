@@ -36,6 +36,14 @@ The following subjects arose as potential future capabilities, but **no correspo
 
 To import such material later, locate its original file or source first; check ownership, licensing, secrets, confidentiality, and relevance; preserve the original with date and provenance; add a concise navigation summary; and update this index. Do not manufacture citations or imply the original is complete when only an excerpt is available.
 
+## Current implementation profile (2026-10-23)
+
+- [Claude + GitHub approved-tooling profile](../roadmap/APPROVED_TOOLING_PROFILE.md), [M10 execution plan](../roadmap/M10_EXECUTION_PLAN.md), [proposed architecture decision](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md), [native capability audit](../evaluations/M10_CLAUDE_NATIVE_AUDIT.md) and [pilot evaluation](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md). **Implementation plans, not executed experiments.** They preserve prior multi-provider research; alternatives are inactive in this working environment.
+
+## New researched topics (2026-10-22)
+
+- [Phase D/E: Claude-first provider-neutral execution coordinator, durable tasks, evaluation-driven self-improvement, adaptive routing and reinforcement-learning options](phase-d-e/README.md) — research dossier, sourced proposals, comparison matrix and bounded proof-of-concept; **not implemented**.
+
 ## Related indexes
 
 - [Decisions and trade-offs](../decisions/README.md)

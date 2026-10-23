@@ -172,7 +172,17 @@ A successful check can support a review decision; it cannot automatically confer
 
 **Indicative effort:** 1–3 weeks for initial optional integrations.
 
+### M10 — near-term Claude + GitHub reference implementation (2026-10-23 proposal)
+
+**Active implementation direction (proposal; unexecuted):** [M10 execution plan](roadmap/M10_EXECUTION_PLAN.md), [current approved-tooling profile](roadmap/APPROVED_TOOLING_PROFILE.md), [proposed ADR-007](decisions/ADR-007-CLAUDE-GITHUB-FIRST.md), [native audit](evaluations/M10_CLAUDE_NATIVE_AUDIT.md), and [pilot evaluation](evaluations/M10_PILOT_EVALUATION_PROTOCOL.md).
+
+Claude Code and GitHub are the only tools currently approved for execution. Preserve **all** M1–M9 contracts, the dormant Codex adapter and full [Phase D/E options research](research/phase-d-e/README.md); do **not** make other provider or orchestration runtimes part of the near-term implementation. Prefer Claude-native skills, hooks and bounded subagents where authorized. Use GitHub for review, status checks and evidence **only when those capabilities and their runner/action/auth dependencies are independently approved**.
+
+M10's evaluation is a paired native Claude baseline vs selective starter-kit guidance, with truthful test records, scoped permissions, independent review and removal gates for overhead. A **no-SDK/no-coordinator** outcome is acceptable. [M6 Copy That partial verification](M6_PILOT_PLAN.md) and M8 planning remain unresolved; their earlier authorizations do **not** automatically permit new target edits or PRs. This proposal adds no release or acceptance claims.
+
 ### Phase D — v2.0: optional execution coordinator
+
+**Current disposition:** Research retained in full, **implementation deferred** until M10 documents a material native-Claude/GitHub limitation or a broader environment separately approves alternatives. The following proposal is a future capability menu, not a near-term dependency.
 
 **Goal:** Explore an independently controlled runtime **above**, not inside, the portable foundation.
 
@@ -200,16 +210,19 @@ Consider only after real usage justifies the additional complexity:
 - **Reviewed workflow improvement:** Propose changes to checks or routing based on evidence, without permitting agents to expand their own authority.
 - **Organization-level governance:** Versioned policy distribution, scoped exceptions, and audit evidence where organizational needs warrant it.
 
+**Follow-on research (2026-10-22):** The [Phase D/E options dossier](research/phase-d-e/README.md) preserves the original Claude-first, provider-neutral coordinator research and expands it into a **build-versus-adopt assessment**: [Claude Agent SDK vs Pi vs OpenCode](research/phase-d-e/EXPANDED_ECOSYSTEM_REVIEW.md) as coding-harness finalists; **OpenClaw vs a lightweight local coordinator** as separate dispatch alternatives; Codex SDK portability reference; OpenHands/Goose and durability/gateway options. A [Claude native feature map](research/phase-d-e/CLAUDE_NATIVE_CAPABILITIES.md) covers hooks, plugins, skills, subagents and MCP; [learning research](research/phase-d-e/LEARNING_SYSTEMS.md) covers evaluation-driven self-improvement, contextual bandits and future RL. **Selection remains provisional until comparable tasks and negative security tests are run.** These are proposals, not approved implementation or v2.0 commitments.
+
 ## 5. Priorities, dependencies, and decision gates
 
 | Order | Recommendation | Dependency | Gate |
 | --- | --- | --- | --- |
-| 1 | Prepare v1.0 release candidate and reconcile documentation | Existing accepted repository | Maintainer reviews claims and release contents |
-| 2 | Close M4/M8 discovery evidence when runtime access exists | Functioning Claude Code/Codex environments | Recorded session-level PASS/FAIL/UNVERIFIED |
-| 3 | Close M6 pilot | Configured Copy That environment and target authorization | Actual tests and maintainer adoption decision |
-| 4 | Prototype v1.1 adoption tooling | Real repository adoption needs | Demonstrated dry-run and safe reversal |
-| 5 | Add v1.2 verification integration | Stable adoption and contract interfaces | Actual CI/evidence tests |
-| 6 | Evaluate v2.0 execution coordinator | Repeated demonstrated need; security/operations capacity | Bounded proof of concept and separate approval |
+| 1 | **M10 Claude + GitHub native audit and fixture evaluation** | Approved Claude execution environment, safe fixture and human review | Honest baseline/assisted outcomes and no unsupported automation claim |
+| 2 | Prepare v1.0 release candidate and reconcile documentation | Existing accepted repository | Maintainer reviews claims and release contents |
+| 3 | Close M4/M8 discovery evidence when runtime access exists | Functioning Claude Code/Codex environments | Recorded session-level PASS/FAIL/UNVERIFIED |
+| 4 | Close M6 pilot | Configured Copy That environment and target authorization | Actual tests and maintainer adoption decision |
+| 5 | Prototype v1.1 adoption tooling | Real repository adoption needs | Demonstrated dry-run and safe reversal |
+| 6 | Add v1.2 verification integration | Stable adoption and contract interfaces | Actual CI/evidence tests |
+| 7 | Evaluate v2.0 execution coordinator | Repeated demonstrated need; security/operations capacity | Bounded proof of concept and separate approval |
 
 The order is flexible: M4/M6/M8 can be completed before release if the maintainer chooses a stricter v1.0 bar. **Deferred is neither Passed nor Failed**, and a missing environment does not block unrelated documentation work.
 
