@@ -4,7 +4,7 @@ This index links to evidence in its existing location. It does not move, duplica
 
 | Evaluation | Source | Observed state |
 | --- | --- | --- |
-| M10 run log (primary evidence record) | [Run log](M10_RUN_LOG.md) | **One read-only inventory entry; no fixture run executed**; maps M8 scenarios without editing M8 |
+| M10 run log (primary evidence record) | [Run log](M10_RUN_LOG.md) | **Two read-only entries (inventory, Arm A load check); no task fixture run**; maps M8 scenarios without editing M8 |
 | M10 native Claude capability audit | [Unexecuted audit matrix](M10_CLAUDE_NATIVE_AUDIT.md) | **Proposed; no environment observed** |
 | M10 paired reference-workflow pilot | [Unexecuted protocol](M10_PILOT_EVALUATION_PROTOCOL.md), [M10 plan](../roadmap/M10_EXECUTION_PLAN.md) | **Proposed; no outcomes measured** |
 | Structural acceptance and deterministic fixtures | [Acceptance matrix](../../validation/acceptance-matrix.md), [control traceability](../../validation/control-traceability.md) | Checks cover structure, not actual permission enforcement |

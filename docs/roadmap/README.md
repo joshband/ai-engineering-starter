@@ -10,7 +10,7 @@ For detailed Phase D/E implementation choices, selection criteria, self-improvem
 
 ## Near-term reference milestone
 
-**[M10 — Claude + GitHub reference implementation](M10_EXECUTION_PLAN.md)** is the recommended next **evaluation and implementation milestone**, with an explicit [current approved-tooling profile](APPROVED_TOOLING_PROFILE.md), [native capability audit](../evaluations/M10_CLAUDE_NATIVE_AUDIT.md), [paired pilot protocol](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md), [run log](../evaluations/M10_RUN_LOG.md) (primary evidence record; inventory entry only) and [proposed ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md). It does **not** discard the broader provider-neutral Phase D/E design. No M10 runtime tests have been performed.
+**[M10 — Claude + GitHub reference implementation](M10_EXECUTION_PLAN.md)** is the recommended next **evaluation and implementation milestone**, with an explicit [current approved-tooling profile](APPROVED_TOOLING_PROFILE.md), [native capability audit](../evaluations/M10_CLAUDE_NATIVE_AUDIT.md), [paired pilot protocol](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md), [run log](../evaluations/M10_RUN_LOG.md) (primary evidence record; read-only entries only) and [proposed ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md). It does **not** discard the broader provider-neutral Phase D/E design. No M10 runtime tests have been performed.
 
 ## Proposed sequence
 

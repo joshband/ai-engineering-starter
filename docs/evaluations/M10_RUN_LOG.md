@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** One read-only inventory entry (M10.1-INV-01). **No fixture run has been executed**; no arm has been run and no outcome measured.\
+**Status:** Two read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01 Arm A pre-run load check). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -58,6 +58,7 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | Run ID | Fixture | Arm | Date | Status | Recommendation |
 | --- | --- | --- | --- | --- | --- |
 | [M10.1-INV-01](#m101-inv-01--read-only-environment-inventory) | none (inventory) | none | 2026-10-23 | **Inventory only; no fixture run** | REPEAT in a clean fixture session |
+| [M10.1-ARMA-01](#m101-arma-01--arm-a-pre-run-load-check) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed; leaks and limits below** | REVISE fixture path, then REPEAT in an independent session |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -88,4 +89,27 @@ Evidence labels:               Documented: model setting. Observed: version, env
 Findings:                      (1) A fixture inside this checkout inherits root CLAUDE.md and its imports, so it cannot serve as Arm A; the protocol's outside-the-checkout requirement is confirmed necessary. (2) No ancestor files exist above the repo here, so a sibling directory under /home/user would probably be clean of ancestors, UNVERIFIED until loaded in a fresh session. (3) User-level skills, synced plugins and a Stop hook exist, so they must be declared identically across arms or removed. (4) Many unapproved connectors are available in cloud sessions; the profile's available-vs-approved rule applies
 Reviewer / minutes / cost:     Not reviewed. Minutes not tracked. Tokens/cost UNVERIFIED
 Recommendation:                REPEAT: run the Arm A pre-run load check in a fresh session started in an outside-the-checkout fixture directory, before any task
+```
+
+### M10.1-ARMA-01 — Arm A pre-run load check
+
+```text
+Run ID / date:                 M10.1-ARMA-01, 2026-10-23 (approved as a check only; no task given)
+Fixture / M8 mapping:          disposable empty repo (one README, commit 7686ab02a3e306d2c7b70c4be055d33660e50684); supports M8 C1 as the Arm A absence check
+Arm:                           A, pre-run check only
+Approved scope / publication:  Read-only load check. Entry committed to task branch only
+Fixture location:              A scratch directory outside the starter-kit checkout. Ancestor scan found no CLAUDE.md, AGENTS.md or .claude above or in it
+Method:                        A new Claude Code process (`claude -p`, stream-json) started from the fixture directory as a child of this cloud session, with the prompt "list loaded instruction files, skills, MCP servers, and any starter-kit content; do not use tools". The init record and the reply were both captured
+Claude Code version / model:   2.1.309 / claude-sonnet-5-5 (Observed in the init record). Effort UNVERIFIED
+Instruction files loaded:      Observed: NONE. The session reported no CLAUDE.md, AGENTS.md or import content, and no ai-engineering-starter, STD-01..16 or starter-kit content
+Native feature inventory:      Observed in init: 70 tools, 77 skills, 10 plugins (7 synced user-level plugins plus 3 built in), 30 MCP servers, 7 agents. MCP status: 2 connected (desktop-commander, pdf-viewer), most others need-auth, several failed, one pending. No starter-kit skill among the listed skills
+Tools actually used:           None by the fixture session (no tool_use events in the transcript)
+Isolation leaks:               (1) The fixture path sits under a scratchpad directory whose name contains "ai-engineering-starter", and the session noticed it. Only the string leaked, not any content, but a fixture path should not name the repo. (2) The user-level skills, plugins and MCP servers are present and would be shared by every arm
+Limits:                        The child process inherited this session's environment variables and account, so it is not an independent fresh cloud session. The reply is the model's own report, backed by the init record for skills, plugins and MCP, but there is no separate Observed file-load list for instructions. Hook behavior was not exercised. Whether the same holds in an interactive session is UNVERIFIED
+External effects:              none (read-only prompt; no tool use). Billing and tokens UNVERIFIED
+Commands + exit codes:         fixture creation and ancestor scan (0); `claude -p` load check (0); transcript parse (0)
+Evidence labels:               Observed: version, model, absence of instruction files in the reply, init counts. Unverified: effort, interactive load report, independent-session behavior, hook effects, enforcement
+Findings:                      Arm A isolation from the starter kit's instruction files is achievable by running outside the checkout, as the protocol requires. The user-level capability set (77 skills, 10 plugins, 30 MCP servers) is large and must be declared identically across arms or reduced for a cleaner baseline
+Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
+Recommendation:                REVISE then REPEAT: use a fixture path that does not contain the repo name; decide whether to declare or strip user-level skills, plugins and MCP servers; repeat in an independent session before any task run
 ```
