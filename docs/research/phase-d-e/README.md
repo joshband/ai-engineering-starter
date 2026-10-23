@@ -4,7 +4,13 @@
 **Initial workflow preference:** Claude-first, **provider-independent by architecture**. **Harness selection remains open** among Claude Agent SDK, Pi and OpenCode; coordinator selection remains open between a lightweight state machine and OpenClaw.  
 **Scope:** Options, decisions, risks, source register, and bounded proof-of-concept specification for the [project roadmap](../../PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md).
 
-## Decision summary
+## Current implementation overlay — M10 (2026-10-23)
+
+**The full technology research below remains retained for future unconstrained environments.** In the user's current working environment **Claude and GitHub are the only approved tools**. For the next implementation stage, the active track is **[M10 Claude + GitHub reference workflow](../../roadmap/M10_EXECUTION_PLAN.md)**, governed by the [approved-tooling profile](../../roadmap/APPROVED_TOOLING_PROFILE.md) and [proposed ADR-007](../../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md). Native Claude Code first; GitHub as approved review/evidence control plane; run the [native audit](../../evaluations/M10_CLAUDE_NATIVE_AUDIT.md) and [paired evaluation](../../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md) before choosing SDK or coordinator.
+
+**Research vs implementation:** The harness comparison and custom-coordinator proposal below are **future optional research paths**, not a requirement or authorized execution for M10. Pi, OpenCode, Codex runtime, OpenClaw, external gateways and workflow engines are **not being enabled**. No comparison results, runtime guarantees, or M10 pilot acceptance are claimed. **No coordinator may be the correct result** if native Claude meets acceptance gates.
+
+## Original broad research decision summary
 
 Build an **optional coordinator above the portable M1–M9 foundation**, not a replacement engineering standard or a parallel agent platform.
 
@@ -38,4 +44,4 @@ No model, framework, or provider is selected as the sole architecture. Model por
 - Start with a reversible fixture repository, no production secrets, one executor, no merges or deployments.
 - Preserve source provenance and experiment outcomes per [documentation retention](../../DOCUMENTATION_RETENTION.md).
 
-**Decision requested for the next stage:** approve the *comparison spike scope*, including Claude-native feature parity and Pi/OpenCode harness comparisons, plus a separate OpenClaw gateway evaluation. Do not approve a production coordinator, unrestricted implementation, or release from this research alone.
+**Deferred broad-research decision:** a later environment may approve comparison spikes for Pi/OpenCode/OpenClaw. The current path is the narrower M10 native-Claude/GitHub evaluation, which **does not** require or authorize third-party harness execution. Do not approve a production coordinator, unrestricted implementation, or release from this research alone.
