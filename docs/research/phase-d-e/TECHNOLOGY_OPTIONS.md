@@ -1,12 +1,14 @@
 # Technology options, trade-offs, and selection
 
-**Research as-of:** 2026-10-22. **Recommendation:** Claude-first implementation; multi-provider design. Sources are enumerated in [SOURCE_REGISTER](SOURCE_REGISTER.md); no compatibility test has been run.
+**Research as-of:** 2026-10-22. **Recommendation:** Claude-first workflow; provider-neutral design; **Claude SDK, Pi and OpenCode are unranked harness finalists** pending comparison. Sources are enumerated in [SOURCE_REGISTER](SOURCE_REGISTER.md); no compatibility test has been run.
+
+For the expanded alternatives, risks and proposed head-to-head rubric see [expanded ecosystem review](EXPANDED_ECOSYSTEM_REVIEW.md). For native hooks, skills, plugins, MCP and subagents see [Claude feature parity](CLAUDE_NATIVE_CAPABILITIES.md). The table below preserves the **initial** assessment, superseded where it implies a single predetermined harness.
 
 ## A. Agent harnesses
 
 | Harness | Officially documented integration | Selection | Open evidence |
 | --- | --- | --- | --- |
-| **Claude Agent SDK** | Python/TypeScript programmable Claude Code agent loop with tools, sessions, hooks, permissions, subagents, skills [S01] | **First prototype adapter** because primary workflow uses Claude | Confirm SDK version, exact permission behavior, authentication/usage costs, clean cancellation, and native instructions in local environment |
+| **Claude Agent SDK** | Python/TypeScript programmable Claude Code agent loop with tools, sessions, hooks, permissions, subagents, skills [S01] | **First comparison adapter** because primary workflow uses Claude | Confirm SDK version, exact permission behavior, authentication/usage costs, clean cancellation, and native instructions in local environment |
 | **OpenAI Codex SDK** | SDK starts, continues and resumes local Codex threads [S03] | **Second adapter, portability gate**; implement minimal equivalent fixture before calling platform provider-neutral | Test model selection, auth, sandbox/approval capabilities and lifecycle parity |
 | **Codex app-server** | Lower-level long-lived streamed events and approvals [S04] | Fallback only if SDK cannot report required events / approval state | Additional protocol and transport surface |
 | **LM Studio local API** | Native local API and OpenAI-/Anthropic-compatible endpoints [S05] | Later inference option and offline data-classification experiment | A compatible endpoint does *not* supply full Claude or Codex coding-agent harness; model/tool quality and exposed server must be tested |
@@ -24,9 +26,10 @@ For Codex, verify account authorization and billing separately. Never create an 
 
 | Alternative | Benefits | Costs / risk | Recommendation |
 | --- | --- | --- | --- |
-| **Small typed state machine + SQLite** | Few dependencies, easy local inspection, file-backed journal | Must write state transitions, recovery, locks, migration, effect reconciliation | **POC baseline** |
+| **Small typed state machine + SQLite** | Few dependencies, easy local inspection, file-backed journal | Must write state transitions, recovery, locks, migration, effect reconciliation | **Minimal-coordinator comparison baseline** |
 | **LangGraph** | Persisted graph checkpoints, stores, interrupts [S06] | Framework lifecycle and storage complexity; effects still need ledger | Trial only if branching or multi-stage resumes exceed state machine |
 | **Temporal** | Durable workflow execution, replay and activity patterns [S07] | Workers/service operational cost, deterministic replay rules | Defer until multi-worker/long-lived reliability is demonstrated as necessary |
+| **OpenClaw gateway/ACP** | External coding harness dispatch, bound sessions, remote/channel workflows [S22–S24] | **Tier 1 coordinator alternative**, test against minimal state machine | ACP harness runs on host outside OpenClaw sandbox; scope cross-session visibility [S24–S25] |
 | **Provider sessions only** | Native context continuation [S01, S03] | Does not prove task authorization, Git revision match, or side effect outcome | Use for harness continuity but not source of truth |
 
 **Nonnegotiable:** A successful checkpoint does not guarantee an external write happened once. When effects are unknown, reconcile before retrying.
@@ -55,7 +58,8 @@ For Codex, verify account authorization and billing separately. Never create an 
 
 | Approach | Simplicity | Provider portability | Control ownership | Recommendation |
 | --- | --- | --- | --- | --- |
-| Claude-first + typed adapter + SQLite | High | High *if second adapter passes* | High | **Choose** |
+| Claude SDK/Pi/OpenCode + typed adapter + SQLite | To measure | High *if second adapter passes* | High | **Compare, then choose** |
+| OpenClaw + independently restricted coding harness | Medium | Potentially high | Requires host isolation for ACP | **Compare as coordinator** |
 | Claude-only orchestration via provider primitives | High initially | Low | Medium | Reject as long-term architecture |
 | Framework-first LangGraph coordinator | Medium | Medium–High | High | Conditional backup |
 | Temporal-first durable service | Low initial | High | High | Defer until demand |
