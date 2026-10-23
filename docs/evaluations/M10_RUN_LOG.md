@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). Run 1 of the F1 pair (F1A-02, F1B-01) is not comparable because of a constraint-wording flaw; run 2 (M10.1-F1A-03, M10.1-F1B-02) uses corrected wording and both arms completed. One pair only; reviewer verdicts are provisional. **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Three read-only pre-run entries (M10.1-INV-01 inventory; M10.1-ARMA-01, -02 and -03 Arm A load checks) and one scope decision (D-01). The F1 documentation fixture has been executed in two Arm A / Arm B pairs on 2026-10-23: the first pair (F1A-02, F1B-01) is not comparable because of a constraint-wording flaw, and F1A-01 was a void attempt; the second pair (F1A-03, F1B-02) completed in both arms. Independent checks ran on local reconstructions. Review verdicts are provisional: the only reviewer so far is the assistant that built the fixture, not independent and not blind, and a human or blind review is pending. One pair on one easy task shows no clear kit benefit and cannot meet the usefulness gate. F2 to F5 have not been run.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
