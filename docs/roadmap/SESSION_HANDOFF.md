@@ -36,7 +36,7 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 **Current implementation constraint:** only **Claude and GitHub** are approved tools for the near-term execution workflow, subject to exact environment/runner/plugin/auth approval. This is an **operating profile**, not an architectural rewrite. The Codex adapter and broader Pi/OpenCode/OpenClaw, model routing, orchestration, learning/RL research remain **preserved but inactive**. No new harness, gateway or coordinator is assumed necessary.
 
-**Next proposed milestone M10 (primary evidence record: [run log](../evaluations/M10_RUN_LOG.md), empty):** Test the *minimum effective Claude + GitHub reference workflow*, from authorized bounded task to actual verification and separate human GitHub review, comparing native-only Claude with selective starter-kit guidance. **A no-SDK/no-custom-coordinator result is valid.** M10 planning artifacts exist; **M10 runtime tests have not been executed**.
+**Next proposed milestone M10 (primary evidence record: [run log](../evaluations/M10_RUN_LOG.md), inventory entry only):** Test the *minimum effective Claude + GitHub reference workflow*, from authorized bounded task to actual verification and separate human GitHub review, comparing native-only Claude with selective starter-kit guidance. **A no-SDK/no-custom-coordinator result is valid.** M10 planning artifacts exist; **M10 runtime tests have not been executed**.
 
 **Unfinished evidence:** M4 Codex-native instruction discovery deferred; M6 Copy That pilot only partially verified (target checks blocked, no publication authorized); M8 runtime-validation plan not executed and lives on its own branch. Do not upgrade status by inference. No v1 release/tag claimed.
 
