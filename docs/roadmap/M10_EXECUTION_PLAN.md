@@ -1,5 +1,6 @@
 # M10 — Claude + GitHub reference implementation and validation
 
+**Fresh-session handoff:** [ChatGPT / Claude / cloud Claude Code guide](SESSION_HANDOFF.md). Read it before starting on a new surface and verify the live branch/PR state.  
 **State:** Proposed next milestone / implementation plan; **no runtime implementation, Copy That edit, acceptance, merge or release claimed**.  
 **Execution scope:** [Current Claude + GitHub approved-tooling profile](APPROVED_TOOLING_PROFILE.md).  
 **Architectural rationale:** [ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md).  
