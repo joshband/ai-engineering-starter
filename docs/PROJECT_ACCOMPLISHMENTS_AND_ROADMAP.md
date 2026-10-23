@@ -1,7 +1,7 @@
 # AI-Native Software Engineering Starter Kit — Accomplishments and Future Roadmap
 
-**Report date:** 2026-10-22  
-**Audience:** Maintainers, engineering leaders, contributors, and prospective adopters  
+**Report date:** 2026-10-22\
+**Audience:** Maintainers, engineering leaders, contributors, and prospective adopters\
 **Document type:** Descriptive project report and **proposed** roadmap, not a new policy, approved scope of work, or release commitment.
 
 > **In plain language:** This effort created a reusable set of engineering rules, workflows, templates, agent-specific instruction guides, and checks to help people use AI coding assistants responsibly across projects. The foundation is implemented, but some real-environment testing and the first versioned release remain outstanding.
