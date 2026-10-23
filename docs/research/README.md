@@ -36,6 +36,10 @@ The following subjects arose as potential future capabilities, but **no correspo
 
 To import such material later, locate its original file or source first; check ownership, licensing, secrets, confidentiality, and relevance; preserve the original with date and provenance; add a concise navigation summary; and update this index. Do not manufacture citations or imply the original is complete when only an excerpt is available.
 
+## New researched topics (2026-10-22)
+
+- [Phase D/E: Claude-first provider-neutral execution coordinator, durable tasks, evaluation-driven self-improvement, adaptive routing and reinforcement-learning options](phase-d-e/README.md) — research dossier, sourced proposals, comparison matrix and bounded proof-of-concept; **not implemented**.
+
 ## Related indexes
 
 - [Decisions and trade-offs](../decisions/README.md)
