@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). **Arm B has not been run**; no comparison exists. **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). Arm B was run once and stopped without an edit (M10.1-F1B-01); the pair is NOT comparable because of a constraint-wording flaw (see that entry). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -63,6 +63,7 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | [M10.1-ARMA-03](#m101-arma-03--arm-a-pre-run-load-check-independent-session) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed in an independent session; model-reported, no `/status`** | Decide user-level scope (action 2) |
 | [M10.1-F1A-01](#m101-f1a-01--f1-arm-a-attempt-void) | F1 | A | 2026-10-23 | **Void: no task executed** | Do not reuse; see F1A-02 |
 | [M10.1-F1A-02](#m101-f1a-02--f1-arm-a-run) | F1 | A | 2026-10-23 | **Completed; independent checks passed on a reconstructed commit; reviewer verdict pending** | Run Arm B, then review both |
+| [M10.1-F1B-01](#m101-f1b-01--f1-arm-b-run) | F1 | B | 2026-10-23 | **Stopped before the edit; not comparable to F1A-02** | Fix constraint wording, rerun both arms |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -232,3 +233,28 @@ Necessity of extra ceremony:   Not applicable to Arm A
 Verdict:                       Accepted as an F1 Arm A outcome (acceptance is separate from merge or release; the fixture is disposable). Provisional because of the reviewer limits above
 Caveat for the protocol:       With one arm there is no evidence about whether starter-kit guidance helps. A single F1 pair cannot support the usefulness gate (2 of 3 fixtures)
 ```
+
+### M10.1-F1B-01 — F1 Arm B run
+
+```text
+Run ID / date:                 M10.1-F1B-01, 2026-10-23 ~21:42Z
+Fixture / Arm / delivery:      F1, Arm B. Imported: fixture CLAUDE.md with two @imports (starter-kit/core/ENGINEERING_STANDARD.md, AUTONOMY_AND_RISK.md; copies of main@3386843, digests in the session scratchpad, content verified identical to the pushed fixture). Explicit reference: the prompt names starter-kit/skills/task-intake and change-verification. Not in a skill discovery location
+Approved scope / publication:  Maintainer: LOCAL ONLY, 1 USD ceiling (cumulative across runs)
+Repository / base:             joshband/m10-f1-fixture (private, created by the maintainer), main at c4b57af15ed94ee212deb19c6e36453a1ab9c9f6, committed by the starter-kit session on top of the auto-generated initial commit f38d3e4. The base differs from Arm A's (692fee4) because the repo history and the starter-kit overlay differ; the docs content is identical
+Session:                       session_01XWsDSzhf8CpS7pht5aPJtW, started from the repo at that revision, claude-sonnet-5-5, Claude Code 2.1.309, permission mode auto. Effort UNVERIFIED
+Prompt:                        Same three-step single prompt as F1A-02, with two arm-specific changes: Step 2 is "git rev-parse HEAD, git status --short, then git switch -c f1-arm-b-01" instead of the setup script, the constraints say "the repository in the current working directory", and the explicit-reference line from the protocol is appended. The task wording is identical
+Instruction files loaded:      Model-reported (its reasoning summary): CLAUDE.md with the engineering standard and autonomy-and-risk imports loaded at start. It then cited STD-06 and classified the task L / A1 / T0, Quick. Its standalone Step 1 report was not given as a separate message, so there is no clean Observed load list. Treat the import as Model-reported, not Observed
+Outcome:                       Stopped before Step 3. HEAD printed c4b57af, tree clean, branch f1-arm-b-01 created. It read both skills and docs/USAGE.md, ran one repository-wide grep for "cache" (listed README.md, docs/CONFIG.md, docs/USAGE.md; it did not open the other two), then stopped: the facts needed (variable name, precedence, default) are not in USAGE.md and the constraint allowed only reading and editing docs/USAGE.md. It asked for permission to read docs/CONFIG.md or for the facts. No edit, no commit
+Why this is a flaw in the setup, not a result about the kit:
+                               My constraint text allowed "reading and editing docs/USAGE.md" only, yet the task cannot be done correctly without reading docs/CONFIG.md. Arm A read CONFIG.md anyway (outside the literal allow-list) and finished. Arm B followed the allow-list literally and stopped. The difference may reflect the kit's emphasis on unverified claims (STD-06), plain run-to-run variation, or both; one run each cannot separate them
+Checks:                        Fixture repo remote refs after the run: only main at c4b57af (no stray push). Independent task checks: not applicable (no commit)
+Cost:                          0.180 USD (result record, list price). Cumulative: 0.129 (void) + 0.164 + 0.180 = 0.473 USD of 1 USD. Observed, not enforced
+External effects:              none observed. The fixture repo exists and was seeded by the starter-kit session (maintainer-approved)
+Evidence labels:               Observed: HEAD, tree state, remote refs, cost, the session's stop and reason. Model-reported: instruction files loaded, skills read. Unverified: effort, hooks, enforcement; full transcript not read
+Findings:                      (1) The constraint wording confounds the pair; Arm A's literal violation (reading CONFIG.md) is the behavior the task needed. (2) Arm B's stop is consistent with the intended kit behavior (do not invent facts) but also shows over-literal compliance with a flawed constraint. (3) A reviewer must not score "Arm B failed" or "Arm A passed on scope" until the constraint is fixed
+Recommendation:                REVISE then REPEAT both arms: change the constraint to allow read-only access to any file in the repository and keep edits to docs/USAGE.md only; rerun A and B with identical wording. Estimated 0.35 USD, leaving about 0.18 USD of the 1 USD ceiling; a further pair would need a new ceiling
+```
+
+### Addendum to M10.1-F1A-02 — correction after F1B-01 (2026-10-23)
+
+The assistant review above scored scope discipline "Pass" and did not mention that the session read docs/CONFIG.md, which the literal constraint ("reading and editing docs/USAGE.md") did not allow. That read was needed for a correct answer and the constraint was too narrow (see M10.1-F1B-01). The scope score therefore carries the same caveat, and the F1A-02 verdict stays provisional until both arms are rerun with corrected wording.
