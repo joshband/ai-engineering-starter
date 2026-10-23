@@ -42,6 +42,18 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 **Independent deep research:** A separate research effort was requested to reassess whether custom harness engineering remains worthwhile. Its findings are **not confirmed as incorporated** into PR #11; verify and review any delivered report separately before changing priorities.
 
+## M10 evidence state and next steps (as of 2026-10-23)
+
+**Observed so far (read-only; [run log](../evaluations/M10_RUN_LOG.md)):** M10.1-INV-01 inventory, M10.1-ARMA-01 and M10.1-ARMA-02 Arm A load checks. A fixture outside the checkout, with no ancestor `CLAUDE.md`/`AGENTS.md`/`.claude`, reported no starter-kit instruction files in two runs. **No task fixture has been run and no arm outcome measured.** The entries are on branch `claude/m10-arma-02-run-log` (based on `523faff`, detached HEAD at session start), proposed in a draft PR and **awaiting integration**; verify the live PR state before relying on them (see "Cloud session branch behavior").
+
+**Next actions, in order. Each needs the approval noted:**
+
+1. **Independent Arm A load check.** Start a fresh session (not a child process of a starter-kit session) with its working directory in a new fixture whose path avoids the repo name. Use a neutral prompt that does not name the kit or STD IDs, and use the installed version's own reporting commands (`/status`, `/context`) where available. *Gate:* the report shows no starter-kit file, or Arm A isolation stays **Unverified**. *Artifact:* a run-log entry (ARMA-03). *Approval:* none beyond read-only, if no publication.
+2. **Decide user-level scope.** The inventory shows 77 skills, 10 plugins and up to 30 MCP servers at user level, shared by every arm. Choose one: use a clean profile or account, or declare the set identically for all arms. Record the choice and the available-but-unapproved items in the run log. *Gate:* maintainer decision. *Artifact:* a short decision note in the run log or tooling profile. *Approval:* maintainer.
+3. **Approve and run the first F1 fixture, Arm A then Arm B.** Same base SHA, model, permissions and byte-identical task prompt. Fill the placeholders in Prompt D, including publication level, budget and stop conditions. *Gate:* actions 1 and 2 complete, and explicit approval naming fixture, files, commands and publication level. *Artifact:* run-log entries with exit codes, checks not run, and a reviewer verdict.
+
+**Open items that do not block action 1:** effort setting is unverified in every entry; hook firing and permission denial are untested (enforcement is not shown); the earlier ARMA-01 transcript was not retained; the Codex path stays inactive.
+
 ## Authority and reading order
 
 **First read, with actual GitHub branch/HEAD verification:**

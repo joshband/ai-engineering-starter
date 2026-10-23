@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Two read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01 Arm A pre-run load check). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Three read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01 and M10.1-ARMA-02 Arm A pre-run load checks). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -59,6 +59,7 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | --- | --- | --- | --- | --- | --- |
 | [M10.1-INV-01](#m101-inv-01--read-only-environment-inventory) | none (inventory) | none | 2026-10-23 | **Inventory only; no fixture run** | REPEAT in a clean fixture session |
 | [M10.1-ARMA-01](#m101-arma-01--arm-a-pre-run-load-check) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed; leaks and limits below** | REVISE fixture path, then REPEAT in an independent session |
+| [M10.1-ARMA-02](#m101-arma-02--arm-a-pre-run-load-check-repeat) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed again; path leak fixed; independence still missing** | REPEAT in an independent session; decide user-level scope |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -112,4 +113,28 @@ Evidence labels:               Observed: version, model, absence of instruction 
 Findings:                      Arm A isolation from the starter kit's instruction files is achievable by running outside the checkout, as the protocol requires. The user-level capability set (77 skills, 10 plugins, 30 MCP servers) is large and must be declared identically across arms or reduced for a cleaner baseline
 Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
 Recommendation:                REVISE then REPEAT: use a fixture path that does not contain the repo name; decide whether to declare or strip user-level skills, plugins and MCP servers; repeat in an independent session before any task run
+```
+
+### M10.1-ARMA-02 — Arm A pre-run load check (repeat)
+
+```text
+Run ID / date:                 M10.1-ARMA-02, 2026-10-23 (check only; no task given). Repeats M10.1-ARMA-01 per its recommendation; ARMA-01 is not edited
+Fixture / M8 mapping:          disposable repo /home/user/armA-fixture-02 (one README, commit 4397a1aa6a6b8ce15169285aa02f8f668658256d); supports M8 C1 as the Arm A absence check
+Arm:                           A, pre-run check only
+Approved scope / publication:  Read-only load check. Entry recorded in the working tree only; not committed, pushed or published
+Repository / base / result:    Starter-kit checkout HEAD 523faff370ab1266f0327b4a57a868b4582b74ef, detached (`git branch --show-current` printed nothing). Unchanged by the check
+Fixture location:              Outside the checkout; path does not contain the repo name (Observed: grep count 0). Ancestor scan from the fixture up to / found no CLAUDE.md, AGENTS.md, .claude or .mcp.json
+Method:                        Child `claude -p` (stream-json, no tools requested) started from the fixture directory by this cloud session. Prompt: "List the instruction files (CLAUDE.md, AGENTS.md, imports), skills, and MCP servers you have loaded, and say whether you see any content from an engineering-standards starter kit (e.g. STD-01..16). Do not use tools." Init record and reply captured
+Claude Code version / model:   2.1.309 / claude-sonnet-5-5 (Observed in init record). Effort UNVERIFIED
+Instruction files loaded:      Observed (model report): NONE. No CLAUDE.md, AGENTS.md, imports or STD-numbered content. The reply named only the user email and the commit/PR attribution reminder as context. Note: the prompt itself named "STD-01..16", so the absence report is not a blind test of that string
+Native feature inventory:      Init record: 39 tools, 77 skills, 10 plugins, 25 MCP servers, 7 agents. ARMA-01 recorded 70 tools and 30 MCP servers; skills, plugins and agents match. MCP counts differ because servers were still connecting or failing; do not compare them across runs. No starter-kit skill was listed. The reply listed engineering:* skills as generic, not the starter kit
+Tools actually used:           None (no tool_use events in the transcript)
+Isolation leaks:               None of the repo name or starter-kit content (ARMA-01 leak 1 is fixed). Still present: user-level skills, plugins and MCP servers, shared by every arm
+Limits:                        Child process inherited this session's environment and account, so it is not an independent session. The instruction-file result is the model's own report; no separate Observed list of loaded files. The model cannot see on-disk files it was told not to read, so this shows what was loaded, not what is absent from disk. Hook behavior not exercised. Interactive-session behavior UNVERIFIED
+External effects:              none. Tokens and cost UNVERIFIED. Raw transcript kept in the session scratchpad only (not linked here; it may be lost when the session ends)
+Commands + exit codes:         fixture creation, git init, ancestor scan, `claude --version` (0); `claude -p` load check (0); transcript parse (0)
+Evidence labels:               Observed: version, model, fixture path and ancestor scan, init counts, model-reported absence of instruction files. Unverified: effort, independent-session behavior, interactive load report, hook effects, enforcement
+Findings:                      (1) The path leak from ARMA-01 is fixed. (2) Instruction-file absence reproduced from a second fixture. (3) Neither check is independent or blind, so the protocol's pre-run check is still only partly satisfied. (4) The user-level capability set is unchanged and still undecided
+Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
+Recommendation:                REPEAT: independent session (not a child process of a starter-kit session) with a neutral prompt that does not name the kit; decide declare-or-strip for user-level skills, plugins and MCP servers before any task run
 ```
