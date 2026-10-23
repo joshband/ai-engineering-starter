@@ -10,8 +10,10 @@ Human maintainer -> authorized Task Contract (M1/M2)
                     |          event journal + effect ledger + evidence index
                     |
                     +-> AgentAdapter [interface only]
-                         |-- ClaudeAgentAdapter (first)
-                         |-- CodexAdapter (second)
+                         |-- ClaudeAgentAdapter (finalist)
+                         |-- PiAdapter (finalist; multiple models)
+                         |-- OpenCodeAdapter (finalist; multiple models)
+                         |-- CodexAdapter (native portability baseline)
                          |-- LocalModelAdapter (future; capability-limited)
                     |
                     +-> RESTRICTED WORKER: isolated test worktree + allowlisted tools
@@ -23,6 +25,8 @@ Human maintainer -> authorized Task Contract (M1/M2)
                                  |
                         separately authorized optional draft PR
 ```
+
+**Coordinator implementation is not selected:** compare lightweight local state machine with OpenClaw as a dispatch/gateway layer. OpenClaw ACP external harnesses are host-executed and are **not wrapped by its sandbox** [S24]; independent worker isolation is required in either option. See [expanded review](EXPANDED_ECOSYSTEM_REVIEW.md).
 
 The coordinator **owns controls and authoritative task states**. The coding harness owns its internal generation and tool loop only within the worker's externally imposed permissions. The shared [engineering standard](../../../core/standards/ENGINEERING_STANDARD.md) and [contract shapes](../../../core/controls/README.md) remain portable.
 
