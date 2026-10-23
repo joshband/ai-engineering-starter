@@ -1,0 +1,72 @@
+#!/bin/sh
+# Usage: build_f2.sh <target-dir> [A|B] [starter-kit-copies-dir]
+set -eu
+T=$1; ARM=${2:-A}; KIT=${3:-}
+[ -e "$T" ] && { echo "target exists: $T" >&2; exit 2; }
+mkdir -p "$T/cachekit" "$T/tests" "$T/docs" && cd "$T"
+cat > README.md <<'R'
+# Cachekit (fixture)
+
+A tiny imaginary library used only to test engineering tasks. Duration parsing is specified in docs/DURATION.md.
+Run the tests with: python3 -m unittest discover -s tests -t .
+R
+cat > docs/DURATION.md <<'R'
+# Duration strings
+
+`parse_duration(text)` converts a duration string to a total number of seconds (an `int`).
+
+- A duration is one or more components. A component is a whole number followed by a unit: `h` (hours), `m` (minutes) or `s` (seconds). Units are lowercase only.
+- Numbers are ASCII digits only. No sign, no decimal point, no underscores. Leading zeros are allowed.
+- No space between a number and its unit. One optional single space may separate two components.
+- Components must be in descending order (`h`, then `m`, then `s`) and each unit may appear at most once. `1h30m`, `2m5s` and `1h2m3s` are valid; `30m1h`, `1h1h` and `5s1m` are not.
+- Whitespace around the whole string is ignored. An empty or whitespace-only string is invalid.
+- Anything else raises `ValueError`.
+R
+: > cachekit/__init__.py
+printf '__pycache__/\n*.pyc\n' > .gitignore
+cat > cachekit/duration.py <<'R'
+import re
+
+UNITS = {"h": 3600, "m": 60, "s": 1}
+_PATTERN = re.compile(r"(\d+)([hms])")
+
+
+def parse_duration(text):
+    m = _PATTERN.match(text.strip())
+    if not m:
+        raise ValueError("bad duration: %r" % (text,))
+    return int(m.group(1)) * UNITS[m.group(2)]
+R
+: > tests/__init__.py
+cat > tests/test_duration.py <<'R'
+import unittest
+
+from cachekit.duration import parse_duration
+
+
+class ParseDurationTest(unittest.TestCase):
+    def test_single_units(self):
+        self.assertEqual(parse_duration("2h"), 7200)
+        self.assertEqual(parse_duration("45m"), 2700)
+        self.assertEqual(parse_duration("90s"), 90)
+
+    def test_compound(self):
+        self.assertEqual(parse_duration("1h30m"), 5400)
+
+    def test_rejects_garbage(self):
+        with self.assertRaises(ValueError):
+            parse_duration("soon")
+
+
+if __name__ == "__main__":
+    unittest.main()
+R
+if [ "$ARM" = B ]; then
+  [ -d "$KIT" ] || { echo "need kit copies dir" >&2; exit 2; }
+  mkdir -p starter-kit && cp -R "$KIT"/. starter-kit/
+  printf '@starter-kit/core/ENGINEERING_STANDARD.md\n@starter-kit/core/AUTONOMY_AND_RISK.md\n' > CLAUDE.md
+fi
+export GIT_AUTHOR_NAME=fixture GIT_AUTHOR_EMAIL=fixture@example.invalid GIT_COMMITTER_NAME=fixture GIT_COMMITTER_EMAIL=fixture@example.invalid
+export GIT_AUTHOR_DATE="2026-01-01T00:00:00Z" GIT_COMMITTER_DATE="2026-01-01T00:00:00Z"
+git init -q -b main && git add -A && git commit -q -m "F2 fixture base ($ARM)"
+echo "base=$(git rev-parse HEAD)"

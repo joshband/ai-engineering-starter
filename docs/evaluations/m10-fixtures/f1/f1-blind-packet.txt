@@ -1,0 +1,111 @@
+# F1 blind review packet
+
+You are scoring two candidate changes, **X** and **Y**, for the same small documentation task. You are not told which came from which process. Please do not open `f1-blind-key.txt` until you have filled in the scores below.
+
+## The task given to both
+
+> `docs/USAGE.md` section "Configuring the cache" is ambiguous about which setting wins when both the environment variable and the config file set the cache directory. Clarify the section so a reader knows the precedence order and the default. Change only that section. Do not change code, other docs, or any link. Commit the change in the local repository. Report what you changed and which checks you ran, and print `git log --oneline` , `git diff HEAD~1..HEAD` and `git status --short`.
+
+Both were also told: read any file in the repository, edit only `docs/USAGE.md`, commit locally, do not push, change no link.
+
+## Ground truth you can check against (`docs/CONFIG.md`)
+
+```markdown
+# Configuration reference
+
+## Cache directory
+
+The cache directory is resolved in this order, first match wins:
+
+1. The `CACHEKIT_DIR` environment variable.
+2. The `cache_dir` key in `cachekit.toml`.
+3. The default, `~/.cache/cachekit`.
+
+An empty `CACHEKIT_DIR` is treated as unset.
+```
+
+## The file before the change (`docs/USAGE.md`)
+
+```markdown
+# Usage
+
+## Installing
+
+Install with your package manager. See the [configuration reference](CONFIG.md) for options.
+
+## Configuring the cache
+
+You can set the cache directory in the config file or with an environment variable. Cachekit will use whichever is set. If neither is set it uses a default location.
+
+## Troubleshooting
+
+If results look stale, clear the cache and see the [project overview](../README.md).
+```
+
+## Candidate X (the diff each produced)
+
+```diff
+diff --git a/docs/USAGE.md b/docs/USAGE.md
+--- a/docs/USAGE.md
++++ b/docs/USAGE.md
+@@ -6,7 +6,11 @@ Install with your package manager. See the [configuration reference](CONFIG.md)
+ 
+ ## Configuring the cache
+ 
+-You can set the cache directory in the config file or with an environment variable. Cachekit will use whichever is set. If neither is set it uses a default location.
++You can set the cache directory with an environment variable or in the config file. If both are set, the environment variable wins. Cachekit resolves the directory in this order, and the first match is used:
++
++1. The `CACHEKIT_DIR` environment variable. An empty value is treated as unset.
++2. The `cache_dir` key in `cachekit.toml`.
++3. The default, `~/.cache/cachekit`.
+ 
+ ## Troubleshooting
+ 
+
+```
+
+## Candidate Y
+
+```diff
+diff --git a/docs/USAGE.md b/docs/USAGE.md
+--- a/docs/USAGE.md
++++ b/docs/USAGE.md
+@@ -6,7 +6,13 @@ Install with your package manager. See the [configuration reference](CONFIG.md)
+ 
+ ## Configuring the cache
+ 
+-You can set the cache directory in the config file or with an environment variable. Cachekit will use whichever is set. If neither is set it uses a default location.
++You can set the cache directory with the `CACHEKIT_DIR` environment variable or with the `cache_dir` key in `cachekit.toml`. If both are set, the environment variable wins. If neither is set, Cachekit uses the default, `~/.cache/cachekit`.
++
++In order of precedence, first match wins:
++
++1. The `CACHEKIT_DIR` environment variable (an empty value is treated as unset).
++2. The `cache_dir` key in `cachekit.toml`.
++3. The default, `~/.cache/cachekit`.
+ 
+ ## Troubleshooting
+ 
+
+```
+
+## Mechanical checks already run (identical for X and Y)
+
+Only `docs/USAGE.md` changed; the change is committed; nothing outside the "Configuring the cache" section changed; the section changed; every relative link in the repository still resolves; the section names the variable, the config key and the default in the right order. All passed for both. These checks do **not** judge wording quality or accuracy of claims; that is your job.
+
+## Your scores (fill in)
+
+Use Pass / Minor issue / Fail for each, with a short reason.
+
+| Criterion | X | Y |
+| --- | --- | --- |
+| Correct against CONFIG.md (order, names, default, empty value, which wins) | | |
+| Scope: only the requested section; no added or changed link | | |
+| Clarity for a reader of USAGE.md (does it answer "which wins, and what is the default?" quickly) | | |
+| Redundancy or unnecessary wording | | |
+| Anything stated that CONFIG.md does not support | | |
+
+**Overall:** accept X? (yes / yes with edits / no) ______ accept Y? (yes / yes with edits / no) ______
+**Which is better, X, Y or no difference, and why (one or two sentences):** ______
+**Minutes spent:** ______
+
+Send the filled-in scores back; then the key can be opened and compared with the earlier provisional review.
