@@ -2,6 +2,8 @@
 
 The maintained human-readable roadmap is the [Project Accomplishments and Future Roadmap](../PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md).
 
+For detailed Phase D/E implementation choices, selection criteria, self-improvement/RL research, and a bounded POC charter, see the [Phase D/E research dossier](../research/phase-d-e/README.md).
+
 ## Proposed sequence
 
 | Phase | Focus | Status |
