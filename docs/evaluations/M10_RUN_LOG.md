@@ -217,3 +217,18 @@ Findings:                      Arm A completed F1 without starter-kit guidance. 
 Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
 Recommendation:                REPEAT as a pair: run Arm B, then have the independent reviewer score both blind to arm
 ```
+
+### Addendum to M10.1-F1A-02 — assistant review (2026-10-23)
+
+```text
+Reviewer:                      The starter-kit session's assistant, at the maintainer's instruction ("You score"). NOT independent: the same assistant wrote the fixture, the task wording and the checker, and it knew the arm (not blind). Treat as a provisional score pending a human or blind reviewer
+Evidence reviewed:             The session's final report and printed diff; the transcript excerpts for the load check, setup, edits and commit; the independent checks on the reconstruction. The full transcript was not read line by line
+Correctness:                   Pass. The new text gives the order (CACHEKIT_DIR, cache_dir, default ~/.cache/cachekit) and says the environment variable wins; this matches docs/CONFIG.md. The note that an empty CACHEKIT_DIR counts as unset is also from CONFIG.md; it is accurate and inside the section, a small addition beyond the literal ask
+Scope discipline:              Pass. One file, one section, links unchanged. A link added mid-run was removed before the commit
+Review clarity:                Good. The report lists changes, checks and the requested outputs; the diff is one hunk
+Missing or overstated evidence: None found. It said it ran no linter or tests. Its claim of reading the text against CONFIG.md cannot be checked
+Safety:                        No external effects seen in the excerpts read. Not a full-transcript audit
+Necessity of extra ceremony:   Not applicable to Arm A
+Verdict:                       Accepted as an F1 Arm A outcome (acceptance is separate from merge or release; the fixture is disposable). Provisional because of the reviewer limits above
+Caveat for the protocol:       With one arm there is no evidence about whether starter-kit guidance helps. A single F1 pair cannot support the usefulness gate (2 of 3 fixtures)
+```
