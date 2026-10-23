@@ -44,7 +44,7 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 ## M10 evidence state and next steps (as of 2026-10-23)
 
-**Observed so far (read-only; [run log](../evaluations/M10_RUN_LOG.md)):** M10.1-INV-01 inventory, M10.1-ARMA-01 and M10.1-ARMA-02 Arm A load checks. A fixture outside the checkout, with no ancestor `CLAUDE.md`/`AGENTS.md`/`.claude`, reported no starter-kit instruction files in two runs. **No task fixture has been run and no arm outcome measured.** The entries are in the working tree of the session that made them; check whether they are committed and integrated before relying on them (see "Cloud session branch behavior": that session was on a detached HEAD at `523faff`).
+**Observed so far (read-only; [run log](../evaluations/M10_RUN_LOG.md)):** M10.1-INV-01 inventory, M10.1-ARMA-01 and M10.1-ARMA-02 Arm A load checks. A fixture outside the checkout, with no ancestor `CLAUDE.md`/`AGENTS.md`/`.claude`, reported no starter-kit instruction files in two runs. **No task fixture has been run and no arm outcome measured.** The entries are on branch `claude/m10-arma-02-run-log` (based on `523faff`, detached HEAD at session start), proposed in a draft PR and **awaiting integration**; verify the live PR state before relying on them (see "Cloud session branch behavior").
 
 **Next actions, in order. Each needs the approval noted:**
 
