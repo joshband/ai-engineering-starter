@@ -28,7 +28,7 @@
 
 **Choose when:** representative local tasks show acceptable correctness and permission boundaries in the actual environment.
 
-**First experiment:** compare read-only code explanation or test suggestion on a fixed fixture against cloud agents. **Do not equate a compatible inference API with a complete coding-agent runtime.**
+**First experiment:** compare read-only code explanation or test suggestion on a fixed fixture against cloud agents, including Pi/OpenCode provider support where authorized. For always-on remote orchestration, compare OpenClaw's ACP gateway with the lightweight coordinator **only after independent host isolation is proven**. **Do not equate a compatible inference API with a complete coding-agent runtime.**
 
 ## 4. Reviewed workflow improvement
 
