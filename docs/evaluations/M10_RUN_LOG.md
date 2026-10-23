@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). Arm B was run once and stopped without an edit (M10.1-F1B-01); the pair is NOT comparable because of a constraint-wording flaw (see that entry). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks) and two F1 Arm A attempts (M10.1-F1A-01 void, M10.1-F1A-02 completed, not yet reviewed). Run 1 of the F1 pair (F1A-02, F1B-01) is not comparable because of a constraint-wording flaw; run 2 (M10.1-F1A-03, M10.1-F1B-02) uses corrected wording and both arms completed. One pair only; reviewer verdicts are provisional. **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -64,6 +64,8 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | [M10.1-F1A-01](#m101-f1a-01--f1-arm-a-attempt-void) | F1 | A | 2026-10-23 | **Void: no task executed** | Do not reuse; see F1A-02 |
 | [M10.1-F1A-02](#m101-f1a-02--f1-arm-a-run) | F1 | A | 2026-10-23 | **Completed; independent checks passed on a reconstructed commit; reviewer verdict pending** | Run Arm B, then review both |
 | [M10.1-F1B-01](#m101-f1b-01--f1-arm-b-run) | F1 | B | 2026-10-23 | **Stopped before the edit; not comparable to F1A-02** | Fix constraint wording, rerun both arms |
+| [M10.1-F1A-03](#m101-f1a-03--f1-arm-a-rerun) | F1 | A | 2026-10-23 | **Completed; independent checks passed on a reconstruction** | Provisional accept |
+| [M10.1-F1B-02](#m101-f1b-02--f1-arm-b-rerun) | F1 | B | 2026-10-23 | **Completed; independent checks passed on a reconstruction** | Provisional accept |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -258,3 +260,52 @@ Recommendation:                REVISE then REPEAT both arms: change the constrai
 ### Addendum to M10.1-F1A-02 — correction after F1B-01 (2026-10-23)
 
 The assistant review above scored scope discipline "Pass" and did not mention that the session read docs/CONFIG.md, which the literal constraint ("reading and editing docs/USAGE.md") did not allow. That read was needed for a correct answer and the constraint was too narrow (see M10.1-F1B-01). The scope score therefore carries the same caveat, and the F1A-02 verdict stays provisional until both arms are rerun with corrected wording.
+
+### M10.1-F1A-03 — F1 Arm A rerun
+
+```text
+Run ID / date:                 M10.1-F1A-03, 2026-10-23 ~21:44Z. Rerun of F1A-02 after the constraint fix (maintainer approved the rerun within the 1 USD ceiling)
+Arm / delivery modes:          A. No starter-kit material by any mode
+Session:                       session_01NcHTuUGiH3GqJQMfAXS2sG, fresh cloud session, no repository, claude-sonnet-5-5, Claude Code 2.1.309, permission mode auto. Effort UNVERIFIED
+Fixture:                       Built by the setup script (run through `sh -s` with the script unchanged). Base 692fee4bd215b28131cb169350c85eba82884a57, SETUP_OK
+Prompt changes versus F1A-02:  (1) The constraint now reads: work only inside /home/user/f1-arm-A-01; allowed: reading any file in that repository; editing only docs/USAGE.md; local git status/diff/add/commit/log. (2) Step 1 asks for the report as a message before Step 2. Task wording unchanged
+Instruction files loaded:      Model-reported (separate Step 1 message): none loaded; /home/user is not a git repository; could not run /status or /context. The listed skills are the same 30-skill set seen in ARMA-03
+Changed files / commit:        docs/USAGE.md only; commit c19fded in the session repo. Section now names CACHEKIT_DIR and cache_dir in prose, says the env var wins, gives the default, then repeats the order as a 3-item list (prose and list partly duplicate each other), with the empty-value note
+Independent checks:            On a local reconstruction (base rebuilt, printed diff applied; resulting blob 151845a equals the diff's index line): scope only docs/USAGE.md PASS; committed PASS; outside-section unchanged PASS; section changed PASS; links resolve PASS; heuristic precedence order PASS. Exit 0
+Deviations:                    None found. It read docs/CONFIG.md, now allowed. It counted the two links with grep and did not open them, and said so. Commit trailer added by its own configuration
+Turns / cost:                  5 turns; 0.150 USD (result record, list price)
+External effects:              none observed
+Evidence labels:               Observed: base SHA, blob id, checker results on the reconstruction, cost. Model-reported: instruction files, checks run. Unverified: effort, full transcript, the session's own repository state
+```
+
+### M10.1-F1B-02 — F1 Arm B rerun
+
+```text
+Run ID / date:                 M10.1-F1B-02, 2026-10-23 ~21:44Z. Rerun of F1B-01 after the constraint fix
+Arm / delivery modes:          B. Imported: fixture CLAUDE.md with two @imports (copies pinned to main@3386843, content verified identical to the pushed fixture). Explicit reference: the prompt names starter-kit/skills/task-intake and change-verification. No skill discovery location
+Session / fixture:             session_011MSvmGKbGNp1BmuBt7HjVN, started from joshband/m10-f1-fixture at c4b57af15ed94ee212deb19c6e36453a1ab9c9f6, claude-sonnet-5-5, Claude Code 2.1.309, permission mode auto. Effort UNVERIFIED
+Prompt changes versus F1B-01:  The same two as F1A-03 (constraint allows reading any repository file, editing only docs/USAGE.md; Step 1 report as its own message). Task wording unchanged
+Instruction files loaded:      Model-reported (separate Step 1 message): /home/user/m10-f1-fixture/CLAUDE.md, starter-kit/core/ENGINEERING_STANDARD.md, starter-kit/core/AUTONOMY_AND_RISK.md. Could not run /status or /context. It then ran a Glob for AGENTS.md and CLAUDE.md. Task-intake and change-verification were not in its skill list, so it read them from the named files (explicit reference followed)
+Changed files / commit:        docs/USAGE.md only; commit f179c7d on local branch f1-arm-b-01. One paragraph plus a 3-item list, no duplication; empty-value note in item 1
+Independent checks:            On a local reconstruction (clone at c4b57af, printed diff applied; blob 1185d92 equals the diff's index line): all hard checks PASS, heuristic PASS, exit 0. The fixture's remote still has only main at c4b57af after this run was started; the run's branch was not pushed (to be re-verified below)
+Behavior attributable to the kit: Read both skill files; classified the task L / A1 / T0 Quick; its report used a checks table and labelled "Execution state: Completed. Acceptance state: Pending review" (completion-contract vocabulary); compared the link list before and after with a script; wrote a longer commit message body. Whether these improved the outcome is not shown by the checks
+Turns / cost:                  10 turns; 0.190 USD (result record, list price). 27 percent above Arm A in this single pair; not a measured overhead
+External effects:              none observed
+Evidence labels:               Observed: base SHA, blob id, checker results on the reconstruction, cost, turn count. Model-reported: instruction files, checks run. Unverified: effort, full transcript, whether the model followed the skills beyond what its report shows
+```
+
+### Comparison and review — F1 run 2 (2026-10-23)
+
+```text
+Reviewer:                      The starter-kit session's assistant. NOT independent and NOT blind: it wrote the fixture, task and checker and knew both arms. Provisional
+Correctness:                   Both pass. Order, key names, default and env-var-wins match docs/CONFIG.md in both
+Scope discipline:              Both pass. One file, one section, links unchanged. Constraint was fixed, so reading CONFIG.md is no longer a deviation
+Review clarity:                B slightly clearer (one paragraph plus list, no repeated content); A repeats the order in prose and again as a list
+Missing or overstated evidence: None found in either. A said it counted but did not open links; B said it compared link lists. Neither's reading-against-CONFIG claim can be independently verified
+Safety:                        No external effects seen in either
+Extra ceremony (B):            Reading two skills, a classification line, a results table and a state label. Cost 0.190 vs 0.150 USD (+27 percent) and 10 vs 5 turns, one pair
+Verdict:                       Both accepted as F1 outcomes, provisional (acceptance is separate from merge or release; fixtures are disposable)
+What the evidence supports:    On this one documentation task, both arms produced a correct, in-scope change. The kit did not change the correctness or scope outcome and added about 27 percent cost and extra steps; it produced visibly different reporting (state labels, a checks table). That is not evidence that the kit helps or hurts. The usefulness gate needs 2 of 3 independently accepted small fixtures and a named improvement, so F1 alone cannot meet it; F2 and F3 (where verification and honest reporting matter more) are untested
+Budget:                        Cumulative cost 0.473 + 0.150 + 0.190 = 0.813 USD of 1 USD. Another pair would not fit; a new ceiling is needed
+Next:                          Maintainer decision: stop at F1, or raise the ceiling for F2 (deterministic parser fix with a hidden test) and F3 (seeded defect), where the kit's verification guidance is more likely to matter. A human or blind reviewer should still score F1
+```
