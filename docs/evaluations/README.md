@@ -4,6 +4,8 @@ This index links to evidence in its existing location. It does not move, duplica
 
 | Evaluation | Source | Observed state |
 | --- | --- | --- |
+| M10 native Claude capability audit | [Unexecuted audit matrix](M10_CLAUDE_NATIVE_AUDIT.md) | **Proposed; no environment observed** |
+| M10 paired reference-workflow pilot | [Unexecuted protocol](M10_PILOT_EVALUATION_PROTOCOL.md), [M10 plan](../roadmap/M10_EXECUTION_PLAN.md) | **Proposed; no outcomes measured** |
 | Structural acceptance and deterministic fixtures | [Acceptance matrix](../../validation/acceptance-matrix.md), [control traceability](../../validation/control-traceability.md) | Checks cover structure, not actual permission enforcement |
 | M3 Claude Code discovery | [Adapter documentation](../../adapters/claude-code/README.md), [changelog](../../CHANGELOG.md) | Bounded cloud discovery observed |
 | M4 Codex native discovery | [Follow-up protocol](../../validation/m4-codex-runtime-followup.md) | Deferred; unverified |
