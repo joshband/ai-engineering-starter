@@ -1,6 +1,6 @@
 # M10 run log — primary evaluation record
 
-**Status:** Three read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01 and M10.1-ARMA-02 Arm A pre-run load checks). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
+**Status:** Four read-only entries (M10.1-INV-01 inventory, M10.1-ARMA-01, -02 and -03 Arm A pre-run load checks). **No task fixture has been executed**; no arm has been run on a task and no outcome measured.\
 **Protocol:** [Pilot evaluation protocol](M10_PILOT_EVALUATION_PROTOCOL.md). **Audit matrix:** [Native Claude audit](M10_CLAUDE_NATIVE_AUDIT.md).
 
 ## Role of this log
@@ -60,6 +60,7 @@ The M8 runtime-validation plan lives on its [own planning branch](https://github
 | [M10.1-INV-01](#m101-inv-01--read-only-environment-inventory) | none (inventory) | none | 2026-10-23 | **Inventory only; no fixture run** | REPEAT in a clean fixture session |
 | [M10.1-ARMA-01](#m101-arma-01--arm-a-pre-run-load-check) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed; leaks and limits below** | REVISE fixture path, then REPEAT in an independent session |
 | [M10.1-ARMA-02](#m101-arma-02--arm-a-pre-run-load-check-repeat) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed again; path leak fixed; independence still missing** | REPEAT in an independent session; decide user-level scope |
+| [M10.1-ARMA-03](#m101-arma-03--arm-a-pre-run-load-check-independent-session) | none (load check, no task) | A (pre-run check only) | 2026-10-23 | **Instruction isolation Observed in an independent session; model-reported, no `/status`** | Decide user-level scope (action 2) |
 
 ### M10.1-INV-01 — read-only environment inventory
 
@@ -137,4 +138,39 @@ Evidence labels:               Observed: version, model, fixture path and ancest
 Findings:                      (1) The path leak from ARMA-01 is fixed. (2) Instruction-file absence reproduced from a second fixture. (3) Neither check is independent or blind, so the protocol's pre-run check is still only partly satisfied. (4) The user-level capability set is unchanged and still undecided
 Reviewer / minutes / cost:     Not reviewed. Minutes not tracked
 Recommendation:                REPEAT: independent session (not a child process of a starter-kit session) with a neutral prompt that does not name the kit; decide declare-or-strip for user-level skills, plugins and MCP servers before any task run
+```
+
+### M10.1-ARMA-03 — Arm A pre-run load check (independent session)
+
+```text
+Run ID / date:                 M10.1-ARMA-03, 2026-10-23 (check only; no task given). Follows the ARMA-02 recommendation; earlier entries are not edited
+Fixture / M8 mapping:          none created. The session started in a no-repository working directory; supports M8 C1 as the Arm A absence check
+Arm:                           A, pre-run check only
+Approved scope / publication:  Read-only load check, authorized by the maintainer as "action 1". Entry recorded on a local branch; not pushed
+Session:                       New cloud session session_01PFLGv4oiu9n64LjQUxftFe, created with the session-creation tool from the starter-kit session (parent_session_id recorded), no repository source, tags config:no-git-repo and config:auto-create-pr:off. Permission mode auto
+Working directory:             /home/user, not a git repository (Observed by the session: `git rev-parse` failed). Path does not contain the repo name
+Method:                        Neutral read-only prompt that did not name the starter kit or STD IDs: report working directory, instruction files loaded, a parent-directory scan for CLAUDE.md/AGENTS.md/.claude, skills/plugins/agents/MCP servers, model and version, and label each as observed or inferred. The session ran one read-only Bash command. Transcript retrieved with list_events
+Claude Code version / model:   2.1.309 (Observed by the session: `claude --version`). Model: configured claude-sonnet-5-5, taken from the system prompt; the session did not confirm the serving model. Effort UNVERIFIED
+Instruction files loaded:      Observed (model report plus its command output): NONE. No CLAUDE.md or AGENTS.md in /home/user or any parent up to /; no .claude directory in the working directory or its parents. /root/.claude exists with no CLAUDE.md; its other contents were not listed. No starter-kit skill appears among the skill names it listed
+Native feature inventory:      Self-reported from its context, not exercised: 30 skills (16 unprefixed, 14 anthropic-skills; it first miscounted 28 and 20, then corrected), plugins not observed, 6 agent types, 11 MCP servers by UUID (Claude Docs, Google Slides/Calendar/Drive/Docs/Sheets, Mermaid Chart, a PDF viewer, Hugging Face, Cloudflare bindings, Gmail) plus the built-in session/routine tool server
+Tools actually used:           One read-only Bash command. No connector or MCP tool; no file written (per its report)
+Isolation leaks:               None of starter-kit content or repo name seen. The user-level capability set is NOT the same as in ARMA-01/-02 (77 skills, 10 plugins, 25-30 MCP servers there): this session shows 30 skills and no named plugins
+Limits:                        The session shares the maintainer's account and environment id, so it is independent of the starter-kit session's context and working directory but not of the account. The report is the model's own, with one command's output as support; `/status` and `/context` were not run. /root/.claude contents were not listed. The prompt asked for instruction files, so absence of starter-kit content is inferred from none being loaded and no kit skill being named. Hook behavior and permission denial were not exercised. Different environment setups can differ, so one session does not establish that every fresh session looks the same
+External effects:              A new session exists on the maintainer's account (it can be archived). Observed cost: 0.101 USD for the session's one turn (result record); the cost basis is list price
+Commands + exit codes:         session creation (ok); list_events reads (ok); in-session command output returned the paths and version above. No exit codes were captured for the in-session command
+Evidence labels:               Observed: no ancestor instruction files, working directory, version, one-turn cost. Model-reported: loaded instructions, skill/agent/MCP names and counts. Unverified: effort, serving model, /status report, hook effects, enforcement
+Findings:                      (1) An independent no-repository session loaded no instruction files and no starter-kit content, so the Arm A absence check is satisfied at the model-reported level, without the child-process and prompt-wording limits of ARMA-01/-02. (2) The capability set differs by session setup, so a fresh no-repository session offers a much smaller user-level baseline (30 skills, no named plugins) than the 77-skill, 10-plugin set seen under `claude -p` from the starter-kit session. That is input to the declare-or-strip decision. (3) Self-reported counts were unreliable on first pass; use init records or `/context` for counts
+Reviewer / minutes / cost:     Not reviewed. Minutes not tracked. Cost above
+Recommendation:                REVISE then proceed: record the user-level scope decision (action 2) before any task run; capture `/status` or an init record for counts in the first real fixture session
+```
+
+### Decision D-01 — user-level scope for Arm A (2026-10-23)
+
+```text
+Decision:                      Option 1. Arm A (and, for comparability, Arms B and C) run in a fresh no-repository cloud session with the smaller user-level set observed in ARMA-03 (about 30 skills, no named plugins, 11 MCP servers), not as child processes of a starter-kit session
+Decided by:                    Maintainer (joshband), in session, 2026-10-23. Recorded by the assistant from that instruction
+Basis:                         ARMA-03 (Observed, model-reported) versus ARMA-01/-02 (77 skills, 10 plugins, 25-30 MCP servers under `claude -p` from a starter-kit session)
+Still to do per run:           Record the actual skill, plugin and MCP set from an init record or `/context` in each run entry, and confirm it matches across arms. Available-but-unapproved connectors remain not approved (only Claude Code and GitHub are approved)
+Not decided:                   Whether to remove the unapproved connectors from the account; effort setting; hook behavior
+Revisit when:                  A run shows the capability set differs between arms, or the account's plugins or connectors change
 ```
