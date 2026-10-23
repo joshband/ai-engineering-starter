@@ -1,7 +1,7 @@
 # ADR-007 — Claude + GitHub first; preserve portable architecture
 
-**Status:** Proposed for maintainer review (implementation direction documented 2026-10-23); **not merged or ratified**.  
-**Supersedes:** No canonical M1 standards or original ADR summaries.  
+**Status:** Proposed for maintainer review (implementation direction documented 2026-10-23); **not merged or ratified**.\
+**Supersedes:** No canonical M1 standards or original ADR summaries.\
 **Related:** [Approved-tooling profile](../roadmap/APPROVED_TOOLING_PROFILE.md), [M10 execution plan](../roadmap/M10_EXECUTION_PLAN.md), [Phase D/E research](../research/phase-d-e/README.md).
 
 ## Context
@@ -33,8 +33,8 @@ For the **current** working environment only Claude and GitHub are approved tool
 
 ## Consequences
 
-**Positive:** Faster useful pilot; smaller trusted computing base; better integration with existing GitHub review; less risk of maintaining duplicated Claude features.  
-**Trade-offs:** Initial executable path is Claude-specific. Cross-provider compatibility remains a design and fixture claim until verified, not an achieved runtime claim. GitHub does not enforce host/network policy by itself.  
+**Positive:** Faster useful pilot; smaller trusted computing base; better integration with existing GitHub review; less risk of maintaining duplicated Claude features.\
+**Trade-offs:** Initial executable path is Claude-specific. Cross-provider compatibility remains a design and fixture claim until verified, not an achieved runtime claim. GitHub does not enforce host/network policy by itself.\
 **Obligations:** Record model/tool versions, data/credentials limits, acceptance evidence and actual failures; maintain a future activation checklist for provider adapters and coordinator alternatives.
 
 ## Reconsideration and deletion gate

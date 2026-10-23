@@ -1,10 +1,34 @@
 # Cross-assistant session handoff — ChatGPT, Claude, Claude Code
 
-**As of:** 2026-10-23. **State:** Operational handoff and prompt templates; not acceptance evidence, authorization, or a substitute for live GitHub verification.  
-**Canonical repository:** [joshband/ai-engineering-starter](https://github.com/joshband/ai-engineering-starter)  
-**Current working research branch:** `research/phase-d-e-execution-options`  
-**Draft research + M10 PR:** [#11](https://github.com/joshband/ai-engineering-starter/pull/11) — stacked on `docs/project-accomplishments-roadmap` ([draft PR #10](https://github.com/joshband/ai-engineering-starter/pull/10)); **do not assume either is merged**.  
+**As of:** 2026-10-23. **State:** Operational handoff and prompt templates; not acceptance evidence, authorization, or a substitute for live GitHub verification.\
+**Canonical repository:** [joshband/ai-engineering-starter](https://github.com/joshband/ai-engineering-starter)\
+**Current working research branch:** `research/phase-d-e-execution-options`\
+**Draft research + M10 PR:** [#11](https://github.com/joshband/ai-engineering-starter/pull/11) — stacked on `docs/project-accomplishments-roadmap` ([draft PR #10](https://github.com/joshband/ai-engineering-starter/pull/10)); **do not assume either is merged**.\
 **Next-work tracking issue:** [#12 — M10 kickoff](https://github.com/joshband/ai-engineering-starter/issues/12).
+
+## Review order and related PRs
+
+Three PRs form a proposed review chain. **Nothing here is merged or accepted.** Verify live states.
+
+| Order | PR | Purpose | Base |
+| --- | --- | --- | --- |
+| 1 | [#9](https://github.com/joshband/ai-engineering-starter/pull/9) | v1.0.0 candidate scope and deferred-evidence notes (README, CHANGELOG, `docs/CAPABILITY_STATUS.md` M9 row); draft, no tag or release | `main` |
+| 2 | [#10](https://github.com/joshband/ai-engineering-starter/pull/10) | Project accomplishments and roadmap | `main` |
+| 3 | [#11](https://github.com/joshband/ai-engineering-starter/pull/11) | Phase D/E research, M10 plan, handoff guide | PR #10 branch |
+
+**Proposed order: #9 → #10 → #11.** PR #11 is stacked on #10, so #10 should be reviewed and landed before #11. PR #9 touches the M9 row of `docs/CAPABILITY_STATUS.md`; PR #11 deliberately does **not** edit that row and adds its M10 status in a separate section, so the two should merge without conflict. If #9 or #10 changes after review, re-check merge compatibility. The order is a recommendation for the maintainer, not an approval.
+
+## Cloud session branch behavior
+
+Observed on 2026-10-23 while preparing this work: cloud Claude Code sessions started with the **research branch selected** still came up checked out on `main` (HEAD `1ecb07c`, instructions loaded from `main`) in three separate attempts. The repository's `research/phase-d-e-execution-options` branch (`e2acbe3`) was fetchable but not checked out. A cloud session's branch is whatever the platform created for the task, which may differ from the branch the requester intended.
+
+Handling:
+
+- **Verify, do not assume.** Begin every session with `git branch --show-current`, `git rev-parse HEAD`, `git status --short`, and a fetch of the intended branch. Compare to the expected SHA.
+- A platform-created task branch (for example `claude/<task-name>-<suffix>`) is acceptable **if** its starting HEAD equals the intended base and the requester has authorized it by name. A different name alone is not a failure; an unexpected HEAD is.
+- If the session is on the wrong revision, stop. Do not switch branches in order to work around the pin without authorization, because the repository instructions loaded at start came from the original revision.
+- Commits on a task branch are not on the research branch or in PR #11 until separately integrated (reviewed fast-forward or cherry-pick, authorized separately). Label such work "awaiting integration".
+- Checkpoints are posted to issue #12 only when the GitHub integration permits it independently of the branch.
 
 ## One-minute context
 
@@ -12,7 +36,7 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 **Current implementation constraint:** only **Claude and GitHub** are approved tools for the near-term execution workflow, subject to exact environment/runner/plugin/auth approval. This is an **operating profile**, not an architectural rewrite. The Codex adapter and broader Pi/OpenCode/OpenClaw, model routing, orchestration, learning/RL research remain **preserved but inactive**. No new harness, gateway or coordinator is assumed necessary.
 
-**Next proposed milestone M10:** Test the *minimum effective Claude + GitHub reference workflow*, from authorized bounded task to actual verification and separate human GitHub review, comparing native-only Claude with selective starter-kit guidance. **A no-SDK/no-custom-coordinator result is valid.** M10 planning artifacts exist; **M10 runtime tests have not been executed**.
+**Next proposed milestone M10 (primary evidence record: [run log](../evaluations/M10_RUN_LOG.md), empty):** Test the *minimum effective Claude + GitHub reference workflow*, from authorized bounded task to actual verification and separate human GitHub review, comparing native-only Claude with selective starter-kit guidance. **A no-SDK/no-custom-coordinator result is valid.** M10 planning artifacts exist; **M10 runtime tests have not been executed**.
 
 **Unfinished evidence:** M4 Codex-native instruction discovery deferred; M6 Copy That pilot only partially verified (target checks blocked, no publication authorized); M8 runtime-validation plan not executed and lives on its own branch. Do not upgrade status by inference. No v1 release/tag claimed.
 
@@ -24,8 +48,8 @@ Build a **portable AI-native software engineering starter kit**, not a new agent
 
 1. [This handoff](SESSION_HANDOFF.md) and [M10 plan](M10_EXECUTION_PLAN.md) — scope and next action.
 2. [Approved tools profile](APPROVED_TOOLING_PROFILE.md) and [proposed ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md) — current vs future architecture.
-3. [Native Claude audit](../evaluations/M10_CLAUDE_NATIVE_AUDIT.md) and [paired evaluation protocol](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md) — method and evidence requirements.
-4. [Issue #12](https://github.com/joshband/ai-engineering-starter/issues/12), [PR #11](https://github.com/joshband/ai-engineering-starter/pull/11) and [PR #10](https://github.com/joshband/ai-engineering-starter/pull/10) — check actual current state and base/head.
+3. [Native Claude audit](../evaluations/M10_CLAUDE_NATIVE_AUDIT.md), [paired evaluation protocol](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md) (fixture isolation, how Arms A/B/C receive guidance) and the [M10 run log](../evaluations/M10_RUN_LOG.md) (primary evidence record) — method and evidence requirements.
+4. [Issue #12](https://github.com/joshband/ai-engineering-starter/issues/12), [PR #11](https://github.com/joshband/ai-engineering-starter/pull/11), [PR #10](https://github.com/joshband/ai-engineering-starter/pull/10) and [PR #9](https://github.com/joshband/ai-engineering-starter/pull/9) — check actual current state and base/head.
 5. **Only when relevant:** [project accomplishments/roadmap](../PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md), [canonical standard](../../core/standards/ENGINEERING_STANDARD.md), [Phase D/E research dossier](../research/phase-d-e/README.md), [M6 partial pilot](../M6_PILOT_PLAN.md), [capability/evidence status](../CAPABILITY_STATUS.md).
 
 **Precedence:** (a) GitHub *current branch and live PR/issue states* over this snapshot for facts that can change; (b) canonical M1 standards over descriptive plans; (c) approved tooling profile and task-specific authority over agent suggestions; (d) actual check logs and independent reviewer disposition over agent self-reporting. If two documents conflict, report the discrepancy and proposed fix; do not silently overwrite history.
@@ -38,7 +62,7 @@ After reading the live sources, return a **handoff checkpoint** before modifying
 
 - Repository / observed branch and HEAD SHA; PR #10/#11 status and issue #12.
 - Confirmed milestone/evidence statuses, with **observed vs documented vs inferred** labels.
-- Current exact task, authority and approved tools; what must not be touched.
+- Current exact task, authority and approved tools, plus an inventory of available-but-unapproved tools and connectors (see [approved versus available](APPROVED_TOOLING_PROFILE.md#approved-versus-merely-available)); what must not be touched.
 - Up to **three** prioritized next actions, each with a completion gate and expected artifact.
 - Blockers/unknowns, and whether a new approval is required.
 - **Explicit confirmation that no unapproved runtimes, target-repo changes, merges or releases were performed.**

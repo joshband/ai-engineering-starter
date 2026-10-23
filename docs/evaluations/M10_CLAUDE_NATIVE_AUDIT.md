@@ -1,8 +1,10 @@
 # M10 — Claude native capability audit and parity evidence
 
-**Status:** Proposed test protocol, **not an executed assessment**.  
-**Execution profile:** [Claude + GitHub](../roadmap/APPROVED_TOOLING_PROFILE.md).  
+**Status:** Proposed test protocol, **not an executed assessment**.\
+**Execution profile:** [Claude + GitHub](../roadmap/APPROVED_TOOLING_PROFILE.md).\
 **Initial conceptual map:** [Claude Code vs Agent SDK](../research/phase-d-e/CLAUDE_NATIVE_CAPABILITIES.md).
+
+**Evidence record:** Observations from this matrix are entered in the [M10 run log](M10_RUN_LOG.md), the primary evidence record. The "Observed" column below stays **Unverified** until a log entry supports it.
 
 ## Hypothesis and method
 

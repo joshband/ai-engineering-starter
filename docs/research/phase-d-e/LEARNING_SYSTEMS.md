@@ -1,6 +1,6 @@
 # Self-improving agents, adaptive policies, and reinforcement learning
 
-**Status:** Phase D/E research track; not an implemented learner.  
+**Status:** Phase D/E research track; not an implemented learner.\
 **Recommendation:** Evaluation-driven improvement now; controlled adaptation later; RL/model training only when justified by a strong evaluation and safety foundation.
 
 ## Important distinction: what is actually improving?
@@ -90,7 +90,7 @@ Research questions before any RL build:
 
 ## Acceptance milestones for the learning track
 
-**L0:** run and human outcome provenance captured; no sensitive contents logged by default.  
-**L1:** candidate skill/prompt revision demonstrably improves held-out outcomes without regression; manually promoted.  
-**L2:** constrained routing wins against fixed baseline with adequate sample/uncertainty reporting and bounded exploration.  
+**L0:** run and human outcome provenance captured; no sensitive contents logged by default.\
+**L1:** candidate skill/prompt revision demonstrably improves held-out outcomes without regression; manually promoted.\
+**L2:** constrained routing wins against fixed baseline with adequate sample/uncertainty reporting and bounded exploration.\
 **L3:** training experiment is separately approved, repeatable, secure, and provides measurable OOD gains with safe rollback.

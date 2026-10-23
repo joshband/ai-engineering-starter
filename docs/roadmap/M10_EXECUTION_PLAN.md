@@ -1,9 +1,9 @@
 # M10 — Claude + GitHub reference implementation and validation
 
-**Fresh-session handoff:** [ChatGPT / Claude / cloud Claude Code guide](SESSION_HANDOFF.md). Read it before starting on a new surface and verify the live branch/PR state.  
-**State:** Proposed next milestone / implementation plan; **no runtime implementation, Copy That edit, acceptance, merge or release claimed**.  
-**Execution scope:** [Current Claude + GitHub approved-tooling profile](APPROVED_TOOLING_PROFILE.md).  
-**Architectural rationale:** [ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md).  
+**Fresh-session handoff:** [ChatGPT / Claude / cloud Claude Code guide](SESSION_HANDOFF.md). Read it before starting on a new surface and verify the live branch/PR state.\
+**State:** Proposed next milestone / implementation plan; **no runtime implementation, Copy That edit, acceptance, merge or release claimed**.\
+**Execution scope:** [Current Claude + GitHub approved-tooling profile](APPROVED_TOOLING_PROFILE.md).\
+**Architectural rationale:** [ADR-007](../decisions/ADR-007-CLAUDE-GITHUB-FIRST.md).\
 **Dependencies:** Existing M1–M9 shared core; pending M4 native Codex evidence is **not** required for Claude-only pilot; reuse M6 and M8 findings without silently upgrading their status.
 
 ## Outcome and definition of value
@@ -36,13 +36,13 @@ Prefer plain Claude Code and existing GitHub mechanisms. **Do not introduce an A
 4. **Verification:** Record command, runner/environment, revision, exit code, truncated/redacted output reference, PASS/FAIL/UNVERIFIED and test coverage limitations. GitHub checks supplement, not replace, local actual outcomes.
 5. **Publication boundary:** Local-only until explicitly authorized. If authorized, create a **draft PR**, attach bounded task and actual results; no automatic merge or deploy.
 6. **Independent review:** Reviewer checks unauthorized paths, security implications, tested/unverified assertions, human acceptance, and rollback instructions.
-7. **Evaluation and closeout:** Apply the [pilot rubric](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md), classify benefits and overhead, and preserve findings even for a no-adoption recommendation.
+7. **Evaluation and closeout:** Record every attempt in the [M10 run log](../evaluations/M10_RUN_LOG.md), the primary evidence record. Apply the [pilot rubric](../evaluations/M10_PILOT_EVALUATION_PROTOCOL.md), classify benefits and overhead, and preserve findings even for a no-adoption recommendation.
 
 ## Pilot selection and relationship to M6/M8
 
 - **First stage:** Discardable fixture or a documentation-only small task in the starter repository. No real secrets, non-production source, no external publication. Ensure the fixture is deterministic.
 - **Second stage, optional:** [Copy That](https://github.com/joshband/copy-that) only after a *new exact task authorization*. Existing [M6 CT-M6-01](../M6_PILOT_PLAN.md) explicitly **did not** authorize commits/pushes/PRs; its local uncommitted branch and blocked `make verify` status must not be overwritten or assumed resolved.
-- **M8 relationship:** Use the same native Claude evidence format as the [separate M8 planning branch](https://github.com/joshband/ai-engineering-starter/blob/m8/runtime-validation-plan/docs/M8_RUNTIME_VALIDATION_PLAN.md). Do not count planned Codex runtime coverage as executed M10 evidence.
+- **M8 relationship:** Use the same native Claude evidence format as the [separate M8 planning branch](https://github.com/joshband/ai-engineering-starter/blob/m8/runtime-validation-plan/docs/M8_RUNTIME_VALIDATION_PLAN.md); the [run log](../evaluations/M10_RUN_LOG.md) maps the relevant M8 scenarios and leaves M8 itself unedited. Do not count planned Codex runtime coverage as executed M10 evidence.
 - **M4 relationship:** Keep Codex native-discovery follow-up dormant but linked; it remains useful after second-provider authorization.
 
 ## Objective experiment design and success gates

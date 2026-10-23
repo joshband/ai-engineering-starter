@@ -1,7 +1,7 @@
 # Phase D/E — Execution Coordinator and Learning Systems Research
 
-**As of:** 2026-10-22 · **State:** Research proposal, not implementation or approved milestones  
-**Initial workflow preference:** Claude-first, **provider-independent by architecture**. **Harness selection remains open** among Claude Agent SDK, Pi and OpenCode; coordinator selection remains open between a lightweight state machine and OpenClaw.  
+**As of:** 2026-10-22 · **State:** Research proposal, not implementation or approved milestones\
+**Initial workflow preference:** Claude-first, **provider-independent by architecture**. **Harness selection remains open** among Claude Agent SDK, Pi and OpenCode; coordinator selection remains open between a lightweight state machine and OpenClaw.\
 **Scope:** Options, decisions, risks, source register, and bounded proof-of-concept specification for the [project roadmap](../../PROJECT_ACCOMPLISHMENTS_AND_ROADMAP.md).
 
 ## Current implementation overlay — M10 (2026-10-23)

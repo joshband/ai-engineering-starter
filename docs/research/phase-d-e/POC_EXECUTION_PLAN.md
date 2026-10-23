@@ -1,7 +1,7 @@
 # Phase D — constrained execution-coordinator proof-of-concept plan
 
-**Status:** Proposed experiment charter; no execution authorized or performed.  
-**First model preference:** Claude. **Harness finalists:** Claude Agent SDK, Pi, OpenCode. **Second-provider/native baseline:** Codex SDK. **Coordinator alternatives:** minimal local state machine vs OpenClaw.  
+**Status:** Proposed experiment charter; no execution authorized or performed.\
+**First model preference:** Claude. **Harness finalists:** Claude Agent SDK, Pi, OpenCode. **Second-provider/native baseline:** Codex SDK. **Coordinator alternatives:** minimal local state machine vs OpenClaw.\
 **Target:** Disposable fixture repository derived from a non-sensitive test project; no live production resources.
 
 ## Research questions

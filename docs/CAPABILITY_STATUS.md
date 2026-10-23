@@ -23,4 +23,10 @@
 
 **Unverified is not Failed and not Passed.** A deferred test does not retroactively invalidate an accepted documentation capability. Human acceptance, merge, tag, and release are separate decisions.
 
+## Proposed, not yet delivered
+
+| Item | Source | Status |
+| --- | --- | --- |
+| M10 Claude + GitHub reference-workflow pilot | [Plan](roadmap/M10_EXECUTION_PLAN.md), [run log](evaluations/M10_RUN_LOG.md) | **Proposed and unexecuted.** Documentation exists in draft PR #11 only; no runtime test, fixture run or acceptance. Not on `main` |
+
 For a practical entry path see [Start here](START_HERE.md); for adoption see [ADOPTION](ADOPTION.md).
