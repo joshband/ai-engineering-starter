@@ -9,6 +9,7 @@ These are portable, **opt-in procedures**, not new policy or an agent runtime. T
 | [Review and acceptance](review-and-acceptance/SKILL.md) | A meaningful change needs a responsible acceptance decision | Review findings, acceptance state, merge/release distinction |
 | [Safe handoff](safe-handoff/SKILL.md) | Work is interrupted, delegated or uncertain | Resumable handoff with next safe action |
 | [Exception review](exception-review/SKILL.md) | An applicable MUST cannot be followed | Scoped proposal for a responsible authorizer |
+| [Adoption review](adoption-review/SKILL.md) | An established repository is being evaluated against this starter | Advisory report with ranked recommendations and an M7 outcome |
 
 ## Invocation and boundaries
 
