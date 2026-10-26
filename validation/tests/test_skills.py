@@ -13,6 +13,7 @@ SKILLS = {
     "review-and-acceptance": ("COMPLETION_CONTRACT.md", None),
     "safe-handoff": ("HANDOFF_CONTRACT.md", "handoff.schema.json"),
     "exception-review": ("EXCEPTION_CONTRACT.md", "exception.schema.json"),
+    "adoption-review": ("COMPLETION_CONTRACT.md", None),
 }
 
 

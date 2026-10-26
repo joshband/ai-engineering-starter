@@ -11,7 +11,7 @@ This page is **navigation**, not a new standard or mandatory process. The [M1 en
 | Implement a material change | [Standard profile](../core/workflows/PROFILES.md#standard) and [task semantics](../core/contracts/TASK_CONTRACT.md); report actual [completion evidence](../core/contracts/COMPLETION_CONTRACT.md) | Mandatory form or automation |
 | Handle high uncertainty or consequences | [Structured or Controlled profiles](../core/workflows/PROFILES.md#structured); obtain actual action authority where required | Assumed tool permissions |
 | Start a new repository | [Adoption guide](ADOPTION.md#new-repository) and [project profile](../core/templates/PROJECT_PROFILE.md) | Installer |
-| Evaluate an established repository | [M7 adoption decision kit](adoption-decision/README.md): inventory, then No adoption / Reference only / Selective adoption | Overwriting existing instructions |
+| Evaluate an established repository | [M7 adoption decision kit](adoption-decision/README.md): inventory, then No adoption / Reference only / Selective adoption; to delegate the evaluation to a separate session, paste the [adoption review prompt](ADOPTION_REVIEW_PROMPT.md) | Overwriting existing instructions |
 | Use Claude Code or Codex | Read [Claude adapter](../adapters/claude-code/README.md) or [Codex adapter](../adapters/codex/README.md); verify real discovery separately | Assumed runtime enforcement |
 | Need optional procedural assistance | Browse [M5 skills](../skills/README.md) | Automatic skill invocation |
 | Need optional machine-readable records | [M2 controls](../core/controls/README.md) | JSON for Quick tasks |
